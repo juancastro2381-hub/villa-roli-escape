@@ -2,6 +2,7 @@ import { useParams, Link, Navigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import { Layout } from "@/components/layout/Layout";
 import { Button } from "@/components/ui/button";
+import { ImageGallery } from "@/components/ui/ImageGallery";
 import {
   Users,
   BedDouble,
@@ -14,10 +15,24 @@ import {
   Utensils,
   ArrowLeft,
   Check,
+  Camera,
 } from "lucide-react";
 import cabinAurora from "@/assets/cabin-aurora.jpg";
 import cabinSerena from "@/assets/cabin-serena.jpg";
 import cabinMontana from "@/assets/cabin-montana.jpg";
+import cabana1 from "@/assets/cabana-1.jpg";
+import cabana2 from "@/assets/cabana-2.jpg";
+import cabana3 from "@/assets/cabana-3.jpg";
+import galleryTerrace from "@/assets/gallery-terrace.jpg";
+import galleryParking from "@/assets/gallery-parking.jpg";
+import galleryBar from "@/assets/gallery-bar.jpg";
+import galleryNight from "@/assets/gallery-night.jpg";
+import galleryAerial from "@/assets/gallery-aerial.jpg";
+import galleryDining from "@/assets/gallery-dining.jpg";
+import galleryPoolFull from "@/assets/gallery-pool-full.jpg";
+import galleryFirepit from "@/assets/gallery-firepit.jpg";
+import poolDay from "@/assets/pool-day.jpg";
+import poolNight from "@/assets/pool-night.jpg";
 
 const cabinData = {
   aurora: {
@@ -31,6 +46,14 @@ Con acabados en madera natural, una chimenea que crepita suavemente en las noche
     beds: 1,
     baths: 1,
     price: "450.000",
+    gallery: [
+      { src: cabinAurora, alt: "Cabaña Aurora - Vista principal" },
+      { src: galleryNight, alt: "Villa Roli de noche" },
+      { src: galleryFirepit, alt: "Fogata exterior" },
+      { src: poolNight, alt: "Piscina de noche" },
+      { src: galleryAerial, alt: "Vista aérea de la finca" },
+      { src: galleryDining, alt: "Área de comedor" },
+    ],
     amenities: [
       { icon: Wifi, name: "Wi-Fi de alta velocidad" },
       { icon: Flame, name: "Chimenea privada" },
@@ -60,6 +83,14 @@ El jacuzzi al aire libre, rodeado de vegetación tropical y decorado con luces m
     beds: 2,
     baths: 1,
     price: "650.000",
+    gallery: [
+      { src: cabinSerena, alt: "Cabaña Serena - Vista principal" },
+      { src: cabana1, alt: "Interior de la cabaña" },
+      { src: galleryPoolFull, alt: "Piscina completa" },
+      { src: galleryTerrace, alt: "Terraza social" },
+      { src: galleryBar, alt: "Bar al aire libre" },
+      { src: poolDay, alt: "Piscina durante el día" },
+    ],
     amenities: [
       { icon: Wifi, name: "Wi-Fi de alta velocidad" },
       { icon: Sparkles, name: "Jacuzzi exterior" },
@@ -89,6 +120,16 @@ Ideal para grupos familiares o de amigos, ofrece amplios espacios sociales, múl
     beds: 3,
     baths: 2,
     price: "850.000",
+    gallery: [
+      { src: cabinMontana, alt: "Cabaña Montaña - Vista principal" },
+      { src: cabana2, alt: "Interior de la cabaña" },
+      { src: cabana3, alt: "Vista desde la terraza" },
+      { src: galleryAerial, alt: "Vista aérea de Villa Roli" },
+      { src: galleryParking, alt: "Zona de parqueadero" },
+      { src: galleryFirepit, alt: "Área de fogata" },
+      { src: galleryTerrace, alt: "Terraza común" },
+      { src: galleryPoolFull, alt: "Vista completa de la piscina" },
+    ],
     amenities: [
       { icon: Wifi, name: "Wi-Fi de alta velocidad" },
       { icon: Flame, name: "Chimenea central" },
@@ -109,7 +150,6 @@ Ideal para grupos familiares o de amigos, ofrece amplios espacios sociales, múl
     ],
   },
 };
-
 const CabinDetail = () => {
   const { cabinId } = useParams();
   const cabin = cabinData[cabinId as keyof typeof cabinData];
@@ -260,6 +300,22 @@ const CabinDetail = () => {
                     </div>
                   ))}
                 </div>
+              </motion.div>
+
+              {/* Photo Gallery */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.4 }}
+                className="space-y-6"
+              >
+                <div className="flex items-center gap-3">
+                  <Camera size={24} className="text-gold" />
+                  <h2 className="font-display text-2xl font-semibold text-foreground">
+                    Galería de Fotos
+                  </h2>
+                </div>
+                <ImageGallery images={cabin.gallery} />
               </motion.div>
             </div>
 
