@@ -1,56 +1,130 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { Calendar, Phone } from "lucide-react";
+import { Calendar, Phone, MessageCircle, MapPin } from "lucide-react";
+import poolNight from "@/assets/pool-night.jpg";
 
 export function CTASection() {
   return (
-    <section className="section-padding bg-secondary">
-      <div className="container-custom">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="bg-card rounded-3xl p-8 md:p-16 text-center border border-border shadow-xl"
-        >
-          <span className="text-gold font-body text-sm tracking-wider uppercase">
-            ¿Listo para escapar?
-          </span>
+    <section className="relative py-24 overflow-hidden">
+      {/* Background Image */}
+      <div className="absolute inset-0">
+        <img
+          src={poolNight}
+          alt="Piscina nocturna Villa Roli"
+          className="w-full h-full object-cover"
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-primary/95 via-primary/85 to-primary/70" />
+      </div>
 
-          <h2 className="font-display text-3xl md:text-5xl font-bold text-foreground mt-4 mb-6">
-            Tu próxima aventura te espera
-          </h2>
+      <div className="container-custom relative z-10">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          {/* Content */}
+          <motion.div
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="text-center lg:text-left"
+          >
+            <span className="inline-block px-4 py-2 bg-gold/20 rounded-full text-gold font-body text-sm tracking-wider uppercase mb-6">
+              ¿Listo para escapar?
+            </span>
 
-          <p className="font-body text-muted-foreground text-lg max-w-2xl mx-auto mb-10">
-            No dejes pasar la oportunidad de vivir una experiencia única. Reserva
-            ahora y asegura tu lugar en el paraíso.
-          </p>
+            <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-cream-light leading-tight">
+              Tu próxima aventura 
+              <span className="text-gold block mt-2">comienza aquí</span>
+            </h2>
 
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button
-              asChild
-              size="lg"
-              className="bg-gold hover:bg-gold/90 text-primary font-semibold px-8 py-6 text-lg"
-            >
-              <Link to="/reservas" className="flex items-center gap-2">
-                <Calendar size={20} />
-                Reservar Ahora
-              </Link>
-            </Button>
-            <Button
-              asChild
-              variant="outline"
-              size="lg"
-              className="border-primary text-primary hover:bg-primary hover:text-primary-foreground px-8 py-6 text-lg"
-            >
-              <Link to="/contacto" className="flex items-center gap-2">
-                <Phone size={20} />
-                Contáctanos
-              </Link>
-            </Button>
-          </div>
-        </motion.div>
+            <p className="font-body text-cream-light/80 text-lg mt-6 max-w-xl">
+              Reserva ahora y asegura tu lugar en el paraíso. Piscinas, naturaleza y descanso te esperan en Villa Roli.
+            </p>
+
+            <div className="flex flex-col sm:flex-row gap-4 mt-8 justify-center lg:justify-start">
+              <Button
+                asChild
+                size="lg"
+                className="bg-gold hover:bg-gold/90 text-primary font-bold px-8 py-6 text-lg rounded-full shadow-lg shadow-gold/30"
+              >
+                <Link to="/reservas" className="flex items-center gap-2">
+                  <Calendar size={20} />
+                  Reservar Ahora
+                </Link>
+              </Button>
+              <Button
+                asChild
+                size="lg"
+                className="bg-transparent border-2 border-cream-light text-cream-light hover:bg-cream-light hover:text-primary px-8 py-6 text-lg rounded-full"
+              >
+                <a 
+                  href="https://wa.me/573001234567?text=Hola,%20quiero%20información%20sobre%20Villa%20Roli" 
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-2"
+                >
+                  <MessageCircle size={20} />
+                  WhatsApp
+                </a>
+              </Button>
+            </div>
+          </motion.div>
+
+          {/* Info Cards */}
+          <motion.div
+            initial={{ opacity: 0, x: 30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="grid grid-cols-1 sm:grid-cols-2 gap-4"
+          >
+            <div className="bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/20">
+              <Phone className="w-10 h-10 text-gold mb-4" />
+              <h3 className="font-display text-xl font-semibold text-cream-light mb-2">
+                Llámanos
+              </h3>
+              <p className="text-cream-light/70 font-body text-sm mb-3">
+                Atención personalizada
+              </p>
+              <a 
+                href="tel:+573001234567" 
+                className="text-gold font-semibold hover:underline"
+              >
+                +57 300 123 4567
+              </a>
+            </div>
+
+            <div className="bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/20">
+              <MessageCircle className="w-10 h-10 text-gold mb-4" />
+              <h3 className="font-display text-xl font-semibold text-cream-light mb-2">
+                WhatsApp
+              </h3>
+              <p className="text-cream-light/70 font-body text-sm mb-3">
+                Respuesta inmediata
+              </p>
+              <a 
+                href="https://wa.me/573001234567" 
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-gold font-semibold hover:underline"
+              >
+                Escríbenos ahora
+              </a>
+            </div>
+
+            <div className="bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/20 sm:col-span-2">
+              <MapPin className="w-10 h-10 text-gold mb-4" />
+              <h3 className="font-display text-xl font-semibold text-cream-light mb-2">
+                Ubicación
+              </h3>
+              <p className="text-cream-light/70 font-body">
+                A solo 30 minutos de la ciudad, fácil acceso por carretera pavimentada.
+                <span className="block mt-2 text-gold font-semibold">
+                  📍 Vereda El Recreo, Colombia
+                </span>
+              </p>
+            </div>
+          </motion.div>
+        </div>
       </div>
     </section>
   );

@@ -1,63 +1,125 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { ChevronDown } from "lucide-react";
-import heroImage from "@/assets/hero-cabin.jpg";
+import { ChevronDown, Play, Phone } from "lucide-react";
+import heroImage from "@/assets/villa-panoramica.jpg";
 
 export function HeroSection() {
   return (
     <section className="relative h-screen min-h-[700px] flex items-center justify-center overflow-hidden">
-      {/* Background Image */}
+      {/* Background Image with Parallax Effect */}
       <div className="absolute inset-0">
-        <img
+        <motion.img
+          initial={{ scale: 1.1 }}
+          animate={{ scale: 1 }}
+          transition={{ duration: 1.5, ease: "easeOut" }}
           src={heroImage}
-          alt="Villa Roli - Cabañas de lujo en la naturaleza"
+          alt="Villa Roli - Finca de recreación con piscina y cabañas"
           className="w-full h-full object-cover"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/30 to-black/60" />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/70" />
       </div>
+
+      {/* Floating Elements */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 1, duration: 1 }}
+        className="absolute top-1/4 right-10 hidden lg:block"
+      >
+        <div className="bg-white/10 backdrop-blur-md rounded-2xl p-4 border border-white/20">
+          <p className="text-cream-light font-body text-sm">⭐ 4.9/5 en Google</p>
+          <p className="text-cream-light/70 text-xs mt-1">+200 reseñas</p>
+        </div>
+      </motion.div>
 
       {/* Content */}
       <div className="relative z-10 container-custom text-center">
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-          className="space-y-6"
+          transition={{ duration: 1, delay: 0.3 }}
+          className="space-y-8"
         >
-          <span className="inline-block px-4 py-2 bg-gold/20 backdrop-blur-sm rounded-full text-gold font-body text-sm tracking-wider uppercase">
-            Exclusividad & Naturaleza
-          </span>
+          <motion.span 
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ delay: 0.5, duration: 0.6 }}
+            className="inline-block px-6 py-3 bg-gold/20 backdrop-blur-sm rounded-full text-gold font-body text-sm tracking-wider uppercase border border-gold/30"
+          >
+            🌴 Finca de Recreación y Turismo
+          </motion.span>
 
-          <h1 className="font-display text-4xl md:text-6xl lg:text-7xl font-bold text-cream-light leading-tight">
-            Tu refugio de paz
+          <h1 className="font-display text-5xl md:text-7xl lg:text-8xl font-bold text-cream-light leading-tight">
+            Tu paraíso
             <br />
-            <span className="text-gold">en la montaña</span>
+            <span className="text-gold relative">
+              tropical
+              <motion.span
+                initial={{ width: 0 }}
+                animate={{ width: "100%" }}
+                transition={{ delay: 1.2, duration: 0.8 }}
+                className="absolute bottom-2 left-0 h-2 bg-gold/30 -z-10"
+              />
+            </span>
           </h1>
 
-          <p className="font-body text-lg md:text-xl text-cream-light/90 max-w-2xl mx-auto leading-relaxed">
-            Descubre Villa Roli, donde el lujo se encuentra con la naturaleza.
-            Cabañas exclusivas rodeadas de paisajes espectaculares para una
-            experiencia inolvidable.
+          <p className="font-body text-lg md:text-xl lg:text-2xl text-cream-light/90 max-w-3xl mx-auto leading-relaxed">
+            Piscinas, cabañas y naturaleza a minutos de la ciudad. 
+            <span className="text-gold font-semibold"> Escápate y vive momentos inolvidables </span>
+            en Villa Roli.
           </p>
 
-          <div className="flex flex-col sm:flex-row gap-4 justify-center pt-4">
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.8, duration: 0.6 }}
+            className="flex flex-col sm:flex-row gap-4 justify-center pt-4"
+          >
             <Button
               asChild
               size="lg"
-              className="bg-gold hover:bg-gold/90 text-primary font-semibold px-8 py-6 text-lg"
+              className="bg-gold hover:bg-gold/90 text-primary font-bold px-10 py-7 text-lg rounded-full shadow-lg shadow-gold/30 hover:shadow-gold/50 transition-all duration-300 hover:scale-105"
             >
-              <Link to="/reservas">Reservar Ahora</Link>
+              <Link to="/reservas">
+                🏠 Reservar Cabaña
+              </Link>
             </Button>
             <Button
               asChild
-              variant="outline"
               size="lg"
-              className="border-cream-light/50 text-cream-light hover:bg-cream-light/10 px-8 py-6 text-lg"
+              className="bg-white/10 backdrop-blur-sm border-2 border-cream-light/50 text-cream-light hover:bg-cream-light hover:text-primary px-10 py-7 text-lg rounded-full transition-all duration-300"
             >
-              <Link to="/alojamiento">Explorar Cabañas</Link>
+              <Link to="/alojamiento/pasadias">
+                ☀️ Pasadía desde $30.000
+              </Link>
             </Button>
-          </div>
+          </motion.div>
+
+          {/* Quick Contact */}
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 1.2, duration: 0.6 }}
+            className="flex items-center justify-center gap-6 pt-6"
+          >
+            <a 
+              href="tel:+573001234567" 
+              className="flex items-center gap-2 text-cream-light/80 hover:text-gold transition-colors"
+            >
+              <Phone size={18} />
+              <span className="font-body text-sm">+57 300 123 4567</span>
+            </a>
+            <span className="text-cream-light/40">|</span>
+            <a 
+              href="https://wa.me/573001234567" 
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-2 text-cream-light/80 hover:text-gold transition-colors"
+            >
+              <span className="font-body text-sm">💬 WhatsApp</span>
+            </a>
+          </motion.div>
         </motion.div>
       </div>
 
@@ -65,17 +127,21 @@ export function HeroSection() {
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ delay: 1.5 }}
+        transition={{ delay: 2 }}
         className="absolute bottom-8 left-1/2 -translate-x-1/2"
       >
         <motion.div
-          animate={{ y: [0, 10, 0] }}
-          transition={{ duration: 1.5, repeat: Infinity }}
-          className="text-cream-light/70"
+          animate={{ y: [0, 12, 0] }}
+          transition={{ duration: 1.8, repeat: Infinity, ease: "easeInOut" }}
+          className="text-cream-light/60 flex flex-col items-center gap-2"
         >
-          <ChevronDown size={32} />
+          <span className="text-xs font-body tracking-wider uppercase">Descubre más</span>
+          <ChevronDown size={28} />
         </motion.div>
       </motion.div>
+
+      {/* Decorative gradient at bottom */}
+      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-background to-transparent" />
     </section>
   );
 }
