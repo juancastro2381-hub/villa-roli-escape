@@ -3,6 +3,7 @@ import { Link, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { VillaRoliLogo } from "@/components/ui/VillaRoliLogo";
 
 const navLinks = [
   { name: "Inicio", path: "/" },
@@ -10,12 +11,20 @@ const navLinks = [
     name: "Alojamiento",
     path: "/alojamiento",
     submenu: [
-      { name: "Cabaña Aurora", path: "/alojamiento/aurora" },
-      { name: "Cabaña Serena", path: "/alojamiento/serena" },
-      { name: "Cabaña Montaña", path: "/alojamiento/montana" },
+      { name: "Cabaña #1 - Familiar", path: "/alojamiento/aurora" },
+      { name: "Cabaña #2 - Grupal", path: "/alojamiento/serena" },
+      { name: "Cabaña #3 - Económica", path: "/alojamiento/montana" },
+      { name: "☀️ Pasadías", path: "/alojamiento/pasadias" },
     ],
   },
-  { name: "Reservas", path: "/reservas" },
+  { 
+    name: "Reservas", 
+    path: "/reservas",
+    submenu: [
+      { name: "Reservar Cabaña", path: "/reservas" },
+      { name: "☀️ Pasadías", path: "/alojamiento/pasadias" },
+    ],
+  },
   { name: "Blog", path: "/blog" },
   { name: "Contacto", path: "/contacto" },
 ];
@@ -55,15 +64,11 @@ export function Header() {
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.5 }}
-              className="flex items-center gap-2"
             >
-              <span
-                className={`font-display text-2xl md:text-3xl font-bold transition-colors duration-300 ${
-                  isScrolled ? "text-primary" : "text-cream-light"
-                }`}
-              >
-                Villa Roli
-              </span>
+              <VillaRoliLogo 
+                variant={isScrolled ? "dark" : "light"} 
+                showTagline={!isScrolled}
+              />
             </motion.div>
           </Link>
 
@@ -85,7 +90,7 @@ export function Header() {
                     to={link.path}
                     className={`font-body text-sm font-medium transition-colors duration-300 flex items-center gap-1 ${
                       isScrolled
-                        ? "text-foreground hover:text-primary"
+                        ? "text-foreground hover:text-gold"
                         : "text-cream-light/90 hover:text-cream-light"
                     } ${location.pathname === link.path ? "text-gold" : ""}`}
                   >
@@ -104,12 +109,16 @@ export function Header() {
                       transition={{ duration: 0.2 }}
                       className="absolute top-full left-0 pt-2"
                     >
-                      <div className="bg-card rounded-lg shadow-xl border border-border overflow-hidden min-w-[200px]">
-                        {link.submenu.map((subLink) => (
+                      <div className="bg-card rounded-xl shadow-2xl border border-border overflow-hidden min-w-[220px]">
+                        {link.submenu.map((subLink, subIndex) => (
                           <Link
                             key={subLink.name}
                             to={subLink.path}
-                            className="block px-4 py-3 text-sm font-body text-foreground hover:bg-secondary transition-colors"
+                            className={`block px-5 py-3.5 text-sm font-body text-foreground hover:bg-secondary hover:text-gold transition-colors ${
+                              subIndex === link.submenu!.length - 1 && subLink.name.includes("Pasadías")
+                                ? "bg-gold/10 border-t border-border"
+                                : ""
+                            }`}
                           >
                             {subLink.name}
                           </Link>
@@ -128,9 +137,9 @@ export function Header() {
             >
               <Button
                 asChild
-                className="bg-gold hover:bg-gold/90 text-primary-foreground font-medium px-6"
+                className="bg-gold hover:bg-gold/90 text-primary font-semibold px-6 rounded-full shadow-lg shadow-gold/20"
               >
-                <Link to="/reservas">Reservar Ahora</Link>
+                <Link to="/reservas">Reservar</Link>
               </Button>
             </motion.div>
           </div>
@@ -162,17 +171,17 @@ export function Header() {
                 <div key={link.name}>
                   <Link
                     to={link.path}
-                    className="block py-2 text-lg font-body text-foreground hover:text-primary transition-colors"
+                    className="block py-2 text-lg font-body text-foreground hover:text-gold transition-colors"
                   >
                     {link.name}
                   </Link>
                   {link.submenu && (
-                    <div className="pl-4 space-y-2 mt-2">
+                    <div className="pl-4 space-y-2 mt-2 border-l-2 border-gold/30">
                       {link.submenu.map((subLink) => (
                         <Link
                           key={subLink.name}
                           to={subLink.path}
-                          className="block py-1 text-muted-foreground hover:text-primary transition-colors"
+                          className="block py-1.5 text-muted-foreground hover:text-gold transition-colors"
                         >
                           {subLink.name}
                         </Link>
@@ -183,7 +192,7 @@ export function Header() {
               ))}
               <Button
                 asChild
-                className="w-full bg-gold hover:bg-gold/90 text-primary-foreground mt-4"
+                className="w-full bg-gold hover:bg-gold/90 text-primary font-semibold mt-4 rounded-full"
               >
                 <Link to="/reservas">Reservar Ahora</Link>
               </Button>

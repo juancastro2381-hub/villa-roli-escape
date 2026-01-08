@@ -1,51 +1,63 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Users, BedDouble, Bath } from "lucide-react";
-import cabinAurora from "@/assets/cabin-aurora.jpg";
-import cabinSerena from "@/assets/cabin-serena.jpg";
-import cabinMontana from "@/assets/cabin-montana.jpg";
+import { ArrowRight, Users, BedDouble, Bath, Star } from "lucide-react";
+import cabana1 from "@/assets/cabana-1.jpg";
+import cabana2 from "@/assets/cabana-2.jpg";
+import cabana3 from "@/assets/cabana-3.jpg";
 
 const cabins = [
   {
-    name: "Cabaña Aurora",
+    name: "Cabaña #1 - Familiar",
     slug: "aurora",
-    image: cabinAurora,
+    image: cabana1,
     description:
-      "Lujo y calidez con vistas espectaculares a las montañas. Perfecta para parejas que buscan romance.",
-    guests: 2,
-    beds: 1,
+      "La más completa. Con sala, cocina integral, TV, nevera y capacidad para 12 personas. Ideal para familias grandes.",
+    guests: 12,
+    beds: 4,
+    baths: 2,
+    price: "350.000",
+    features: ["Cocina integral", "Sala TV", "Nevera", "2 Baños"],
+    popular: true,
+  },
+  {
+    name: "Cabaña #2 - Grupal",
+    slug: "serena",
+    image: cabana2,
+    description:
+      "Perfecta para grupos grandes. Con terraza, columpio y amplio espacio para 20 personas. Ventiladores incluidos.",
+    guests: 20,
+    beds: 8,
     baths: 1,
     price: "450.000",
+    features: ["8 Camas dobles", "Terraza", "Columpio", "Ventiladores"],
+    popular: false,
   },
   {
-    name: "Cabaña Serena",
-    slug: "serena",
-    image: cabinSerena,
+    name: "Cabaña #3 - Económica",
+    slug: "montana",
+    image: cabana3,
     description:
-      "Un oasis de tranquilidad con jacuzzi privado entre los árboles. Ideal para reconectar.",
-    guests: 4,
+      "Opción cómoda y accesible para grupos pequeños de hasta 5 personas. Con baño privado y ventiladores.",
+    guests: 5,
     beds: 2,
     baths: 1,
-    price: "650.000",
-  },
-  {
-    name: "Cabaña Montaña",
-    slug: "montana",
-    image: cabinMontana,
-    description:
-      "Arquitectura A-frame moderna con ventanales panorámicos. La experiencia definitiva en la montaña.",
-    guests: 6,
-    beds: 3,
-    baths: 2,
-    price: "850.000",
+    price: "180.000",
+    features: ["2 Camas", "1 Baño", "Ventiladores", "Económica"],
+    popular: false,
   },
 ];
 
 export function CabinsPreviewSection() {
   return (
-    <section className="section-padding bg-background">
-      <div className="container-custom">
+    <section className="section-padding bg-background relative overflow-hidden">
+      {/* Background Pattern */}
+      <div className="absolute inset-0 opacity-5">
+        <div className="absolute top-20 left-10 w-72 h-72 bg-gold rounded-full blur-3xl" />
+        <div className="absolute bottom-20 right-10 w-96 h-96 bg-primary rounded-full blur-3xl" />
+      </div>
+
+      <div className="container-custom relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -57,11 +69,10 @@ export function CabinsPreviewSection() {
             Alojamientos
           </span>
           <h2 className="font-display text-3xl md:text-5xl font-bold text-foreground mt-3">
-            Nuestras Cabañas Exclusivas
+            Nuestras Cabañas
           </h2>
-          <p className="font-body text-muted-foreground mt-4 max-w-2xl mx-auto">
-            Tres espacios únicos diseñados para ofrecerte la experiencia perfecta
-            en armonía con la naturaleza.
+          <p className="font-body text-muted-foreground mt-4 max-w-2xl mx-auto text-lg">
+            Tres opciones para todos los gustos y presupuestos. Todas incluyen acceso a piscina y zonas comunes.
           </p>
         </motion.div>
 
@@ -69,63 +80,87 @@ export function CabinsPreviewSection() {
           {cabins.map((cabin, index) => (
             <motion.div
               key={cabin.name}
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: index * 0.15 }}
               className="group"
             >
-              <Link to={`/alojamiento/${cabin.slug}`} className="block">
-                <div className="bg-card rounded-2xl overflow-hidden border border-border hover:border-gold/50 transition-all duration-500 hover:shadow-2xl">
+              <Link to={`/alojamiento/${cabin.slug}`} className="block h-full">
+                <div className="bg-card rounded-3xl overflow-hidden border border-border hover:border-gold/50 transition-all duration-500 hover:shadow-2xl hover:shadow-gold/10 h-full flex flex-col relative">
+                  {/* Popular Badge */}
+                  {cabin.popular && (
+                    <div className="absolute top-4 right-4 z-20">
+                      <span className="inline-flex items-center gap-1 px-3 py-1.5 bg-gold text-primary font-bold text-xs rounded-full shadow-lg">
+                        <Star size={12} fill="currentColor" />
+                        MÁS POPULAR
+                      </span>
+                    </div>
+                  )}
+
                   {/* Image */}
-                  <div className="relative h-72 overflow-hidden">
+                  <div className="relative h-80 overflow-hidden">
                     <img
                       src={cabin.image}
                       alt={cabin.name}
                       className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
-                    <div className="absolute bottom-4 left-4 right-4">
-                      <span className="inline-block px-3 py-1 bg-gold text-primary-foreground text-sm font-semibold rounded-full">
-                        Desde ${cabin.price} COP/noche
-                      </span>
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
+                    
+                    {/* Price Tag */}
+                    <div className="absolute bottom-4 left-4 right-4 flex justify-between items-end">
+                      <div>
+                        <p className="text-cream-light/70 text-sm font-body">Desde</p>
+                        <p className="text-cream-light font-display text-3xl font-bold">
+                          ${cabin.price}
+                          <span className="text-sm font-normal text-cream-light/70"> COP/noche</span>
+                        </p>
+                      </div>
                     </div>
                   </div>
 
                   {/* Content */}
-                  <div className="p-6 space-y-4">
-                    <h3 className="font-display text-2xl font-semibold text-foreground group-hover:text-primary transition-colors">
+                  <div className="p-6 space-y-4 flex-1 flex flex-col">
+                    <h3 className="font-display text-xl font-bold text-foreground group-hover:text-gold transition-colors">
                       {cabin.name}
                     </h3>
-                    <p className="font-body text-muted-foreground leading-relaxed">
+                    
+                    <p className="font-body text-muted-foreground leading-relaxed flex-1">
                       {cabin.description}
                     </p>
 
-                    {/* Amenities */}
-                    <div className="flex gap-6 pt-2 text-muted-foreground">
-                      <div className="flex items-center gap-2">
-                        <Users size={18} />
-                        <span className="text-sm">{cabin.guests} Huéspedes</span>
-                      </div>
-                      <div className="flex items-center gap-2">
-                        <BedDouble size={18} />
-                        <span className="text-sm">{cabin.beds} Camas</span>
-                      </div>
-                      <div className="flex items-center gap-2">
-                        <Bath size={18} />
-                        <span className="text-sm">{cabin.baths} Baños</span>
-                      </div>
+                    {/* Features Pills */}
+                    <div className="flex flex-wrap gap-2">
+                      {cabin.features.map((feature) => (
+                        <span 
+                          key={feature}
+                          className="px-3 py-1 bg-secondary text-xs font-body text-muted-foreground rounded-full"
+                        >
+                          {feature}
+                        </span>
+                      ))}
                     </div>
 
-                    {/* CTA */}
-                    <div className="pt-4">
-                      <span className="inline-flex items-center gap-2 text-primary font-medium group-hover:text-gold transition-colors">
-                        Ver detalles
-                        <ArrowRight
-                          size={18}
-                          className="transition-transform group-hover:translate-x-1"
-                        />
-                      </span>
+                    {/* Stats */}
+                    <div className="flex gap-4 pt-4 border-t border-border text-muted-foreground">
+                      <div className="flex items-center gap-1.5">
+                        <Users size={16} className="text-gold" />
+                        <span className="text-sm font-medium">{cabin.guests}</span>
+                      </div>
+                      <div className="flex items-center gap-1.5">
+                        <BedDouble size={16} className="text-gold" />
+                        <span className="text-sm font-medium">{cabin.beds}</span>
+                      </div>
+                      <div className="flex items-center gap-1.5">
+                        <Bath size={16} className="text-gold" />
+                        <span className="text-sm font-medium">{cabin.baths}</span>
+                      </div>
+                      <div className="ml-auto">
+                        <span className="inline-flex items-center gap-1 text-gold font-medium text-sm group-hover:gap-2 transition-all">
+                          Ver más
+                          <ArrowRight size={14} />
+                        </span>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -134,21 +169,34 @@ export function CabinsPreviewSection() {
           ))}
         </div>
 
+        {/* Bottom CTA */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.5 }}
-          className="text-center mt-12"
+          className="text-center mt-12 space-y-6"
         >
-          <Button
-            asChild
-            variant="outline"
-            size="lg"
-            className="border-primary text-primary hover:bg-primary hover:text-primary-foreground px-8"
-          >
-            <Link to="/alojamiento">Ver Todas las Cabañas</Link>
-          </Button>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Button
+              asChild
+              size="lg"
+              className="bg-gold hover:bg-gold/90 text-primary font-semibold px-8 rounded-full"
+            >
+              <Link to="/reservas">Reservar Ahora</Link>
+            </Button>
+            <Button
+              asChild
+              variant="outline"
+              size="lg"
+              className="border-primary text-primary hover:bg-primary hover:text-primary-foreground px-8 rounded-full"
+            >
+              <Link to="/alojamiento">Ver Todas las Cabañas</Link>
+            </Button>
+          </div>
+          <p className="text-muted-foreground font-body text-sm">
+            💡 ¿Solo quieres pasar el día? <Link to="/alojamiento/pasadias" className="text-gold hover:underline font-semibold">Conoce nuestros pasadías</Link>
+          </p>
         </motion.div>
       </div>
     </section>
