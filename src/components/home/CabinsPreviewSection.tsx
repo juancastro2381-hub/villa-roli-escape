@@ -2,15 +2,15 @@ import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Users, BedDouble, Bath, Star } from "lucide-react";
-import cabana1 from "@/assets/cabana-1.jpg";
-import cabana2 from "@/assets/cabana-2.jpg";
-import cabana3 from "@/assets/cabana-3.jpg";
+import cabin1 from "@/assets/cabin-1.jpg";
+import cabin2 from "@/assets/cabin-2.jpg";
+import cabin3 from "@/assets/cabin-3.jpg";
 
 const cabins = [
   {
-    name: "Cabaña #1 - Familiar",
-    slug: "aurora",
-    image: cabana1,
+    name: "Cabaña 1 - Familiar",
+    slug: "cabana-1",
+    image: cabin1,
     description:
       "La más completa. Con sala, cocina integral, TV, nevera y capacidad para 12 personas. Ideal para familias grandes.",
     guests: 12,
@@ -21,9 +21,9 @@ const cabins = [
     popular: true,
   },
   {
-    name: "Cabaña #2 - Grupal",
-    slug: "serena",
-    image: cabana2,
+    name: "Cabaña 2 - Grupal",
+    slug: "cabana-2",
+    image: cabin2,
     description:
       "Perfecta para grupos grandes. Con terraza, columpio y amplio espacio para 20 personas. Ventiladores incluidos.",
     guests: 20,
@@ -34,9 +34,9 @@ const cabins = [
     popular: false,
   },
   {
-    name: "Cabaña #3 - Económica",
-    slug: "montana",
-    image: cabana3,
+    name: "Cabaña 3 - Económica",
+    slug: "cabana-3",
+    image: cabin3,
     description:
       "Opción cómoda y accesible para grupos pequeños de hasta 5 personas. Con baño privado y ventiladores.",
     guests: 5,

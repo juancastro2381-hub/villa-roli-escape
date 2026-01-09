@@ -14,6 +14,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Calendar, Users, Home, Info } from "lucide-react";
 import { useState } from "react";
 import { useToast } from "@/hooks/use-toast";
+import reservasHero from "@/assets/reservas-hero.jpg";
 
 const Reservas = () => {
   const { toast } = useToast();
@@ -38,21 +39,29 @@ const Reservas = () => {
   return (
     <Layout>
       {/* Hero */}
-      <section className="pt-32 pb-16 bg-secondary">
-        <div className="container-custom">
+      <section className="relative h-[50vh] min-h-[400px] flex items-center justify-center overflow-hidden">
+        <div className="absolute inset-0">
+          <img
+            src={reservasHero}
+            alt="Reservas en Villa Roli"
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/70" />
+        </div>
+        
+        <div className="relative z-10 container-custom text-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="text-center max-w-3xl mx-auto"
           >
-            <span className="text-gold font-body text-sm tracking-wider uppercase">
+            <span className="inline-block px-4 py-2 bg-gold/20 backdrop-blur-sm rounded-full text-gold font-body text-sm tracking-wider uppercase mb-4">
               Reservas
             </span>
-            <h1 className="font-display text-4xl md:text-6xl font-bold text-foreground mt-3">
+            <h1 className="font-display text-4xl md:text-6xl font-bold text-cream-light">
               Reserva Tu Escapada
             </h1>
-            <p className="font-body text-muted-foreground text-lg mt-6 leading-relaxed">
+            <p className="font-body text-cream-light/80 text-lg mt-4 max-w-2xl mx-auto">
               Completa el formulario y nos pondremos en contacto contigo para
               confirmar la disponibilidad y finalizar tu reserva.
             </p>
@@ -133,14 +142,14 @@ const Reservas = () => {
                           <SelectValue placeholder="Selecciona una cabaña" />
                         </SelectTrigger>
                         <SelectContent>
-                          <SelectItem value="aurora">
-                            Cabaña Aurora (2 huéspedes)
+                          <SelectItem value="cabana-1">
+                            Cabaña 1 - Familiar (12 huéspedes)
                           </SelectItem>
-                          <SelectItem value="serena">
-                            Cabaña Serena (4 huéspedes)
+                          <SelectItem value="cabana-2">
+                            Cabaña 2 - Grupal (20 huéspedes)
                           </SelectItem>
-                          <SelectItem value="montana">
-                            Cabaña Montaña (6 huéspedes)
+                          <SelectItem value="cabana-3">
+                            Cabaña 3 - Económica (5 huéspedes)
                           </SelectItem>
                         </SelectContent>
                       </Select>
@@ -152,7 +161,7 @@ const Reservas = () => {
                           <SelectValue placeholder="Selecciona" />
                         </SelectTrigger>
                         <SelectContent>
-                          {[1, 2, 3, 4, 5, 6].map((num) => (
+                          {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20].map((num) => (
                             <SelectItem key={num} value={num.toString()}>
                               {num} {num === 1 ? "huésped" : "huéspedes"}
                             </SelectItem>

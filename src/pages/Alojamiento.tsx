@@ -3,16 +3,16 @@ import { Link } from "react-router-dom";
 import { Layout } from "@/components/layout/Layout";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Users, BedDouble, Bath, Wifi, Fan, Utensils, Tv, Sun } from "lucide-react";
-import cabana1 from "@/assets/cabana-1.jpg";
-import cabana2 from "@/assets/cabana-2.jpg";
-import cabana3 from "@/assets/cabana-3.jpg";
-import villaPanoramica from "@/assets/villa-panoramica.jpg";
+import cabin1 from "@/assets/cabin-1.jpg";
+import cabin2 from "@/assets/cabin-2.jpg";
+import cabin3 from "@/assets/cabin-3.jpg";
+import heroImage from "@/assets/hero-cabin.jpg";
 
 const cabins = [
   {
-    name: "Cabaña #1 - Familiar",
-    slug: "aurora",
-    image: cabana1,
+    name: "Cabaña 1 - Familiar",
+    slug: "cabana-1",
+    image: cabin1,
     description:
       "La cabaña más completa de Villa Roli. Con sala de estar, TV, cocina integral, nevera y capacidad para 12 personas (2 adicionales en sofá cama). Perfecta para familias grandes que buscan comodidad y privacidad.",
     guests: 12,
@@ -23,9 +23,9 @@ const cabins = [
     features: ["Sala TV", "Cocina integral", "Nevera", "2 Baños", "Ventiladores", "Sofá cama"],
   },
   {
-    name: "Cabaña #2 - Grupal",
-    slug: "serena",
-    image: cabana2,
+    name: "Cabaña 2 - Grupal",
+    slug: "cabana-2",
+    image: cabin2,
     description:
       "Ideal para grupos grandes y eventos familiares. Con 8 camas dobles, 4 camas sencillas y amplia terraza con columpio. Capacidad para 20 personas en un espacio cómodo y fresco.",
     guests: 20,
@@ -36,9 +36,9 @@ const cabins = [
     features: ["8 Camas dobles", "4 Camas sencillas", "Terraza", "Columpio", "Ventiladores"],
   },
   {
-    name: "Cabaña #3 - Económica",
-    slug: "montana",
-    image: cabana3,
+    name: "Cabaña 3 - Económica",
+    slug: "cabana-3",
+    image: cabin3,
     description:
       "Opción cómoda y accesible para parejas o grupos pequeños. Con baño privado, ventiladores y todo lo necesario para una estadía agradable. Capacidad para 5 personas.",
     guests: 5,
@@ -57,7 +57,7 @@ const Alojamiento = () => {
       <section className="relative h-[50vh] min-h-[400px] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0">
           <img
-            src={villaPanoramica}
+            src={heroImage}
             alt="Alojamiento en Villa Roli"
             className="w-full h-full object-cover"
           />

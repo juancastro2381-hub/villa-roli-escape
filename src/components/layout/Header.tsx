@@ -11,9 +11,9 @@ const navLinks = [
     name: "Alojamiento",
     path: "/alojamiento",
     submenu: [
-      { name: "Cabaña #1 - Familiar", path: "/alojamiento/aurora" },
-      { name: "Cabaña #2 - Grupal", path: "/alojamiento/serena" },
-      { name: "Cabaña #3 - Económica", path: "/alojamiento/montana" },
+      { name: "Cabaña 1 - Familiar", path: "/alojamiento/cabana-1" },
+      { name: "Cabaña 2 - Grupal", path: "/alojamiento/cabana-2" },
+      { name: "Cabaña 3 - Económica", path: "/alojamiento/cabana-3" },
       { name: "☀️ Pasadías", path: "/alojamiento/pasadias" },
     ],
   },

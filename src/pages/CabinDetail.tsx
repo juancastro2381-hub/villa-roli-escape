@@ -8,21 +8,16 @@ import {
   BedDouble,
   Bath,
   Wifi,
-  Flame,
-  Sparkles,
-  Mountain,
-  Coffee,
+  Fan,
+  Tv,
   Utensils,
   ArrowLeft,
   Check,
   Camera,
 } from "lucide-react";
-import cabinAurora from "@/assets/cabin-aurora.jpg";
-import cabinSerena from "@/assets/cabin-serena.jpg";
-import cabinMontana from "@/assets/cabin-montana.jpg";
-import cabana1 from "@/assets/cabana-1.jpg";
-import cabana2 from "@/assets/cabana-2.jpg";
-import cabana3 from "@/assets/cabana-3.jpg";
+import cabin1 from "@/assets/cabin-1.jpg";
+import cabin2 from "@/assets/cabin-2.jpg";
+import cabin3 from "@/assets/cabin-3.jpg";
 import galleryTerrace from "@/assets/gallery-terrace.jpg";
 import galleryParking from "@/assets/gallery-parking.jpg";
 import galleryBar from "@/assets/gallery-bar.jpg";
@@ -35,19 +30,19 @@ import poolDay from "@/assets/pool-day.jpg";
 import poolNight from "@/assets/pool-night.jpg";
 
 const cabinData = {
-  aurora: {
-    name: "Cabaña Aurora",
-    image: cabinAurora,
-    tagline: "Donde el amor encuentra su refugio",
-    description: `La Cabaña Aurora es nuestro espacio más íntimo y romántico. Diseñada especialmente para parejas que buscan escapar de la rutina y reconectar, esta cabaña ofrece una experiencia única con vistas privilegiadas al amanecer sobre las montañas.
+  "cabana-1": {
+    name: "Cabaña 1 - Familiar",
+    image: cabin1,
+    tagline: "La más completa para familias grandes",
+    description: `La Cabaña 1 es nuestra opción más completa en Villa Roli. Diseñada especialmente para familias grandes que buscan comodidad y privacidad.
 
-Con acabados en madera natural, una chimenea que crepita suavemente en las noches frescas, y un jacuzzi privado con vista panorámica, cada momento aquí se convierte en un recuerdo imborrable.`,
-    guests: 2,
-    beds: 1,
-    baths: 1,
-    price: "450.000",
+Con sala de estar equipada con TV, cocina integral con nevera, y capacidad para 12 personas (2 adicionales en sofá cama), esta cabaña ofrece todo lo necesario para una estadía perfecta. Cuenta con 2 baños completos y ventiladores en todas las habitaciones.`,
+    guests: 12,
+    beds: 4,
+    baths: 2,
+    price: "350.000",
     gallery: [
-      { src: cabinAurora, alt: "Cabaña Aurora - Vista principal" },
+      { src: cabin1, alt: "Cabaña 1 - Vista principal" },
       { src: galleryNight, alt: "Villa Roli de noche" },
       { src: galleryFirepit, alt: "Fogata exterior" },
       { src: poolNight, alt: "Piscina de noche" },
@@ -55,101 +50,91 @@ Con acabados en madera natural, una chimenea que crepita suavemente en las noche
       { src: galleryDining, alt: "Área de comedor" },
     ],
     amenities: [
-      { icon: Wifi, name: "Wi-Fi de alta velocidad" },
-      { icon: Flame, name: "Chimenea privada" },
-      { icon: Sparkles, name: "Jacuzzi con vista" },
-      { icon: Mountain, name: "Terraza panorámica" },
-      { icon: Coffee, name: "Cafetera premium" },
+      { icon: Wifi, name: "Wi-Fi disponible" },
+      { icon: Tv, name: "Smart TV" },
+      { icon: Utensils, name: "Cocina integral" },
+      { icon: Fan, name: "Ventiladores" },
     ],
     features: [
-      "Cama king size con ropa de cama de lujo",
-      "Baño completo con ducha de lluvia",
-      "Mini cocina equipada",
-      "Calefacción central",
-      "Smart TV con streaming",
-      "Desayuno incluido",
-      "Servicio de habitación disponible",
-      "Amenities de baño premium",
+      "Sala de estar con TV",
+      "Cocina integral equipada",
+      "Nevera grande",
+      "2 Baños completos",
+      "Ventiladores en todas las habitaciones",
+      "Sofá cama para 2 personas adicionales",
+      "Capacidad para 12 personas",
+      "Acceso a piscina y zonas comunes",
     ],
   },
-  serena: {
-    name: "Cabaña Serena",
-    image: cabinSerena,
-    tagline: "Tu santuario entre las copas de los árboles",
-    description: `Elevada entre los árboles, la Cabaña Serena ofrece una experiencia única de conexión con la naturaleza. Perfecta para familias pequeñas o grupos de amigos, combina el encanto de una casa del árbol con todas las comodidades del hogar.
+  "cabana-2": {
+    name: "Cabaña 2 - Grupal",
+    image: cabin2,
+    tagline: "Ideal para grupos grandes y eventos",
+    description: `La Cabaña 2 es perfecta para grupos grandes y eventos familiares. Con amplio espacio y capacidad para 20 personas, es nuestra opción más grande.
 
-El jacuzzi al aire libre, rodeado de vegetación tropical y decorado con luces mágicas, crea una atmósfera de ensueño que transforma cada noche en una celebración.`,
-    guests: 4,
-    beds: 2,
+Cuenta con 8 camas dobles y 4 camas sencillas, amplia terraza con columpio, y ventiladores en todas las áreas. El espacio abierto y fresco la hace ideal para reuniones familiares o de amigos.`,
+    guests: 20,
+    beds: 8,
     baths: 1,
-    price: "650.000",
+    price: "450.000",
     gallery: [
-      { src: cabinSerena, alt: "Cabaña Serena - Vista principal" },
-      { src: cabana1, alt: "Interior de la cabaña" },
+      { src: cabin2, alt: "Cabaña 2 - Vista principal" },
       { src: galleryPoolFull, alt: "Piscina completa" },
       { src: galleryTerrace, alt: "Terraza social" },
       { src: galleryBar, alt: "Bar al aire libre" },
       { src: poolDay, alt: "Piscina durante el día" },
+      { src: galleryParking, alt: "Zona de parqueadero" },
     ],
     amenities: [
-      { icon: Wifi, name: "Wi-Fi de alta velocidad" },
-      { icon: Sparkles, name: "Jacuzzi exterior" },
-      { icon: Mountain, name: "Vista al bosque" },
-      { icon: Coffee, name: "Área de café y té" },
-      { icon: Utensils, name: "Cocina completa" },
+      { icon: Wifi, name: "Wi-Fi disponible" },
+      { icon: Fan, name: "Ventiladores" },
     ],
     features: [
-      "Habitación principal con cama queen",
-      "Segunda habitación con dos camas individuales",
-      "Sala de estar con sofá cama",
-      "Cocina totalmente equipada",
-      "Terraza envolvente",
-      "Parrilla para BBQ",
-      "Juegos de mesa incluidos",
-      "Hamacas y zonas de descanso",
+      "8 Camas dobles",
+      "4 Camas sencillas",
+      "Amplia terraza",
+      "Columpio exterior",
+      "Ventiladores en todas las áreas",
+      "Baño completo",
+      "Capacidad para 20 personas",
+      "Acceso a piscina y zonas comunes",
     ],
   },
-  montana: {
-    name: "Cabaña Montaña",
-    image: cabinMontana,
-    tagline: "Arquitectura que abraza el paisaje",
-    description: `La Cabaña Montaña representa la fusión perfecta entre diseño contemporáneo y naturaleza salvaje. Su icónica estructura A-frame con ventanales de piso a techo te sumerge en un panorama de 180 grados del paisaje cafetero colombiano.
+  "cabana-3": {
+    name: "Cabaña 3 - Económica",
+    image: cabin3,
+    tagline: "Cómoda y accesible para grupos pequeños",
+    description: `La Cabaña 3 es nuestra opción más económica y accesible, ideal para parejas o grupos pequeños de hasta 5 personas.
 
-Ideal para grupos familiares o de amigos, ofrece amplios espacios sociales, múltiples habitaciones y todas las comodidades para una estadía prolongada sin sacrificar el contacto con el entorno natural.`,
-    guests: 6,
-    beds: 3,
-    baths: 2,
-    price: "850.000",
+Con una cama doble y un camarote, baño privado y ventiladores, ofrece todo lo necesario para una estadía agradable sin gastar de más. Perfecta para quienes buscan disfrutar de las instalaciones de Villa Roli con un presupuesto más ajustado.`,
+    guests: 5,
+    beds: 2,
+    baths: 1,
+    price: "180.000",
     gallery: [
-      { src: cabinMontana, alt: "Cabaña Montaña - Vista principal" },
-      { src: cabana2, alt: "Interior de la cabaña" },
-      { src: cabana3, alt: "Vista desde la terraza" },
+      { src: cabin3, alt: "Cabaña 3 - Vista principal" },
       { src: galleryAerial, alt: "Vista aérea de Villa Roli" },
-      { src: galleryParking, alt: "Zona de parqueadero" },
       { src: galleryFirepit, alt: "Área de fogata" },
       { src: galleryTerrace, alt: "Terraza común" },
       { src: galleryPoolFull, alt: "Vista completa de la piscina" },
+      { src: poolDay, alt: "Piscina de día" },
     ],
     amenities: [
-      { icon: Wifi, name: "Wi-Fi de alta velocidad" },
-      { icon: Flame, name: "Chimenea central" },
-      { icon: Sparkles, name: "Jacuzzi privado" },
-      { icon: Mountain, name: "Vista panorámica 180°" },
-      { icon: Coffee, name: "Estación de café" },
-      { icon: Utensils, name: "Cocina gourmet" },
+      { icon: Fan, name: "Ventiladores" },
     ],
     features: [
-      "Suite principal con baño en suite",
-      "Dos habitaciones adicionales",
-      "Gran sala de estar con techo abovedado",
-      "Cocina gourmet totalmente equipada",
-      "Comedor para 8 personas",
-      "Zona de fogata exterior",
-      "Estacionamiento privado",
-      "Servicio de concierge",
+      "1 Cama doble",
+      "1 Camarote (2 camas)",
+      "Baño privado",
+      "Ventiladores",
+      "Capacidad para 5 personas",
+      "Opción más económica",
+      "Acceso a piscina y zonas comunes",
+      "Ideal para parejas o grupos pequeños",
     ],
   },
 };
+
 const CabinDetail = () => {
   const { cabinId } = useParams();
   const cabin = cabinData[cabinId as keyof typeof cabinData];
