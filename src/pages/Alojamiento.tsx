@@ -61,7 +61,7 @@ const Alojamiento = () => {
             alt="Alojamiento en Villa Roli"
             className="w-full h-full object-cover"
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/70" />
+          <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/20 to-black/40" />
         </div>
         
         <div className="relative z-10 container-custom text-center">
@@ -125,7 +125,7 @@ const Alojamiento = () => {
                     alt={cabin.name}
                     className="w-full h-[400px] lg:h-[500px] object-cover transition-transform duration-700 group-hover:scale-105"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
                   <div className="absolute top-4 left-4">
                     <span className="inline-block px-4 py-2 bg-gold text-primary font-bold rounded-full shadow-lg">
                       Desde ${cabin.price} COP/noche
