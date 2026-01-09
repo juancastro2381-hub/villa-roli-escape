@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { Layout } from "@/components/layout/Layout";
 import { ArrowRight, Calendar, User } from "lucide-react";
+import blogHero from "@/assets/blog-hero.jpg";
 
 const blogPosts = [
   {
@@ -79,21 +80,29 @@ const Blog = () => {
   return (
     <Layout>
       {/* Hero */}
-      <section className="pt-32 pb-16 bg-secondary">
-        <div className="container-custom">
+      <section className="relative h-[50vh] min-h-[400px] flex items-center justify-center overflow-hidden">
+        <div className="absolute inset-0">
+          <img
+            src={blogHero}
+            alt="Blog Villa Roli"
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/70" />
+        </div>
+        
+        <div className="relative z-10 container-custom text-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="text-center max-w-3xl mx-auto"
           >
-            <span className="text-gold font-body text-sm tracking-wider uppercase">
+            <span className="inline-block px-4 py-2 bg-gold/20 backdrop-blur-sm rounded-full text-gold font-body text-sm tracking-wider uppercase mb-4">
               Blog
             </span>
-            <h1 className="font-display text-4xl md:text-6xl font-bold text-foreground mt-3">
+            <h1 className="font-display text-4xl md:text-6xl font-bold text-cream-light">
               Historias & Consejos
             </h1>
-            <p className="font-body text-muted-foreground text-lg mt-6 leading-relaxed">
+            <p className="font-body text-cream-light/80 text-lg mt-4 max-w-2xl mx-auto">
               Inspiración para tu próxima aventura. Consejos de viaje, guías
               locales y todo lo que necesitas saber para disfrutar al máximo tu
               estadía.

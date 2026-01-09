@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { ChevronDown, Play, Phone } from "lucide-react";
-import heroImage from "@/assets/villa-panoramica.jpg";
+import heroImage from "@/assets/hero-cabin.jpg";
 
 export function HeroSection() {
   return (
