@@ -46,7 +46,7 @@ const Reservas = () => {
             alt="Reservas en Villa Roli"
             className="w-full h-full object-cover"
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/70" />
+          <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/20 to-black/40" />
         </div>
         
         <div className="relative z-10 container-custom text-center">
