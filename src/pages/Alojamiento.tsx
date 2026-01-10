@@ -70,7 +70,7 @@ const Alojamiento = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
-            <span className="inline-block px-4 py-2 bg-gold/20 backdrop-blur-sm rounded-full text-gold font-body text-sm tracking-wider uppercase mb-4">
+            <span className="inline-block px-4 py-2 bg-cta/20 backdrop-blur-sm rounded-full text-gold font-body text-sm tracking-wider uppercase mb-4">
               Alojamiento
             </span>
             <h1 className="font-display text-4xl md:text-6xl font-bold text-cream-light">
@@ -87,7 +87,7 @@ const Alojamiento = () => {
       <section className="bg-gold py-4">
         <div className="container-custom">
           <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
-            <div className="flex items-center gap-3 text-primary">
+            <div className="flex items-center gap-3 text-foreground">
               <Sun className="w-6 h-6" />
               <span className="font-body font-semibold">
                 ¿Solo quieres pasar el día? Disfruta nuestros <strong>Pasadías desde $30.000 COP</strong>
@@ -97,7 +97,7 @@ const Alojamiento = () => {
               asChild
               size="sm"
               variant="outline"
-              className="border-primary text-primary hover:bg-primary hover:text-primary-foreground rounded-full"
+              className="border-foreground text-foreground hover:bg-foreground hover:text-gold"
             >
               <Link to="/alojamiento/pasadias">Ver Pasadías →</Link>
             </Button>
@@ -127,13 +127,13 @@ const Alojamiento = () => {
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
                   <div className="absolute top-4 left-4">
-                    <span className="inline-block px-4 py-2 bg-gold text-primary font-bold rounded-full shadow-lg">
-                      Desde ${cabin.price} COP/noche
+                    <span className="inline-block px-4 py-2 bg-gold text-foreground font-bold rounded-full shadow-lg">
+                      Desde <span className="text-cta">${cabin.price}</span> COP/noche
                     </span>
                   </div>
                   {index === 0 && (
                     <div className="absolute top-4 right-4">
-                      <span className="inline-block px-3 py-1.5 bg-primary text-cream-light text-xs font-bold rounded-full">
+                      <span className="inline-block px-3 py-1.5 bg-cta text-white text-xs font-bold rounded-full">
                         ⭐ MÁS POPULAR
                       </span>
                     </div>
@@ -195,7 +195,7 @@ const Alojamiento = () => {
                   <Button
                     asChild
                     size="lg"
-                    className="bg-gold hover:bg-gold/90 text-primary font-bold px-8 rounded-full"
+                    className="font-bold px-8"
                   >
                     <Link to="/reservas">Reservar Ahora</Link>
                   </Button>
@@ -203,7 +203,7 @@ const Alojamiento = () => {
                     asChild
                     variant="outline"
                     size="lg"
-                    className="border-primary text-primary hover:bg-primary hover:text-primary-foreground rounded-full"
+                    className="border-primary text-primary hover:bg-primary hover:text-primary-foreground"
                   >
                     <Link
                       to={`/alojamiento/${cabin.slug}`}
@@ -238,15 +238,14 @@ const Alojamiento = () => {
               <Button
                 asChild
                 size="lg"
-                className="bg-gold hover:bg-gold/90 text-primary font-bold px-10 rounded-full"
+                className="font-bold px-10"
               >
                 <Link to="/reservas">Hacer Reserva</Link>
               </Button>
               <Button
                 asChild
                 size="lg"
-                variant="outline"
-                className="border-cream-light text-cream-light hover:bg-cream-light hover:text-primary rounded-full"
+                className="font-bold px-10"
               >
                 <a href="https://wa.me/573001234567" target="_blank" rel="noopener noreferrer">
                   💬 WhatsApp

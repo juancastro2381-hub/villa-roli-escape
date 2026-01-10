@@ -3,8 +3,10 @@ import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Calendar, Phone, MessageCircle, MapPin } from "lucide-react";
 import poolNight from "@/assets/pool-night.jpg";
+
 export function CTASection() {
-  return <section className="relative py-24 overflow-hidden">
+  return (
+    <section className="relative py-24 overflow-hidden">
       {/* Background Image */}
       <div className="absolute inset-0">
         <img src={poolNight} alt="Piscina nocturna Villa Roli" className="w-full h-full object-cover" />
@@ -14,18 +16,14 @@ export function CTASection() {
       <div className="container-custom relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           {/* Content */}
-          <motion.div initial={{
-          opacity: 0,
-          x: -30
-        }} whileInView={{
-          opacity: 1,
-          x: 0
-        }} viewport={{
-          once: true
-        }} transition={{
-          duration: 0.6
-        }} className="text-center lg:text-left">
-            <span className="inline-block px-4 py-2 bg-gold/20 rounded-full text-gold font-body text-sm tracking-wider uppercase mb-6">
+          <motion.div
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="text-center lg:text-left"
+          >
+            <span className="inline-block px-4 py-2 bg-cta/20 rounded-full text-gold font-body text-sm tracking-wider uppercase mb-6">
               ¿Listo para escapar?
             </span>
 
@@ -39,14 +37,19 @@ export function CTASection() {
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 mt-8 justify-center lg:justify-start">
-              <Button asChild size="lg" className="bg-gold hover:bg-gold/90 text-primary font-bold px-8 py-6 text-lg rounded-full shadow-lg shadow-gold/30">
+              <Button asChild size="lg" className="font-bold px-8 py-6 text-lg">
                 <Link to="/reservas" className="flex items-center gap-2">
                   <Calendar size={20} />
                   Reservar Ahora
                 </Link>
               </Button>
-              <Button asChild size="lg" className="bg-transparent border-2 border-cream-light text-cream-light hover:bg-cream-light hover:text-primary px-8 py-6 text-lg rounded-full">
-                <a href="https://wa.me/573001234567?text=Hola,%20quiero%20información%20sobre%20Villa%20Roli" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-primary bg-accent">
+              <Button asChild size="lg" className="font-bold px-8 py-6 text-lg">
+                <a
+                  href="https://wa.me/573001234567?text=Hola,%20quiero%20información%20sobre%20Villa%20Roli"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-2"
+                >
                   <MessageCircle size={20} />
                   WhatsApp
                 </a>
@@ -55,18 +58,13 @@ export function CTASection() {
           </motion.div>
 
           {/* Info Cards */}
-          <motion.div initial={{
-          opacity: 0,
-          x: 30
-        }} whileInView={{
-          opacity: 1,
-          x: 0
-        }} viewport={{
-          once: true
-        }} transition={{
-          duration: 0.6,
-          delay: 0.2
-        }} className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <motion.div
+            initial={{ opacity: 0, x: 30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="grid grid-cols-1 sm:grid-cols-2 gap-4"
+          >
             <div className="bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/20">
               <Phone className="w-10 h-10 text-gold mb-4" />
               <h3 className="font-display text-xl font-semibold text-cream-light mb-2">
@@ -88,7 +86,12 @@ export function CTASection() {
               <p className="text-cream-light/70 font-body text-sm mb-3">
                 Respuesta inmediata
               </p>
-              <a href="https://wa.me/573001234567" target="_blank" rel="noopener noreferrer" className="text-gold font-semibold hover:underline">
+              <a
+                href="https://wa.me/573001234567"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-gold font-semibold hover:underline"
+              >
                 Escríbenos ahora
               </a>
             </div>
@@ -108,5 +111,6 @@ export function CTASection() {
           </motion.div>
         </div>
       </div>
-    </section>;
+    </section>
+  );
 }

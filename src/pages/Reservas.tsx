@@ -55,7 +55,7 @@ const Reservas = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
-            <span className="inline-block px-4 py-2 bg-gold/20 backdrop-blur-sm rounded-full text-gold font-body text-sm tracking-wider uppercase mb-4">
+            <span className="inline-block px-4 py-2 bg-cta/20 backdrop-blur-sm rounded-full text-gold font-body text-sm tracking-wider uppercase mb-4">
               Reservas
             </span>
             <h1 className="font-display text-4xl md:text-6xl font-bold text-cream-light">
@@ -237,7 +237,7 @@ const Reservas = () => {
                 <Button
                   type="submit"
                   size="lg"
-                  className="w-full bg-gold hover:bg-gold/90 text-primary font-semibold py-6 text-lg"
+                  className="w-full font-semibold py-6 text-lg"
                   disabled={isSubmitting}
                 >
                   {isSubmitting ? "Enviando..." : "Solicitar Reserva"}

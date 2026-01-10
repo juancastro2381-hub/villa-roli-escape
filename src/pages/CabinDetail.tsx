@@ -314,7 +314,7 @@ const CabinDetail = () => {
               >
                 <div className="text-center mb-6">
                   <p className="text-muted-foreground font-body">Desde</p>
-                  <p className="font-display text-4xl font-bold text-foreground">
+                  <p className="font-display text-4xl font-bold text-gold">
                     ${cabin.price}
                   </p>
                   <p className="text-muted-foreground font-body">COP / noche</p>
@@ -322,7 +322,7 @@ const CabinDetail = () => {
 
                 <Button
                   asChild
-                  className="w-full bg-gold hover:bg-gold/90 text-primary font-semibold py-6 text-lg mb-4"
+                  className="w-full font-semibold py-6 text-lg mb-4"
                 >
                   <Link to="/reservas">Reservar Ahora</Link>
                 </Button>

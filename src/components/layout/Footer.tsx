@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { MapPin, Phone, Mail, Instagram, Facebook } from "lucide-react";
+import { VillaRoliLogo } from "@/components/ui/VillaRoliLogo";
 
 export function Footer() {
   return (
@@ -8,21 +9,21 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
           {/* Brand */}
           <div className="space-y-4">
-            <h3 className="font-display text-2xl font-bold">Villa Roli</h3>
-            <p className="font-body text-primary-foreground/80 leading-relaxed">
+            <VillaRoliLogo variant="light" />
+            <p className="font-body text-primary-foreground/80 leading-relaxed mt-4">
               Un refugio exclusivo en el corazón de la naturaleza colombiana. Descansa,
               reconecta y vive momentos inolvidables.
             </p>
             <div className="flex gap-4 pt-2">
               <a
                 href="#"
-                className="p-2 rounded-full bg-primary-foreground/10 hover:bg-primary-foreground/20 transition-colors"
+                className="p-2 rounded-full bg-primary-foreground/10 hover:bg-gold/20 hover:text-gold transition-colors"
               >
                 <Instagram size={20} />
               </a>
               <a
                 href="#"
-                className="p-2 rounded-full bg-primary-foreground/10 hover:bg-primary-foreground/20 transition-colors"
+                className="p-2 rounded-full bg-primary-foreground/10 hover:bg-gold/20 hover:text-gold transition-colors"
               >
                 <Facebook size={20} />
               </a>
@@ -71,22 +72,22 @@ export function Footer() {
             <h4 className="font-display text-lg font-semibold">Nuestras Cabañas</h4>
             <nav className="flex flex-col gap-2">
               <Link
-                to="/alojamiento/aurora"
+                to="/alojamiento/cabana-1"
                 className="font-body text-primary-foreground/80 hover:text-gold transition-colors"
               >
-                Cabaña Aurora
+                Cabaña 1 - Familiar
               </Link>
               <Link
-                to="/alojamiento/serena"
+                to="/alojamiento/cabana-2"
                 className="font-body text-primary-foreground/80 hover:text-gold transition-colors"
               >
-                Cabaña Serena
+                Cabaña 2 - Grupal
               </Link>
               <Link
-                to="/alojamiento/montana"
+                to="/alojamiento/cabana-3"
                 className="font-body text-primary-foreground/80 hover:text-gold transition-colors"
               >
-                Cabaña Montaña
+                Cabaña 3 - Económica
               </Link>
             </nav>
           </div>
