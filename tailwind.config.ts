@@ -70,6 +70,10 @@ export default {
           DEFAULT: "hsl(var(--gold))",
           light: "hsl(var(--gold-light))",
         },
+        cta: {
+          DEFAULT: "hsl(var(--cta))",
+          light: "hsl(var(--cta-light))",
+        },
         earth: {
           DEFAULT: "hsl(var(--earth))",
           light: "hsl(var(--earth-light))",

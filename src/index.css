@@ -6,34 +6,34 @@
 
 @layer base {
   :root {
-    /* Villa Roli Design System */
-    /* Primary: Deep Forest Green - Nature, tranquility */
-    --primary: 152 45% 22%;
-    --primary-foreground: 45 30% 96%;
+    /* Villa Roli Design System - New Brand Colors */
+    /* Primary: Nature Green #75AB57 */
+    --primary: 99 36% 50%;
+    --primary-foreground: 0 0% 100%;
     
     /* Secondary: Warm Cream - Comfort, warmth */
     --secondary: 42 35% 92%;
-    --secondary-foreground: 152 45% 22%;
+    --secondary-foreground: 99 36% 35%;
     
-    /* Accent: Soft Gold - Exclusivity, premium */
-    --accent: 38 60% 55%;
-    --accent-foreground: 45 30% 96%;
+    /* Accent: Terracotta Orange #DD6034 - CTAs and buttons */
+    --accent: 15 70% 54%;
+    --accent-foreground: 0 0% 100%;
     
     /* Background tones */
     --background: 45 30% 98%;
-    --foreground: 152 25% 15%;
+    --foreground: 99 25% 15%;
     
     /* Card surfaces */
     --card: 45 30% 99%;
-    --card-foreground: 152 25% 15%;
+    --card-foreground: 99 25% 15%;
     
     /* Muted tones */
     --muted: 42 20% 94%;
-    --muted-foreground: 152 15% 45%;
+    --muted-foreground: 99 15% 45%;
     
     /* Popover */
     --popover: 45 30% 99%;
-    --popover-foreground: 152 25% 15%;
+    --popover-foreground: 99 25% 15%;
     
     /* Destructive */
     --destructive: 0 72% 51%;
@@ -42,68 +42,81 @@
     /* Border and inputs */
     --border: 42 25% 88%;
     --input: 42 25% 88%;
-    --ring: 152 45% 22%;
+    --ring: 99 36% 50%;
     
     --radius: 0.75rem;
     
     /* Sidebar */
     --sidebar-background: 45 30% 97%;
-    --sidebar-foreground: 152 25% 15%;
-    --sidebar-primary: 152 45% 22%;
-    --sidebar-primary-foreground: 45 30% 96%;
+    --sidebar-foreground: 99 25% 15%;
+    --sidebar-primary: 99 36% 50%;
+    --sidebar-primary-foreground: 0 0% 100%;
     --sidebar-accent: 42 35% 92%;
-    --sidebar-accent-foreground: 152 45% 22%;
+    --sidebar-accent-foreground: 99 36% 35%;
     --sidebar-border: 42 25% 88%;
-    --sidebar-ring: 152 45% 22%;
+    --sidebar-ring: 99 36% 50%;
     
     /* Custom Villa Roli tokens */
-    --forest: 152 45% 22%;
-    --forest-light: 152 35% 35%;
+    /* Nature Green #75AB57 */
+    --forest: 99 36% 50%;
+    --forest-light: 99 36% 60%;
     --cream: 42 35% 92%;
     --cream-light: 45 30% 96%;
-    --gold: 38 60% 55%;
-    --gold-light: 38 50% 70%;
+    /* Highlight Yellow #F7C846 */
+    --gold: 44 92% 62%;
+    --gold-light: 44 80% 72%;
+    /* CTA Terracotta #DD6034 */
+    --cta: 15 70% 54%;
+    --cta-light: 15 60% 65%;
     --earth: 25 30% 35%;
     --earth-light: 25 25% 55%;
   }
 
   .dark {
-    --background: 152 30% 8%;
+    --background: 99 30% 8%;
     --foreground: 45 30% 96%;
     
-    --card: 152 25% 12%;
+    --card: 99 25% 12%;
     --card-foreground: 45 30% 96%;
     
-    --popover: 152 25% 12%;
+    --popover: 99 25% 12%;
     --popover-foreground: 45 30% 96%;
     
-    --primary: 152 35% 45%;
-    --primary-foreground: 152 30% 8%;
+    --primary: 99 36% 55%;
+    --primary-foreground: 99 30% 8%;
     
-    --secondary: 152 20% 18%;
+    --secondary: 99 20% 18%;
     --secondary-foreground: 45 30% 96%;
     
-    --muted: 152 20% 18%;
+    --muted: 99 20% 18%;
     --muted-foreground: 45 20% 65%;
     
-    --accent: 38 50% 50%;
+    --accent: 15 60% 55%;
     --accent-foreground: 45 30% 96%;
     
     --destructive: 0 62% 40%;
     --destructive-foreground: 45 30% 96%;
     
-    --border: 152 20% 20%;
-    --input: 152 20% 20%;
-    --ring: 152 35% 45%;
+    --border: 99 20% 20%;
+    --input: 99 20% 20%;
+    --ring: 99 36% 55%;
     
-    --sidebar-background: 152 30% 10%;
+    --sidebar-background: 99 30% 10%;
     --sidebar-foreground: 45 30% 96%;
-    --sidebar-primary: 152 35% 45%;
-    --sidebar-primary-foreground: 152 30% 8%;
-    --sidebar-accent: 152 20% 18%;
+    --sidebar-primary: 99 36% 55%;
+    --sidebar-primary-foreground: 99 30% 8%;
+    --sidebar-accent: 99 20% 18%;
     --sidebar-accent-foreground: 45 30% 96%;
-    --sidebar-border: 152 20% 20%;
-    --sidebar-ring: 152 35% 45%;
+    --sidebar-border: 99 20% 20%;
+    --sidebar-ring: 99 36% 55%;
+    
+    /* Dark mode custom tokens */
+    --forest: 99 36% 55%;
+    --forest-light: 99 36% 65%;
+    --gold: 44 85% 58%;
+    --gold-light: 44 75% 68%;
+    --cta: 15 60% 55%;
+    --cta-light: 15 50% 65%;
   }
 }
 

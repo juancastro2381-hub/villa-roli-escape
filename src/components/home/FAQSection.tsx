@@ -44,7 +44,7 @@ const FAQSection = () => {
           viewport={{ once: true }}
           className="text-center mb-12"
         >
-          <span className="text-primary font-medium tracking-wider uppercase text-sm">
+          <span className="text-cta font-medium tracking-wider uppercase text-sm">
             Resolvemos tus dudas
           </span>
           <h2 className="font-display text-3xl md:text-4xl text-foreground mt-2 mb-4">
@@ -69,7 +69,7 @@ const FAQSection = () => {
                 value={`item-${index}`}
                 className="border-border/50 bg-card/50 px-6 mb-3 rounded-lg"
               >
-                <AccordionTrigger className="text-left font-medium text-foreground hover:text-primary hover:no-underline py-5">
+                <AccordionTrigger className="text-left font-medium text-foreground hover:text-cta hover:no-underline py-5">
                   {faq.question}
                 </AccordionTrigger>
                 <AccordionContent className="text-muted-foreground pb-5">

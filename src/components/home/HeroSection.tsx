@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { ChevronDown, Play, Phone } from "lucide-react";
+import { ChevronDown, Phone } from "lucide-react";
 import heroImage from "@/assets/hero-cabin.jpg";
 
 export function HeroSection() {
@@ -45,7 +45,7 @@ export function HeroSection() {
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ delay: 0.5, duration: 0.6 }}
-            className="inline-block px-6 py-3 bg-gold/20 backdrop-blur-sm rounded-full text-gold font-body text-sm tracking-wider uppercase border border-gold/30"
+            className="inline-block px-6 py-3 bg-cta/20 backdrop-blur-sm rounded-full text-gold font-body text-sm tracking-wider uppercase border border-cta/30"
           >
             🌴 Finca de Recreación y Turismo
           </motion.span>
@@ -79,7 +79,7 @@ export function HeroSection() {
             <Button
               asChild
               size="lg"
-              className="bg-gold hover:bg-gold/90 text-primary font-bold px-10 py-7 text-lg rounded-full shadow-lg shadow-gold/30 hover:shadow-gold/50 transition-all duration-300 hover:scale-105"
+              className="font-bold px-10 py-7 text-lg hover:scale-105"
             >
               <Link to="/reservas">
                 🏠 Reservar Cabaña
@@ -88,7 +88,8 @@ export function HeroSection() {
             <Button
               asChild
               size="lg"
-              className="bg-white/10 backdrop-blur-sm border-2 border-cream-light/50 text-cream-light hover:bg-cream-light hover:text-primary px-10 py-7 text-lg rounded-full transition-all duration-300"
+              variant="outline"
+              className="bg-white/10 backdrop-blur-sm border-2 border-cream-light/50 text-cream-light hover:bg-cream-light hover:text-primary px-10 py-7 text-lg"
             >
               <Link to="/alojamiento/pasadias">
                 ☀️ Pasadía desde $30.000

@@ -48,7 +48,7 @@ const Contacto = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
-            <span className="inline-block px-4 py-2 bg-gold/20 backdrop-blur-sm rounded-full text-gold font-body text-sm tracking-wider uppercase mb-4">
+            <span className="inline-block px-4 py-2 bg-cta/20 backdrop-blur-sm rounded-full text-gold font-body text-sm tracking-wider uppercase mb-4">
               Contacto
             </span>
             <h1 className="font-display text-4xl md:text-6xl font-bold text-cream-light">
@@ -85,8 +85,8 @@ const Contacto = () => {
 
               <div className="space-y-6">
                 <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 rounded-full bg-gold/20 flex items-center justify-center shrink-0">
-                    <MapPin className="text-gold" size={24} />
+                  <div className="w-12 h-12 rounded-full bg-cta/20 flex items-center justify-center shrink-0">
+                    <MapPin className="text-cta" size={24} />
                   </div>
                   <div>
                     <h3 className="font-display font-semibold text-foreground mb-1">
@@ -101,8 +101,8 @@ const Contacto = () => {
                 </div>
 
                 <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 rounded-full bg-gold/20 flex items-center justify-center shrink-0">
-                    <Phone className="text-gold" size={24} />
+                  <div className="w-12 h-12 rounded-full bg-cta/20 flex items-center justify-center shrink-0">
+                    <Phone className="text-cta" size={24} />
                   </div>
                   <div>
                     <h3 className="font-display font-semibold text-foreground mb-1">
@@ -110,7 +110,7 @@ const Contacto = () => {
                     </h3>
                     <a
                       href="tel:+573001234567"
-                      className="font-body text-muted-foreground hover:text-gold transition-colors"
+                      className="font-body text-muted-foreground hover:text-cta transition-colors"
                     >
                       +57 300 123 4567
                     </a>
@@ -121,8 +121,8 @@ const Contacto = () => {
                 </div>
 
                 <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 rounded-full bg-gold/20 flex items-center justify-center shrink-0">
-                    <Mail className="text-gold" size={24} />
+                  <div className="w-12 h-12 rounded-full bg-cta/20 flex items-center justify-center shrink-0">
+                    <Mail className="text-cta" size={24} />
                   </div>
                   <div>
                     <h3 className="font-display font-semibold text-foreground mb-1">
@@ -130,7 +130,7 @@ const Contacto = () => {
                     </h3>
                     <a
                       href="mailto:reservas@villaroli.com"
-                      className="font-body text-muted-foreground hover:text-gold transition-colors"
+                      className="font-body text-muted-foreground hover:text-cta transition-colors"
                     >
                       reservas@villaroli.com
                     </a>
@@ -138,8 +138,8 @@ const Contacto = () => {
                 </div>
 
                 <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 rounded-full bg-gold/20 flex items-center justify-center shrink-0">
-                    <Clock className="text-gold" size={24} />
+                  <div className="w-12 h-12 rounded-full bg-cta/20 flex items-center justify-center shrink-0">
+                    <Clock className="text-cta" size={24} />
                   </div>
                   <div>
                     <h3 className="font-display font-semibold text-foreground mb-1">
@@ -228,7 +228,7 @@ const Contacto = () => {
                   <Button
                     type="submit"
                     size="lg"
-                    className="w-full bg-gold hover:bg-gold/90 text-primary font-semibold"
+                    className="w-full font-semibold"
                     disabled={isSubmitting}
                   >
                     {isSubmitting ? (

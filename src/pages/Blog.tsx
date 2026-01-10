@@ -68,11 +68,11 @@ const blogPosts = [
 ];
 
 const categoryColors: Record<string, string> = {
-  Aventura: "bg-forest text-cream-light",
-  Bienestar: "bg-gold text-primary",
+  Aventura: "bg-primary text-primary-foreground",
+  Bienestar: "bg-gold text-foreground",
   Gastronomía: "bg-earth text-cream-light",
   Naturaleza: "bg-forest-light text-cream-light",
-  Romance: "bg-destructive text-cream-light",
+  Romance: "bg-cta text-white",
   Sostenibilidad: "bg-primary text-primary-foreground",
 };
 
@@ -96,7 +96,7 @@ const Blog = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
-            <span className="inline-block px-4 py-2 bg-gold/20 backdrop-blur-sm rounded-full text-gold font-body text-sm tracking-wider uppercase mb-4">
+            <span className="inline-block px-4 py-2 bg-cta/20 backdrop-blur-sm rounded-full text-gold font-body text-sm tracking-wider uppercase mb-4">
               Blog
             </span>
             <h1 className="font-display text-4xl md:text-6xl font-bold text-cream-light">
@@ -125,7 +125,7 @@ const Blog = () => {
                 className="group"
               >
                 <Link to={`/blog/${post.slug}`} className="block">
-                  <div className="bg-card rounded-2xl overflow-hidden border border-border hover:border-gold/50 transition-all duration-500 hover:shadow-xl h-full flex flex-col">
+                  <div className="bg-card rounded-2xl overflow-hidden border border-border hover:border-cta/50 transition-all duration-500 hover:shadow-xl h-full flex flex-col">
                     {/* Image */}
                     <div className="relative h-56 overflow-hidden">
                       <img
@@ -144,7 +144,7 @@ const Blog = () => {
 
                     {/* Content */}
                     <div className="p-6 flex-1 flex flex-col">
-                      <h2 className="font-display text-xl font-semibold text-foreground group-hover:text-primary transition-colors mb-3 line-clamp-2">
+                      <h2 className="font-display text-xl font-semibold text-foreground group-hover:text-cta transition-colors mb-3 line-clamp-2">
                         {post.title}
                       </h2>
                       <p className="font-body text-muted-foreground leading-relaxed mb-4 line-clamp-3 flex-1">
@@ -165,7 +165,7 @@ const Blog = () => {
                         </div>
                         <ArrowRight
                           size={18}
-                          className="text-primary transition-transform group-hover:translate-x-1"
+                          className="text-cta transition-transform group-hover:translate-x-1"
                         />
                       </div>
                     </div>

@@ -65,7 +65,7 @@ export function CabinsPreviewSection() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <span className="text-gold font-body text-sm tracking-wider uppercase">
+          <span className="text-cta font-body text-sm tracking-wider uppercase">
             Alojamientos
           </span>
           <h2 className="font-display text-3xl md:text-5xl font-bold text-foreground mt-3">
@@ -87,11 +87,11 @@ export function CabinsPreviewSection() {
               className="group"
             >
               <Link to={`/alojamiento/${cabin.slug}`} className="block h-full">
-                <div className="bg-card rounded-3xl overflow-hidden border border-border hover:border-gold/50 transition-all duration-500 hover:shadow-2xl hover:shadow-gold/10 h-full flex flex-col relative">
+                <div className="bg-card rounded-3xl overflow-hidden border border-border hover:border-cta/50 transition-all duration-500 hover:shadow-2xl hover:shadow-cta/10 h-full flex flex-col relative">
                   {/* Popular Badge */}
                   {cabin.popular && (
                     <div className="absolute top-4 right-4 z-20">
-                      <span className="inline-flex items-center gap-1 px-3 py-1.5 bg-gold text-primary font-bold text-xs rounded-full shadow-lg">
+                      <span className="inline-flex items-center gap-1 px-3 py-1.5 bg-cta text-white font-bold text-xs rounded-full shadow-lg">
                         <Star size={12} fill="currentColor" />
                         MÁS POPULAR
                       </span>
@@ -112,7 +112,7 @@ export function CabinsPreviewSection() {
                       <div>
                         <p className="text-cream-light/70 text-sm font-body">Desde</p>
                         <p className="text-cream-light font-display text-3xl font-bold">
-                          ${cabin.price}
+                          <span className="text-gold">${cabin.price}</span>
                           <span className="text-sm font-normal text-cream-light/70"> COP/noche</span>
                         </p>
                       </div>
@@ -121,7 +121,7 @@ export function CabinsPreviewSection() {
 
                   {/* Content */}
                   <div className="p-6 space-y-4 flex-1 flex flex-col">
-                    <h3 className="font-display text-xl font-bold text-foreground group-hover:text-gold transition-colors">
+                    <h3 className="font-display text-xl font-bold text-foreground group-hover:text-cta transition-colors">
                       {cabin.name}
                     </h3>
                     
@@ -156,7 +156,7 @@ export function CabinsPreviewSection() {
                         <span className="text-sm font-medium">{cabin.baths}</span>
                       </div>
                       <div className="ml-auto">
-                        <span className="inline-flex items-center gap-1 text-gold font-medium text-sm group-hover:gap-2 transition-all">
+                        <span className="inline-flex items-center gap-1 text-cta font-medium text-sm group-hover:gap-2 transition-all">
                           Ver más
                           <ArrowRight size={14} />
                         </span>
@@ -181,7 +181,7 @@ export function CabinsPreviewSection() {
             <Button
               asChild
               size="lg"
-              className="bg-gold hover:bg-gold/90 text-primary font-semibold px-8 rounded-full"
+              className="font-semibold px-8"
             >
               <Link to="/reservas">Reservar Ahora</Link>
             </Button>
@@ -189,13 +189,13 @@ export function CabinsPreviewSection() {
               asChild
               variant="outline"
               size="lg"
-              className="border-primary text-primary hover:bg-primary hover:text-primary-foreground px-8 rounded-full"
+              className="border-primary text-primary hover:bg-primary hover:text-primary-foreground px-8"
             >
               <Link to="/alojamiento">Ver Todas las Cabañas</Link>
             </Button>
           </div>
           <p className="text-muted-foreground font-body text-sm">
-            💡 ¿Solo quieres pasar el día? <Link to="/alojamiento/pasadias" className="text-gold hover:underline font-semibold">Conoce nuestros pasadías</Link>
+            💡 ¿Solo quieres pasar el día? <Link to="/alojamiento/pasadias" className="text-cta hover:underline font-semibold">Conoce nuestros pasadías</Link>
           </p>
         </motion.div>
       </div>

@@ -90,9 +90,9 @@ export function Header() {
                     to={link.path}
                     className={`font-body text-sm font-medium transition-colors duration-300 flex items-center gap-1 ${
                       isScrolled
-                        ? "text-foreground hover:text-gold"
+                        ? "text-foreground hover:text-cta"
                         : "text-cream-light/90 hover:text-cream-light"
-                    } ${location.pathname === link.path ? "text-gold" : ""}`}
+                    } ${location.pathname === link.path ? "text-cta" : ""}`}
                   >
                     {link.name}
                     {link.submenu && <ChevronDown className="w-4 h-4" />}
@@ -114,7 +114,7 @@ export function Header() {
                           <Link
                             key={subLink.name}
                             to={subLink.path}
-                            className={`block px-5 py-3.5 text-sm font-body text-foreground hover:bg-secondary hover:text-gold transition-colors ${
+                            className={`block px-5 py-3.5 text-sm font-body text-foreground hover:bg-secondary hover:text-cta transition-colors ${
                               subIndex === link.submenu!.length - 1 && subLink.name.includes("Pasadías")
                                 ? "bg-gold/10 border-t border-border"
                                 : ""
@@ -137,7 +137,7 @@ export function Header() {
             >
               <Button
                 asChild
-                className="bg-gold hover:bg-gold/90 text-primary font-semibold px-6 rounded-full shadow-lg shadow-gold/20"
+                className="font-semibold px-6"
               >
                 <Link to="/reservas">Reservar</Link>
               </Button>
@@ -171,17 +171,17 @@ export function Header() {
                 <div key={link.name}>
                   <Link
                     to={link.path}
-                    className="block py-2 text-lg font-body text-foreground hover:text-gold transition-colors"
+                    className="block py-2 text-lg font-body text-foreground hover:text-cta transition-colors"
                   >
                     {link.name}
                   </Link>
                   {link.submenu && (
-                    <div className="pl-4 space-y-2 mt-2 border-l-2 border-gold/30">
+                    <div className="pl-4 space-y-2 mt-2 border-l-2 border-cta/30">
                       {link.submenu.map((subLink) => (
                         <Link
                           key={subLink.name}
                           to={subLink.path}
-                          className="block py-1.5 text-muted-foreground hover:text-gold transition-colors"
+                          className="block py-1.5 text-muted-foreground hover:text-cta transition-colors"
                         >
                           {subLink.name}
                         </Link>
@@ -192,7 +192,7 @@ export function Header() {
               ))}
               <Button
                 asChild
-                className="w-full bg-gold hover:bg-gold/90 text-primary font-semibold mt-4 rounded-full"
+                className="w-full font-semibold mt-4"
               >
                 <Link to="/reservas">Reservar Ahora</Link>
               </Button>

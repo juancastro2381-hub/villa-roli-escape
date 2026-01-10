@@ -54,7 +54,7 @@ const Pasadias = () => {
             transition={{ duration: 0.8 }}
             className="space-y-6"
           >
-            <span className="inline-block px-4 py-2 bg-gold/20 backdrop-blur-sm rounded-full text-gold font-body text-sm tracking-wider uppercase">
+            <span className="inline-block px-4 py-2 bg-cta/20 backdrop-blur-sm rounded-full text-gold font-body text-sm tracking-wider uppercase">
               Disfruta sin hospedarte
             </span>
             <h1 className="font-display text-4xl md:text-6xl lg:text-7xl font-bold text-cream-light">
@@ -80,7 +80,7 @@ const Pasadias = () => {
               className="space-y-8"
             >
               <div>
-                <span className="text-gold font-body text-sm tracking-wider uppercase">
+                <span className="text-cta font-body text-sm tracking-wider uppercase">
                   Plan del día
                 </span>
                 <h2 className="font-display text-3xl md:text-4xl font-bold text-foreground mt-2">
@@ -173,7 +173,7 @@ const Pasadias = () => {
             transition={{ duration: 0.6 }}
             className="text-center mb-12"
           >
-            <span className="text-gold font-body text-sm tracking-wider uppercase">
+            <span className="text-cta font-body text-sm tracking-wider uppercase">
               Complementa tu experiencia
             </span>
             <h2 className="font-display text-3xl md:text-4xl font-bold text-foreground mt-2">
@@ -189,7 +189,7 @@ const Pasadias = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="bg-card rounded-2xl p-6 border border-border hover:border-gold/50 transition-all duration-300 text-center"
+                className="bg-card rounded-2xl p-6 border border-border hover:border-cta/50 transition-all duration-300 text-center"
               >
                 <Utensils className="w-10 h-10 text-gold mx-auto mb-4" />
                 <h3 className="font-display text-lg font-semibold text-foreground mb-2">
@@ -224,7 +224,7 @@ const Pasadias = () => {
               <Button
                 asChild
                 size="lg"
-                className="bg-gold hover:bg-gold/90 text-primary font-semibold px-8 py-6 text-lg"
+                className="font-semibold px-8 py-6 text-lg"
               >
                 <Link to="/reservas" className="flex items-center gap-2">
                   <Calendar size={20} />
@@ -233,9 +233,8 @@ const Pasadias = () => {
               </Button>
               <Button
                 asChild
-                variant="outline"
                 size="lg"
-                className="border-cream-light/50 text-cream-light hover:bg-cream-light/10 px-8 py-6 text-lg"
+                className="font-semibold px-8 py-6 text-lg"
               >
                 <Link to="/contacto" className="flex items-center gap-2">
                   <Phone size={20} />
