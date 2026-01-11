@@ -11,26 +11,96 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { Textarea } from "@/components/ui/textarea";
-import { Calendar, Users, Home, Info } from "lucide-react";
+import { Calendar, Users, Home, Info, MessageCircle } from "lucide-react";
 import { useState } from "react";
 import { useToast } from "@/hooks/use-toast";
 import reservasHero from "@/assets/reservas-hero.jpg";
 
+// WhatsApp phone number (replace with actual number)
+const WHATSAPP_NUMBER = "573001234567";
+
+const cabanaNames: Record<string, string> = {
+  "cabana-1": "Cabaña 1 - Familiar (12 huéspedes)",
+  "cabana-2": "Cabaña 2 - Grupal (20 huéspedes)",
+  "cabana-3": "Cabaña 3 - Económica (5 huéspedes)",
+};
+
+const ocasionNames: Record<string, string> = {
+  "aniversario": "Aniversario",
+  "cumpleanos": "Cumpleaños",
+  "luna-miel": "Luna de miel",
+  "vacaciones": "Vacaciones familiares",
+  "otro": "Otro",
+};
+
 const Reservas = () => {
   const { toast } = useToast();
   const [isSubmitting, setIsSubmitting] = useState(false);
+  
+  // Form state
+  const [formData, setFormData] = useState({
+    nombre: "",
+    email: "",
+    telefono: "",
+    ciudad: "",
+    cabana: "",
+    huespedes: "",
+    checkin: "",
+    checkout: "",
+    ocasion: "",
+    mensaje: "",
+  });
+
+  const handleInputChange = (field: string, value: string) => {
+    setFormData(prev => ({ ...prev, [field]: value }));
+  };
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setIsSubmitting(true);
 
-    // Simulate form submission
-    await new Promise((resolve) => setTimeout(resolve, 1500));
+    // Validate required fields
+    if (!formData.nombre || !formData.email || !formData.telefono || !formData.cabana || !formData.huespedes || !formData.checkin || !formData.checkout) {
+      toast({
+        title: "Campos incompletos",
+        description: "Por favor completa todos los campos requeridos.",
+        variant: "destructive",
+      });
+      setIsSubmitting(false);
+      return;
+    }
+
+    // Build WhatsApp message
+    const message = `🏡 *Nueva Solicitud de Reserva - Villa Roli*
+
+👤 *Información del Cliente:*
+• Nombre: ${formData.nombre}
+• Email: ${formData.email}
+• Teléfono: ${formData.telefono}
+${formData.ciudad ? `• Ciudad: ${formData.ciudad}` : ""}
+
+🏠 *Detalles de la Reserva:*
+• Cabaña: ${cabanaNames[formData.cabana] || formData.cabana}
+• Huéspedes: ${formData.huespedes}
+• Check-in: ${formData.checkin}
+• Check-out: ${formData.checkout}
+${formData.ocasion ? `• Ocasión: ${ocasionNames[formData.ocasion] || formData.ocasion}` : ""}
+
+${formData.mensaje ? `💬 *Comentarios:*\n${formData.mensaje}` : ""}
+
+---
+Enviado desde el formulario web de Villa Roli`;
+
+    // Encode message for URL
+    const encodedMessage = encodeURIComponent(message);
+    
+    // Open WhatsApp with pre-filled message
+    const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodedMessage}`;
+    window.open(whatsappUrl, "_blank");
 
     toast({
-      title: "¡Solicitud Enviada!",
-      description:
-        "Hemos recibido tu solicitud de reserva. Te contactaremos pronto para confirmar disponibilidad.",
+      title: "¡Redirigiendo a WhatsApp!",
+      description: "Te hemos abierto WhatsApp para que envíes tu solicitud de reserva directamente.",
     });
 
     setIsSubmitting(false);
@@ -95,6 +165,8 @@ const Reservas = () => {
                         placeholder="Tu nombre"
                         required
                         className="bg-background"
+                        value={formData.nombre}
+                        onChange={(e) => handleInputChange("nombre", e.target.value)}
                       />
                     </div>
                     <div className="space-y-2">
@@ -105,6 +177,8 @@ const Reservas = () => {
                         placeholder="tu@email.com"
                         required
                         className="bg-background"
+                        value={formData.email}
+                        onChange={(e) => handleInputChange("email", e.target.value)}
                       />
                     </div>
                     <div className="space-y-2">
@@ -115,6 +189,8 @@ const Reservas = () => {
                         placeholder="+57 300 123 4567"
                         required
                         className="bg-background"
+                        value={formData.telefono}
+                        onChange={(e) => handleInputChange("telefono", e.target.value)}
                       />
                     </div>
                     <div className="space-y-2">
@@ -123,6 +199,8 @@ const Reservas = () => {
                         id="ciudad"
                         placeholder="Tu ciudad"
                         className="bg-background"
+                        value={formData.ciudad}
+                        onChange={(e) => handleInputChange("ciudad", e.target.value)}
                       />
                     </div>
                   </div>
@@ -137,7 +215,11 @@ const Reservas = () => {
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div className="space-y-2">
                       <Label htmlFor="cabana">Cabaña *</Label>
-                      <Select required>
+                      <Select 
+                        required 
+                        value={formData.cabana}
+                        onValueChange={(value) => handleInputChange("cabana", value)}
+                      >
                         <SelectTrigger className="bg-background">
                           <SelectValue placeholder="Selecciona una cabaña" />
                         </SelectTrigger>
@@ -156,7 +238,11 @@ const Reservas = () => {
                     </div>
                     <div className="space-y-2">
                       <Label htmlFor="huespedes">Número de Huéspedes *</Label>
-                      <Select required>
+                      <Select 
+                        required
+                        value={formData.huespedes}
+                        onValueChange={(value) => handleInputChange("huespedes", value)}
+                      >
                         <SelectTrigger className="bg-background">
                           <SelectValue placeholder="Selecciona" />
                         </SelectTrigger>
@@ -176,6 +262,8 @@ const Reservas = () => {
                         type="date"
                         required
                         className="bg-background"
+                        value={formData.checkin}
+                        onChange={(e) => handleInputChange("checkin", e.target.value)}
                       />
                     </div>
                     <div className="space-y-2">
@@ -185,6 +273,8 @@ const Reservas = () => {
                         type="date"
                         required
                         className="bg-background"
+                        value={formData.checkout}
+                        onChange={(e) => handleInputChange("checkout", e.target.value)}
                       />
                     </div>
                   </div>
@@ -201,7 +291,10 @@ const Reservas = () => {
                       <Label htmlFor="ocasion">
                         ¿Es una ocasión especial?
                       </Label>
-                      <Select>
+                      <Select
+                        value={formData.ocasion}
+                        onValueChange={(value) => handleInputChange("ocasion", value)}
+                      >
                         <SelectTrigger className="bg-background">
                           <SelectValue placeholder="Selecciona (opcional)" />
                         </SelectTrigger>
@@ -229,6 +322,8 @@ const Reservas = () => {
                         placeholder="Cuéntanos si tienes alguna solicitud especial, alergias alimentarias, hora de llegada estimada, etc."
                         rows={4}
                         className="bg-background resize-none"
+                        value={formData.mensaje}
+                        onChange={(e) => handleInputChange("mensaje", e.target.value)}
                       />
                     </div>
                   </div>
@@ -237,10 +332,11 @@ const Reservas = () => {
                 <Button
                   type="submit"
                   size="lg"
-                  className="w-full font-semibold py-6 text-lg"
+                  className="w-full font-semibold py-6 text-lg gap-3"
                   disabled={isSubmitting}
                 >
-                  {isSubmitting ? "Enviando..." : "Solicitar Reserva"}
+                  <MessageCircle size={22} />
+                  {isSubmitting ? "Abriendo WhatsApp..." : "Enviar Solicitud por WhatsApp"}
                 </Button>
               </form>
             </motion.div>
