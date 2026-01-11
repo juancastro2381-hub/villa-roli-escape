@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { X, ChevronLeft, ChevronRight, ZoomIn } from "lucide-react";
 
@@ -20,35 +20,35 @@ export const ImageGallery = ({ images, className = "" }: ImageGalleryProps) => {
     document.body.style.overflow = "hidden";
   };
 
-  const closeLightbox = () => {
+  const closeLightbox = useCallback(() => {
     setSelectedIndex(null);
     document.body.style.overflow = "auto";
-  };
+  }, []);
 
-  const goToPrevious = () => {
+  const goToPrevious = useCallback(() => {
     if (selectedIndex !== null) {
       setSelectedIndex(selectedIndex === 0 ? images.length - 1 : selectedIndex - 1);
     }
-  };
+  }, [selectedIndex, images.length]);
 
-  const goToNext = () => {
+  const goToNext = useCallback(() => {
     if (selectedIndex !== null) {
       setSelectedIndex(selectedIndex === images.length - 1 ? 0 : selectedIndex + 1);
     }
-  };
-
-  const handleKeyDown = (e: KeyboardEvent) => {
-    if (selectedIndex === null) return;
-    if (e.key === "Escape") closeLightbox();
-    if (e.key === "ArrowLeft") goToPrevious();
-    if (e.key === "ArrowRight") goToNext();
-  };
+  }, [selectedIndex, images.length]);
 
   // Add keyboard event listener
-  useState(() => {
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (selectedIndex === null) return;
+      if (e.key === "Escape") closeLightbox();
+      if (e.key === "ArrowLeft") goToPrevious();
+      if (e.key === "ArrowRight") goToNext();
+    };
+
     window.addEventListener("keydown", handleKeyDown);
     return () => window.removeEventListener("keydown", handleKeyDown);
-  });
+  }, [selectedIndex, closeLightbox, goToPrevious, goToNext]);
 
   return (
     <>
