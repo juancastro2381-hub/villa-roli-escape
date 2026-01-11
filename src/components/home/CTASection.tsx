@@ -10,7 +10,7 @@ export function CTASection() {
       {/* Background Image */}
       <div className="absolute inset-0">
         <img src={poolNight} alt="Piscina nocturna Villa Roli" className="w-full h-full object-cover" />
-        <div className="absolute inset-0 bg-gradient-to-r from-primary/95 via-primary/85 to-primary/70" />
+        <div className="absolute inset-0 bg-gradient-to-r from-primary/70 via-primary/55 to-primary/40" />
       </div>
 
       <div className="container-custom relative z-10">

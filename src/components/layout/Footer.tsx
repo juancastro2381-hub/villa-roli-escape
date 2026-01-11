@@ -4,7 +4,7 @@ import { VillaRoliLogo } from "@/components/ui/VillaRoliLogo";
 
 export function Footer() {
   return (
-    <footer className="bg-primary text-primary-foreground">
+    <footer className="bg-primary/90 text-primary-foreground backdrop-blur-sm">
       <div className="container-custom section-padding">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
           {/* Brand */}

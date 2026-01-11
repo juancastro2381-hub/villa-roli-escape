@@ -72,6 +72,7 @@ export default {
         },
         cta: {
           DEFAULT: "hsl(var(--cta))",
+          dark: "hsl(var(--cta-dark))",
           light: "hsl(var(--cta-light))",
         },
         earth: {
