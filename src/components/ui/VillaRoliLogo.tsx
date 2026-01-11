@@ -17,10 +17,7 @@ export function VillaRoliLogo({
       <img 
         src={logoImage} 
         alt="Villa Roli - Finca de recreación y turismo"
-        className={cn(
-          "h-12 md:h-14 w-auto object-contain",
-          variant === "light" ? "brightness-0 invert" : ""
-        )}
+        className="h-12 md:h-14 w-auto object-contain"
       />
     </div>
   );
