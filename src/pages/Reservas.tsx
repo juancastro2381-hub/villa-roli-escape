@@ -17,7 +17,7 @@ import { useToast } from "@/hooks/use-toast";
 import reservasHero from "@/assets/reservas-hero.jpg";
 
 // WhatsApp phone number (replace with actual number)
-const WHATSAPP_NUMBER = "573001234567";
+const WHATSAPP_NUMBER = "573229726625";
 
 const cabanaNames: Record<string, string> = {
   "cabana-1": "Cabaña 1 - Familiar (12 huéspedes)",
