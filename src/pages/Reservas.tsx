@@ -11,18 +11,17 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { Textarea } from "@/components/ui/textarea";
-import { Calendar, Users, Home, Info, MessageCircle } from "lucide-react";
+import { Calendar, Users, Home, Info, MessageCircle, Sun } from "lucide-react";
 import { useState } from "react";
 import { useToast } from "@/hooks/use-toast";
 import reservasHero from "@/assets/reservas-hero.jpg";
 
-// WhatsApp phone number (replace with actual number)
+// WhatsApp phone number
 const WHATSAPP_NUMBER = "3229726625";
 
-const cabanaNames: Record<string, string> = {
-  "cabana-1": "Cabaña 1 - Familiar (12 huéspedes)",
-  "cabana-2": "Cabaña 2 - Grupal (20 huéspedes)",
-  "cabana-3": "Cabaña 3 - Económica (5 huéspedes)",
+const tipoReservaNames: Record<string, string> = {
+  "finca-completa": "Finca Completa (hasta 37 huéspedes)",
+  "pasadia": "Pasadía (por persona)",
 };
 
 const ocasionNames: Record<string, string> = {
@@ -30,6 +29,7 @@ const ocasionNames: Record<string, string> = {
   "cumpleanos": "Cumpleaños",
   "luna-miel": "Luna de miel",
   "vacaciones": "Vacaciones familiares",
+  "evento-empresarial": "Evento empresarial",
   "otro": "Otro",
 };
 
@@ -43,7 +43,7 @@ const Reservas = () => {
     email: "",
     telefono: "",
     ciudad: "",
-    cabana: "",
+    tipoReserva: "",
     huespedes: "",
     checkin: "",
     checkout: "",
@@ -60,7 +60,7 @@ const Reservas = () => {
     setIsSubmitting(true);
 
     // Validate required fields
-    if (!formData.nombre || !formData.email || !formData.telefono || !formData.cabana || !formData.huespedes || !formData.checkin || !formData.checkout) {
+    if (!formData.nombre || !formData.email || !formData.telefono || !formData.tipoReserva || !formData.huespedes || !formData.checkin) {
       toast({
         title: "Campos incompletos",
         description: "Por favor completa todos los campos requeridos.",
@@ -71,6 +71,7 @@ const Reservas = () => {
     }
 
     // Build WhatsApp message
+    const isPasadia = formData.tipoReserva === "pasadia";
     const message = `🏡 *Nueva Solicitud de Reserva - Villa Roli*
 
 👤 *Información del Cliente:*
@@ -80,10 +81,10 @@ const Reservas = () => {
 ${formData.ciudad ? `• Ciudad: ${formData.ciudad}` : ""}
 
 🏠 *Detalles de la Reserva:*
-• Cabaña: ${cabanaNames[formData.cabana] || formData.cabana}
-• Huéspedes: ${formData.huespedes}
-• Check-in: ${formData.checkin}
-• Check-out: ${formData.checkout}
+• Tipo: ${tipoReservaNames[formData.tipoReserva] || formData.tipoReserva}
+• ${isPasadia ? "Personas" : "Huéspedes"}: ${formData.huespedes}
+• ${isPasadia ? "Fecha" : "Check-in"}: ${formData.checkin}
+${!isPasadia && formData.checkout ? `• Check-out: ${formData.checkout}` : ""}
 ${formData.ocasion ? `• Ocasión: ${ocasionNames[formData.ocasion] || formData.ocasion}` : ""}
 
 ${formData.mensaje ? `💬 *Comentarios:*\n${formData.mensaje}` : ""}
@@ -105,6 +106,8 @@ Enviado desde el formulario web de Villa Roli`;
 
     setIsSubmitting(false);
   };
+
+  const isPasadia = formData.tipoReserva === "pasadia";
 
   return (
     <Layout>
@@ -129,7 +132,7 @@ Enviado desde el formulario web de Villa Roli`;
               Reservas
             </span>
             <h1 className="font-display text-4xl md:text-6xl font-bold text-cream-light">
-              Reserva Tu Escapada
+              Reservar Villa Roli
             </h1>
             <p className="font-body text-cream-light/80 text-lg mt-4 max-w-2xl mx-auto">
               Completa el formulario y nos pondremos en contacto contigo para
@@ -213,31 +216,36 @@ Enviado desde el formulario web de Villa Roli`;
                     Detalles de la Reserva
                   </h2>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div className="space-y-2">
-                      <Label htmlFor="cabana">Cabaña *</Label>
+                    <div className="space-y-2 md:col-span-2">
+                      <Label htmlFor="tipoReserva">Tipo de Reserva *</Label>
                       <Select 
                         required 
-                        value={formData.cabana}
-                        onValueChange={(value) => handleInputChange("cabana", value)}
+                        value={formData.tipoReserva}
+                        onValueChange={(value) => handleInputChange("tipoReserva", value)}
                       >
                         <SelectTrigger className="bg-background">
-                          <SelectValue placeholder="Selecciona una cabaña" />
+                          <SelectValue placeholder="Selecciona el tipo de reserva" />
                         </SelectTrigger>
                         <SelectContent>
-                          <SelectItem value="cabana-1">
-                            Cabaña 1 - Familiar (12 huéspedes)
+                          <SelectItem value="finca-completa">
+                            <span className="flex items-center gap-2">
+                              <Home size={16} className="text-gold" />
+                              Finca Completa (hasta 37 huéspedes)
+                            </span>
                           </SelectItem>
-                          <SelectItem value="cabana-2">
-                            Cabaña 2 - Grupal (20 huéspedes)
-                          </SelectItem>
-                          <SelectItem value="cabana-3">
-                            Cabaña 3 - Económica (5 huéspedes)
+                          <SelectItem value="pasadia">
+                            <span className="flex items-center gap-2">
+                              <Sun size={16} className="text-gold" />
+                              Pasadía (por persona)
+                            </span>
                           </SelectItem>
                         </SelectContent>
                       </Select>
                     </div>
                     <div className="space-y-2">
-                      <Label htmlFor="huespedes">Número de Huéspedes *</Label>
+                      <Label htmlFor="huespedes">
+                        {isPasadia ? "Número de Personas *" : "Número de Huéspedes *"}
+                      </Label>
                       <Select 
                         required
                         value={formData.huespedes}
@@ -247,16 +255,21 @@ Enviado desde el formulario web de Villa Roli`;
                           <SelectValue placeholder="Selecciona" />
                         </SelectTrigger>
                         <SelectContent>
-                          {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20].map((num) => (
+                          {(isPasadia 
+                            ? [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 15, 20, 25, 30, 35, 40, 45, 50]
+                            : [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 25, 30, 35, 37]
+                          ).map((num) => (
                             <SelectItem key={num} value={num.toString()}>
-                              {num} {num === 1 ? "huésped" : "huéspedes"}
+                              {num} {num === 1 ? "persona" : "personas"}
                             </SelectItem>
                           ))}
                         </SelectContent>
                       </Select>
                     </div>
                     <div className="space-y-2">
-                      <Label htmlFor="checkin">Fecha de Llegada *</Label>
+                      <Label htmlFor="checkin">
+                        {isPasadia ? "Fecha del Pasadía *" : "Fecha de Llegada *"}
+                      </Label>
                       <Input
                         id="checkin"
                         type="date"
@@ -266,17 +279,19 @@ Enviado desde el formulario web de Villa Roli`;
                         onChange={(e) => handleInputChange("checkin", e.target.value)}
                       />
                     </div>
-                    <div className="space-y-2">
-                      <Label htmlFor="checkout">Fecha de Salida *</Label>
-                      <Input
-                        id="checkout"
-                        type="date"
-                        required
-                        className="bg-background"
-                        value={formData.checkout}
-                        onChange={(e) => handleInputChange("checkout", e.target.value)}
-                      />
-                    </div>
+                    {!isPasadia && (
+                      <div className="space-y-2">
+                        <Label htmlFor="checkout">Fecha de Salida *</Label>
+                        <Input
+                          id="checkout"
+                          type="date"
+                          required={!isPasadia}
+                          className="bg-background"
+                          value={formData.checkout}
+                          onChange={(e) => handleInputChange("checkout", e.target.value)}
+                        />
+                      </div>
+                    )}
                   </div>
                 </div>
 
@@ -299,16 +314,11 @@ Enviado desde el formulario web de Villa Roli`;
                           <SelectValue placeholder="Selecciona (opcional)" />
                         </SelectTrigger>
                         <SelectContent>
-                          <SelectItem value="aniversario">
-                            Aniversario
-                          </SelectItem>
+                          <SelectItem value="aniversario">Aniversario</SelectItem>
                           <SelectItem value="cumpleanos">Cumpleaños</SelectItem>
-                          <SelectItem value="luna-miel">
-                            Luna de miel
-                          </SelectItem>
-                          <SelectItem value="vacaciones">
-                            Vacaciones familiares
-                          </SelectItem>
+                          <SelectItem value="luna-miel">Luna de miel</SelectItem>
+                          <SelectItem value="vacaciones">Vacaciones familiares</SelectItem>
+                          <SelectItem value="evento-empresarial">Evento empresarial</SelectItem>
                           <SelectItem value="otro">Otro</SelectItem>
                         </SelectContent>
                       </Select>
@@ -319,7 +329,7 @@ Enviado desde el formulario web de Villa Roli`;
                       </Label>
                       <Textarea
                         id="mensaje"
-                        placeholder="Cuéntanos si tienes alguna solicitud especial, alergias alimentarias, hora de llegada estimada, etc."
+                        placeholder="Cuéntanos si tienes alguna solicitud especial, hora de llegada estimada, servicios adicionales que te interesen, etc."
                         rows={4}
                         className="bg-background resize-none"
                         value={formData.mensaje}
@@ -349,6 +359,29 @@ Enviado desde el formulario web de Villa Roli`;
               className="lg:col-span-1"
             >
               <div className="sticky top-32 space-y-8">
+                {/* Precios */}
+                <div className="bg-card rounded-2xl p-8 border border-border">
+                  <h3 className="font-display text-xl font-semibold text-foreground mb-4">
+                    Tarifas
+                  </h3>
+                  <div className="space-y-4">
+                    <div className="flex justify-between items-center pb-4 border-b border-border">
+                      <div>
+                        <p className="font-display font-semibold text-foreground">Finca Completa</p>
+                        <p className="text-sm text-muted-foreground">Hasta 37 personas</p>
+                      </div>
+                      <p className="font-display font-bold text-gold">$980.000</p>
+                    </div>
+                    <div className="flex justify-between items-center">
+                      <div>
+                        <p className="font-display font-semibold text-foreground">Pasadía</p>
+                        <p className="text-sm text-muted-foreground">Por persona</p>
+                      </div>
+                      <p className="font-display font-bold text-gold">$30.000</p>
+                    </div>
+                  </div>
+                </div>
+
                 <div className="bg-card rounded-2xl p-8 border border-border">
                   <h3 className="font-display text-xl font-semibold text-foreground mb-4">
                     Información Importante
@@ -367,7 +400,13 @@ Enviado desde el formulario web de Villa Roli`;
                     <li className="flex items-start gap-3">
                       <Info size={20} className="text-gold shrink-0 mt-1" />
                       <span>
-                        Cancelación gratuita hasta 48 horas antes de la llegada
+                        Pasadía: 9:00 AM - 6:00 PM
+                      </span>
+                    </li>
+                    <li className="flex items-start gap-3">
+                      <Info size={20} className="text-gold shrink-0 mt-1" />
+                      <span>
+                        Cancelación gratuita hasta 48 horas antes
                       </span>
                     </li>
                   </ul>
@@ -382,7 +421,7 @@ Enviado desde el formulario web de Villa Roli`;
                     estamos aquí para ayudarte.
                   </p>
                   <p className="font-body font-semibold text-gold">
-                    +57 300 123 4567
+                    +57 322 972 6625
                   </p>
                   <p className="font-body text-primary-foreground/80 text-sm mt-1">
                     Lun - Dom: 8:00 AM - 8:00 PM
