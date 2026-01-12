@@ -5,17 +5,17 @@ const features = [
   {
     icon: Mountain,
     title: "Naturaleza",
-    description: "Despierta con las vistas más impresionantes de las montañas colombianas.",
+    description: "Despierta con el color verde y el aire puro de la naturaleza.",
   },
   {
     icon: Flame,
-    title: "Chimenea Privada",
-    description: "Noches acogedoras junto al fuego en tu propia cabaña.",
+    title: "Área de fogata",
+    description: "Noches acogedoras junto a fuego entre la paz y la tranquilidad de VillaRoli.",
   },
   {
     icon: Sparkles,
-    title: "Jacuzzi Exclusivo",
-    description: "Relájate bajo las estrellas en tu jacuzzi privado.",
+    title: "Piscinas privadas para adultos y niños.",
+    description: "Disfruta y relájate en nuestras piscinas privadas.",
   },
   {
     icon: Wifi,
@@ -25,7 +25,7 @@ const features = [
   {
     icon: Trees,
     title: "Senderos Naturales",
-    description: "Explora kilómetros de senderos rodeados de naturaleza virgen.",
+    description: "Muy cerca de sitios turísticos en la zona.",
   },
   {
     icon: ShieldCheck,
