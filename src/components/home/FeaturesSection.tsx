@@ -4,7 +4,7 @@ import { Wifi, Flame, Mountain, Sparkles, ShieldCheck, Trees } from "lucide-reac
 const features = [
   {
     icon: Mountain,
-    title: "Vistas Panorámicas",
+    title: "Naturaleza",
     description: "Despierta con las vistas más impresionantes de las montañas colombianas.",
   },
   {
