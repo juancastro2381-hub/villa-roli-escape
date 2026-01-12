@@ -1,52 +1,9 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Users, BedDouble, Bath, Star } from "lucide-react";
-import cabin1 from "@/assets/cabin-1.jpg";
-import cabin2 from "@/assets/cabin-2.jpg";
-import cabin3 from "@/assets/cabin-3.jpg";
-
-const cabins = [
-  {
-    name: "Cabaña 1 - Familiar",
-    slug: "cabana-1",
-    image: cabin1,
-    description:
-      "La más completa. Con sala, cocina integral, TV, nevera y capacidad para 12 personas. Ideal para familias grandes.",
-    guests: 12,
-    beds: 4,
-    baths: 2,
-    price: "350.000",
-    features: ["Cocina integral", "Sala TV", "Nevera", "2 Baños"],
-    popular: true,
-  },
-  {
-    name: "Cabaña 2 - Grupal",
-    slug: "cabana-2",
-    image: cabin2,
-    description:
-      "Perfecta para grupos grandes. Con terraza, columpio y amplio espacio para 20 personas. Ventiladores incluidos.",
-    guests: 20,
-    beds: 8,
-    baths: 1,
-    price: "450.000",
-    features: ["8 Camas dobles", "Terraza", "Columpio", "Ventiladores"],
-    popular: false,
-  },
-  {
-    name: "Cabaña 3 - Económica",
-    slug: "cabana-3",
-    image: cabin3,
-    description:
-      "Opción cómoda y accesible para grupos pequeños de hasta 5 personas. Con baño privado y ventiladores.",
-    guests: 5,
-    beds: 2,
-    baths: 1,
-    price: "180.000",
-    features: ["2 Camas", "1 Baño", "Ventiladores", "Económica"],
-    popular: false,
-  },
-];
+import { Users, BedDouble, Bath, Home, Sun, CheckCircle, Clock } from "lucide-react";
+import villaAerial from "@/assets/villa-aerial.jpg";
+import poolDay from "@/assets/pool-day.jpg";
 
 export function CabinsPreviewSection() {
   return (
@@ -66,107 +23,174 @@ export function CabinsPreviewSection() {
           className="text-center mb-16"
         >
           <span className="text-cta font-body text-sm tracking-wider uppercase">
-            Alojamientos
+            Opciones de Reserva
           </span>
           <h2 className="font-display text-3xl md:text-5xl font-bold text-foreground mt-3">
-            Nuestras Cabañas
+            Elige Tu Experiencia
           </h2>
           <p className="font-body text-muted-foreground mt-4 max-w-2xl mx-auto text-lg">
-            Tres opciones para todos los gustos y presupuestos. Todas incluyen acceso a piscina y zonas comunes.
+            Dos formas de disfrutar Villa Roli: alquila toda la finca o ven por el día.
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-          {cabins.map((cabin, index) => (
-            <motion.div
-              key={cabin.name}
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: index * 0.15 }}
-              className="group"
-            >
-              <Link to={`/alojamiento/${cabin.slug}`} className="block h-full">
-                <div className="bg-card rounded-3xl overflow-hidden border border-border hover:border-cta/50 transition-all duration-500 hover:shadow-2xl hover:shadow-cta/10 h-full flex flex-col relative">
-                  {/* Popular Badge */}
-                  {cabin.popular && (
-                    <div className="absolute top-4 right-4 z-20">
-                      <span className="inline-flex items-center gap-1 px-3 py-1.5 bg-cta text-white font-bold text-xs rounded-full shadow-lg">
-                        <Star size={12} fill="currentColor" />
-                        MÁS POPULAR
-                      </span>
-                    </div>
-                  )}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+          {/* Finca Completa */}
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="group"
+          >
+            <Link to="/alojamiento" className="block h-full">
+              <div className="bg-card rounded-3xl overflow-hidden border-2 border-gold hover:shadow-2xl hover:shadow-gold/20 transition-all duration-500 h-full flex flex-col">
+                {/* Image */}
+                <div className="relative h-72 overflow-hidden">
+                  <img
+                    src={villaAerial}
+                    alt="Finca Completa Villa Roli"
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+                  
+                  {/* Badge */}
+                  <div className="absolute top-4 right-4 z-20">
+                    <span className="inline-flex items-center gap-1 px-3 py-1.5 bg-gold text-foreground font-bold text-xs rounded-full shadow-lg">
+                      ⭐ EXCLUSIVO
+                    </span>
+                  </div>
 
-                  {/* Image */}
-                  <div className="relative h-80 overflow-hidden">
-                    <img
-                      src={cabin.image}
-                      alt={cabin.name}
-                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent" />
-                    
-                    {/* Price Tag */}
-                    <div className="absolute bottom-4 left-4 right-4 flex justify-between items-end">
+                  {/* Price Tag */}
+                  <div className="absolute bottom-4 left-4 right-4">
+                    <div className="flex items-center gap-3">
+                      <Home className="w-8 h-8 text-gold" />
                       <div>
                         <p className="text-cream-light/70 text-sm font-body">Desde</p>
-                        <p className="text-cream-light font-display text-3xl font-bold">
-                          <span className="text-gold">${cabin.price}</span>
+                        <p className="text-cream-light font-display text-2xl font-bold">
+                          <span className="text-gold">$980.000</span>
                           <span className="text-sm font-normal text-cream-light/70"> COP/noche</span>
                         </p>
                       </div>
                     </div>
                   </div>
+                </div>
 
-                  {/* Content */}
-                  <div className="p-6 space-y-4 flex-1 flex flex-col">
-                    <h3 className="font-display text-xl font-bold text-foreground group-hover:text-cta transition-colors">
-                      {cabin.name}
-                    </h3>
-                    
-                    <p className="font-body text-muted-foreground leading-relaxed flex-1">
-                      {cabin.description}
-                    </p>
+                {/* Content */}
+                <div className="p-6 space-y-4 flex-1 flex flex-col">
+                  <h3 className="font-display text-2xl font-bold text-foreground group-hover:text-cta transition-colors">
+                    Finca Completa
+                  </h3>
+                  
+                  <p className="font-body text-muted-foreground leading-relaxed flex-1">
+                    Alquila toda Villa Roli para ti y tu grupo. Incluye las 3 cabañas, todas las zonas comunes, piscinas y servicios exclusivos.
+                  </p>
 
-                    {/* Features Pills */}
-                    <div className="flex flex-wrap gap-2">
-                      {cabin.features.map((feature) => (
-                        <span 
-                          key={feature}
-                          className="px-3 py-1 bg-secondary text-xs font-body text-muted-foreground rounded-full"
-                        >
-                          {feature}
-                        </span>
-                      ))}
+                  {/* Features */}
+                  <div className="grid grid-cols-2 gap-2">
+                    {["3 Cabañas", "37 Personas", "2 Piscinas", "Jacuzzi"].map((feature) => (
+                      <div key={feature} className="flex items-center gap-2">
+                        <CheckCircle className="w-4 h-4 text-gold shrink-0" />
+                        <span className="font-body text-muted-foreground text-sm">{feature}</span>
+                      </div>
+                    ))}
+                  </div>
+
+                  {/* Stats */}
+                  <div className="flex gap-4 pt-4 border-t border-border text-muted-foreground">
+                    <div className="flex items-center gap-1.5">
+                      <Users size={16} className="text-gold" />
+                      <span className="text-sm font-medium">Hasta 37</span>
                     </div>
+                    <div className="flex items-center gap-1.5">
+                      <BedDouble size={16} className="text-gold" />
+                      <span className="text-sm font-medium">14 camas</span>
+                    </div>
+                    <div className="flex items-center gap-1.5">
+                      <Bath size={16} className="text-gold" />
+                      <span className="text-sm font-medium">4 baños</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </Link>
+          </motion.div>
 
-                    {/* Stats */}
-                    <div className="flex gap-4 pt-4 border-t border-border text-muted-foreground">
-                      <div className="flex items-center gap-1.5">
-                        <Users size={16} className="text-gold" />
-                        <span className="text-sm font-medium">{cabin.guests}</span>
-                      </div>
-                      <div className="flex items-center gap-1.5">
-                        <BedDouble size={16} className="text-gold" />
-                        <span className="text-sm font-medium">{cabin.beds}</span>
-                      </div>
-                      <div className="flex items-center gap-1.5">
-                        <Bath size={16} className="text-gold" />
-                        <span className="text-sm font-medium">{cabin.baths}</span>
-                      </div>
-                      <div className="ml-auto">
-                        <span className="inline-flex items-center gap-1 text-cta font-medium text-sm group-hover:gap-2 transition-all">
-                          Ver más
-                          <ArrowRight size={14} />
-                        </span>
+          {/* Pasadía */}
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.15 }}
+            className="group"
+          >
+            <Link to="/alojamiento/pasadias" className="block h-full">
+              <div className="bg-card rounded-3xl overflow-hidden border border-border hover:border-cta/50 transition-all duration-500 hover:shadow-2xl hover:shadow-cta/10 h-full flex flex-col">
+                {/* Image */}
+                <div className="relative h-72 overflow-hidden">
+                  <img
+                    src={poolDay}
+                    alt="Pasadía en Villa Roli"
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+                  
+                  {/* Badge */}
+                  <div className="absolute top-4 right-4 z-20">
+                    <span className="inline-flex items-center gap-1 px-3 py-1.5 bg-cta text-white font-bold text-xs rounded-full shadow-lg">
+                      ☀️ PLAN DEL DÍA
+                    </span>
+                  </div>
+
+                  {/* Price Tag */}
+                  <div className="absolute bottom-4 left-4 right-4">
+                    <div className="flex items-center gap-3">
+                      <Sun className="w-8 h-8 text-gold" />
+                      <div>
+                        <p className="text-cream-light/70 text-sm font-body">Por persona</p>
+                        <p className="text-cream-light font-display text-2xl font-bold">
+                          <span className="text-gold">$30.000</span>
+                          <span className="text-sm font-normal text-cream-light/70"> COP</span>
+                        </p>
                       </div>
                     </div>
                   </div>
                 </div>
-              </Link>
-            </motion.div>
-          ))}
+
+                {/* Content */}
+                <div className="p-6 space-y-4 flex-1 flex flex-col">
+                  <h3 className="font-display text-2xl font-bold text-foreground group-hover:text-cta transition-colors">
+                    Pasadía
+                  </h3>
+                  
+                  <p className="font-body text-muted-foreground leading-relaxed flex-1">
+                    Disfruta un día completo sin hospedarte. Acceso a piscinas, zonas verdes, jacuzzi y todas las áreas comunes.
+                  </p>
+
+                  {/* Features */}
+                  <div className="grid grid-cols-2 gap-2">
+                    {["2 Piscinas", "Jacuzzi", "Zonas verdes", "Parqueadero"].map((feature) => (
+                      <div key={feature} className="flex items-center gap-2">
+                        <CheckCircle className="w-4 h-4 text-gold shrink-0" />
+                        <span className="font-body text-muted-foreground text-sm">{feature}</span>
+                      </div>
+                    ))}
+                  </div>
+
+                  {/* Stats */}
+                  <div className="flex gap-4 pt-4 border-t border-border text-muted-foreground">
+                    <div className="flex items-center gap-1.5">
+                      <Clock size={16} className="text-gold" />
+                      <span className="text-sm font-medium">9AM - 6PM</span>
+                    </div>
+                    <div className="flex items-center gap-1.5">
+                      <Users size={16} className="text-gold" />
+                      <span className="text-sm font-medium">Hasta 50</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </Link>
+          </motion.div>
         </div>
 
         {/* Bottom CTA */}
@@ -191,12 +215,9 @@ export function CabinsPreviewSection() {
               size="lg"
               className="border-primary text-primary hover:bg-primary hover:text-primary-foreground px-8"
             >
-              <Link to="/alojamiento">Ver Todas las Cabañas</Link>
+              <Link to="/alojamiento">Ver Más Detalles</Link>
             </Button>
           </div>
-          <p className="text-muted-foreground font-body text-sm">
-            💡 ¿Solo quieres pasar el día? <Link to="/alojamiento/pasadias" className="text-cta hover:underline font-semibold">Conoce nuestros pasadías</Link>
-          </p>
         </motion.div>
       </div>
     </section>
