@@ -10,21 +10,12 @@ import {
   Clock, 
   CheckCircle,
   Phone,
-  Calendar
+  Calendar,
+  Info
 } from "lucide-react";
 import poolDay from "@/assets/pool-day.jpg";
 import villaPanoramica from "@/assets/villa-panoramica.jpg";
-
-const incluidos = [
-  "Acceso a piscina para adultos",
-  "Acceso a piscina para niños",
-  "Jacuzzi",
-  "Zonas verdes y jardines",
-  "Parqueadero privado",
-  "Zona de BBQ disponible",
-  "Sillas y mesas de descanso",
-  "Baños y duchas",
-];
+import { PASADIA_PRICES, PASADIA_INFO, HORA_ADICIONAL } from "@/lib/pricing";
 
 const opcionales = [
   { item: "Almuerzo típico", precio: "25.000 COP/persona" },
@@ -93,7 +84,7 @@ const Pasadias = () => {
                 <div className="bg-secondary rounded-2xl p-5 text-center">
                   <Clock className="w-8 h-8 text-gold mx-auto mb-2" />
                   <p className="font-body text-sm text-muted-foreground">Horario</p>
-                  <p className="font-display font-semibold text-foreground">9:00 AM - 6:00 PM</p>
+                  <p className="font-display font-semibold text-foreground">{PASADIA_INFO.horario}</p>
                 </div>
                 <div className="bg-secondary rounded-2xl p-5 text-center">
                   <Users className="w-8 h-8 text-gold mx-auto mb-2" />
@@ -108,7 +99,7 @@ const Pasadias = () => {
                   Incluido en la tarifa
                 </h3>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
-                  {incluidos.map((item) => (
+                  {PASADIA_INFO.incluye.map((item) => (
                     <div key={item} className="flex items-center gap-2">
                       <CheckCircle className="w-5 h-5 text-gold shrink-0" />
                       <span className="font-body text-muted-foreground">{item}</span>
@@ -117,11 +108,29 @@ const Pasadias = () => {
                 </div>
               </div>
 
-              {/* Price */}
-              <div className="bg-gradient-to-r from-primary to-primary/80 rounded-2xl p-6 text-center">
-                <p className="text-cream-light/80 font-body text-sm mb-1">Tarifa por persona</p>
-                <p className="font-display text-4xl font-bold text-gold">$30.000 COP</p>
-                <p className="text-cream-light/60 font-body text-sm mt-1">Niños menores de 3 años gratis</p>
+              {/* Prices */}
+              <div className="space-y-4">
+                <div className="bg-gradient-to-r from-primary to-primary/80 rounded-2xl p-6">
+                  <div className="flex justify-between items-center mb-4">
+                    <div>
+                      <p className="text-cream-light/80 font-body text-sm mb-1">Entre Semana (Lunes a Jueves)</p>
+                      <p className="font-display text-3xl font-bold text-gold">${PASADIA_PRICES.entreSemana.toLocaleString()} COP</p>
+                    </div>
+                    <div className="text-right">
+                      <p className="text-cream-light/80 font-body text-sm mb-1">Fin de Semana (Vie - Dom)</p>
+                      <p className="font-display text-3xl font-bold text-gold">${PASADIA_PRICES.finDeSemana.toLocaleString()} COP</p>
+                    </div>
+                  </div>
+                  <p className="text-cream-light/60 font-body text-sm text-center">Por persona • Niños menores de 3 años gratis</p>
+                </div>
+                
+                <div className="bg-secondary rounded-xl p-4 flex items-start gap-3">
+                  <Info className="w-5 h-5 text-gold shrink-0 mt-0.5" />
+                  <div className="text-sm text-muted-foreground">
+                    <p className="font-semibold text-foreground mb-1">{PASADIA_INFO.nota}</p>
+                    <p>Hora adicional (entrada temprana o salida tarde): <span className="text-gold font-semibold">${HORA_ADICIONAL.toLocaleString()}</span></p>
+                  </div>
+                </div>
               </div>
             </motion.div>
 
