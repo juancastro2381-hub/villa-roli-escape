@@ -15,6 +15,7 @@ import { Calendar, Users, Home, Info, MessageCircle, Sun, Heart, UserCheck, Moon
 import { useState, useMemo } from "react";
 import { useToast } from "@/hooks/use-toast";
 import reservasHero from "@/assets/reservas-hero.jpg";
+import { AvailabilityCalendar } from "@/components/ui/AvailabilityCalendar";
 import {
   WHATSAPP_NUMBER,
   PASADIA_PRICES,
@@ -610,6 +611,9 @@ Enviado desde el formulario web de Villa Roli`;
               className="lg:col-span-1"
             >
               <div className="sticky top-32 space-y-8">
+                {/* Calendario de Disponibilidad */}
+                <AvailabilityCalendar />
+
                 {/* Acomodaciones */}
                 <div className="bg-card rounded-2xl p-8 border border-border">
                   <h3 className="font-display text-xl font-semibold text-foreground mb-4">
