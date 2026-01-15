@@ -14,7 +14,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Calendar, Users, Home, Info, MessageCircle, Sun, Heart, UserCheck, Moon, CheckCircle, AlertCircle } from "lucide-react";
 import { useState, useMemo } from "react";
 import { useToast } from "@/hooks/use-toast";
-import reservasHero from "@/assets/reservas-hero.jpg";
+import fincaPiscinaNoche from "@/assets/finca-piscina-noche2.jpg";
 import { AvailabilityCalendar } from "@/components/ui/AvailabilityCalendar";
 import {
   WHATSAPP_NUMBER,
@@ -154,9 +154,10 @@ Enviado desde el formulario web de Villa Roli`;
       <section className="relative h-[50vh] min-h-[400px] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0">
           <img
-            src={reservasHero}
+            src={fincaPiscinaNoche}
             alt="Reservas en Villa Roli"
             className="w-full h-full object-cover"
+            loading="lazy"
           />
           <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/20 to-black/40" />
         </div>

@@ -2,8 +2,8 @@ import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Users, BedDouble, Bath, Home, Sun, CheckCircle, Clock } from "lucide-react";
-import villaAerial from "@/assets/villa-aerial.jpg";
-import poolDay from "@/assets/pool-day.jpg";
+import fincaVistaAerea from "@/assets/finca-vista-aerea2.jpg";
+import pasadiaPiscina from "@/assets/pasadia-piscina1.jpg";
 
 export function CabinsPreviewSection() {
   return (
@@ -47,9 +47,10 @@ export function CabinsPreviewSection() {
                 {/* Image */}
                 <div className="relative h-72 overflow-hidden">
                   <img
-                    src={villaAerial}
+                    src={fincaVistaAerea}
                     alt="Finca Completa Villa Roli"
                     className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                    loading="lazy"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
                   
@@ -128,9 +129,10 @@ export function CabinsPreviewSection() {
                 {/* Image */}
                 <div className="relative h-72 overflow-hidden">
                   <img
-                    src={poolDay}
+                    src={pasadiaPiscina}
                     alt="Pasadía en Villa Roli"
                     className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                    loading="lazy"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
                   

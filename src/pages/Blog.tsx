@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { Layout } from "@/components/layout/Layout";
 import { ArrowRight, Calendar, User } from "lucide-react";
-import blogHero from "@/assets/blog-hero.jpg";
+import fincaVistaAerea from "@/assets/finca-vista-aerea1.jpg";
 
 const blogPosts = [
   {
@@ -83,9 +83,10 @@ const Blog = () => {
       <section className="relative h-[50vh] min-h-[400px] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0">
           <img
-            src={blogHero}
+            src={fincaVistaAerea}
             alt="Blog Villa Roli"
             className="w-full h-full object-cover"
+            loading="lazy"
           />
           <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/20 to-black/40" />
         </div>

@@ -13,8 +13,8 @@ import {
   Calendar,
   Info
 } from "lucide-react";
-import poolDay from "@/assets/pool-day.jpg";
-import villaPanoramica from "@/assets/villa-panoramica.jpg";
+import pasadiaPiscina from "@/assets/pasadia-piscina1.jpg";
+import pasadiaVistaAerea from "@/assets/pasadia-vista-aerea.jpg";
 import { PASADIA_PRICES, PASADIA_INFO, HORA_ADICIONAL } from "@/lib/pricing";
 
 const opcionales = [
@@ -31,9 +31,10 @@ const Pasadias = () => {
       <section className="relative h-[60vh] min-h-[500px] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0">
           <img
-            src={poolDay}
+            src={pasadiaPiscina}
             alt="Pasadías en Villa Roli"
             className="w-full h-full object-cover"
+            loading="lazy"
           />
           <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/40 to-black/70" />
         </div>
@@ -143,9 +144,10 @@ const Pasadias = () => {
             >
               <div className="relative rounded-3xl overflow-hidden shadow-2xl">
                 <img
-                  src={villaPanoramica}
+                  src={pasadiaVistaAerea}
                   alt="Vista panorámica de Villa Roli"
                   className="w-full h-[500px] object-cover"
+                  loading="lazy"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
                 <div className="absolute bottom-6 left-6 right-6">

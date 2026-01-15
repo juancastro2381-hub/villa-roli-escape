@@ -7,7 +7,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { MapPin, Phone, Mail, Clock, Send } from "lucide-react";
 import { useState } from "react";
 import { useToast } from "@/hooks/use-toast";
-import contactoHero from "@/assets/contacto-hero.jpg";
+import fincaZonaSocial from "@/assets/finca-zona-social.jpg";
 
 const Contacto = () => {
   const { toast } = useToast();
@@ -35,9 +35,10 @@ const Contacto = () => {
       <section className="relative h-[50vh] min-h-[400px] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0">
           <img
-            src={contactoHero}
+            src={fincaZonaSocial}
             alt="Contacto Villa Roli"
             className="w-full h-full object-cover"
+            loading="lazy"
           />
           <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/20 to-black/40" />
         </div>

@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { ChevronDown, Phone } from "lucide-react";
-import heroImage from "@/assets/hero-cabin.jpg";
+import fincaVistaAerea from "@/assets/finca-vista-aerea4.jpg";
 
 export function HeroSection() {
   return (
@@ -13,7 +13,7 @@ export function HeroSection() {
           initial={{ scale: 1.1 }}
           animate={{ scale: 1 }}
           transition={{ duration: 1.5, ease: "easeOut" }}
-          src={heroImage}
+          src={fincaVistaAerea}
           alt="Villa Roli - Finca de recreación con piscina y cabañas"
           className="w-full h-full object-cover"
         />
