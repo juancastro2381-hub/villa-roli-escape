@@ -3,18 +3,19 @@ import { Link } from "react-router-dom";
 import { Layout } from "@/components/layout/Layout";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Users, BedDouble, Bath, Wifi, Fan, Utensils, Tv, Sun, Home, Waves, CheckCircle, Clock } from "lucide-react";
-import cabin1 from "@/assets/cabin-1.jpg";
-import cabin2 from "@/assets/cabin-2.jpg";
-import cabin3 from "@/assets/cabin-3.jpg";
-import heroImage from "@/assets/hero-cabin.jpg";
-import villaAerial from "@/assets/villa-aerial.jpg";
-import poolDay from "@/assets/pool-day.jpg";
+// Cabañas
+import cabana1Sala from "@/assets/cabana-1-sala.jpg";
+import cabana2Habitacion from "@/assets/cabana-2-habitacion1.jpg";
+import cabana3Habitacion from "@/assets/cabana-3-habitacion2.jpg";
+// Finca y Pasadía
+import fincaVistaAerea from "@/assets/finca-vista-aerea2.jpg";
+import pasadiaPiscina from "@/assets/pasadia-piscina1.jpg";
 
 // Datos de las acomodaciones (cabañas como parte de la finca)
 const acomodaciones = [
   {
     name: "Cabaña 1 - Familiar",
-    image: cabin1,
+    image: cabana1Sala,
     description:
       "La cabaña más completa. Con sala de estar, TV, cocina integral, nevera. Perfecta para familias grandes.",
     guests: 12,
@@ -25,7 +26,7 @@ const acomodaciones = [
   },
   {
     name: "Cabaña 2 - Grupal",
-    image: cabin2,
+    image: cabana2Habitacion,
     description:
       "Ideal para grupos grandes. Con 8 camas dobles, 4 camas sencillas y amplia terraza con columpio.",
     guests: 20,
@@ -36,7 +37,7 @@ const acomodaciones = [
   },
   {
     name: "Cabaña 3 - Económica",
-    image: cabin3,
+    image: cabana3Habitacion,
     description:
       "Opción cómoda y accesible con baño privado y ventiladores. Ideal para grupos pequeños.",
     guests: 5,
@@ -65,9 +66,10 @@ const Alojamiento = () => {
       <section className="relative h-[50vh] min-h-[400px] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0">
           <img
-            src={heroImage}
+            src={fincaVistaAerea}
             alt="Alojamiento en Villa Roli"
             className="w-full h-full object-cover"
+            loading="lazy"
           />
           <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/20 to-black/40" />
         </div>
@@ -121,9 +123,10 @@ const Alojamiento = () => {
               <div className="bg-card rounded-3xl overflow-hidden border-2 border-gold shadow-2xl h-full flex flex-col">
                 <div className="relative h-72 overflow-hidden">
                   <img
-                    src={villaAerial}
+                    src={fincaVistaAerea}
                     alt="Finca Completa Villa Roli"
                     className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                    loading="lazy"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
                   <div className="absolute top-4 left-4">
@@ -202,9 +205,10 @@ const Alojamiento = () => {
               <div className="bg-card rounded-3xl overflow-hidden border border-border hover:border-cta/50 transition-all duration-500 h-full flex flex-col">
                 <div className="relative h-72 overflow-hidden">
                   <img
-                    src={poolDay}
+                    src={pasadiaPiscina}
                     alt="Pasadía en Villa Roli"
                     className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                    loading="lazy"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
                   <div className="absolute top-4 left-4">
