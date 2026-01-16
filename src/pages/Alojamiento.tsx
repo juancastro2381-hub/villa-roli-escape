@@ -2,54 +2,119 @@ import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { Layout } from "@/components/layout/Layout";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Users, BedDouble, Bath, Wifi, Fan, Utensils, Tv, Sun, Home, Waves, CheckCircle, Clock } from "lucide-react";
-// Cabañas
-import cabana1Sala from "@/assets/cabana-1-sala.jpg";
-import cabana2Habitacion from "@/assets/cabana-2-habitacion1.jpg";
-import cabana3Habitacion from "@/assets/cabana-3-habitacion2.jpg";
-// Finca y Pasadía
+import { Users, BedDouble, Bath, CheckCircle, Clock, Sun, Home, Waves } from "lucide-react";
+import CabinTour from "@/components/ui/CabinTour";
+import PasadiaSection from "@/components/ui/PasadiaSection";
+
+// Finca Completa hero
 import fincaVistaAerea from "@/assets/finca-vista-aerea2.jpg";
 import pasadiaPiscina from "@/assets/pasadia-piscina1.jpg";
 
-// Datos de las acomodaciones (cabañas como parte de la finca)
-const acomodaciones = [
+// Cabaña 1 - Familiar
+import cabana1Sala from "@/assets/cabana-1-sala.jpg";
+import cabana1Exterior from "@/assets/cabana-1-exterior.jpg";
+import cabana1Habitacion1 from "@/assets/cabana-1-habitacion1.jpg";
+import cabana1Habitacion2 from "@/assets/cabana-1-habitacion2.jpg";
+import cabana1Habitacion3 from "@/assets/cabana-1-habitacion3.jpg";
+import cabana1Bano1 from "@/assets/cabana-1-bano1.jpg";
+import cabana1Bano2 from "@/assets/cabana-1-bano2.jpg";
+import cabana1Video from "@/assets/cabana-1-video.mp4";
+
+// Cabaña 2 - Grupal
+import cabana2Habitacion1 from "@/assets/cabana-2-habitacion1.jpg";
+import cabana2Habitacion2 from "@/assets/cabana-2-habitacion2.jpg";
+import cabana2Habitacion3 from "@/assets/cabana-2-habitacion3.jpg";
+import cabana2Exterior from "@/assets/cabana-2-exterior.jpg";
+import cabana2Bano1 from "@/assets/cabana-2-bano1.jpg";
+import cabana2Bano2 from "@/assets/cabana-2-bano2.jpg";
+import cabana2Video from "@/assets/cabana-2-video.mp4";
+
+// Cabaña 3 - Económica
+import cabana3Habitacion1 from "@/assets/cabana-3-habitacion1.jpg";
+import cabana3Habitacion2 from "@/assets/cabana-3-habitacion2.jpg";
+import cabana3Bano from "@/assets/cabana-3-bano.jpg";
+import cabana3Video from "@/assets/cabana-3-video.mp4";
+
+// Datos completos de las cabañas
+const cabanas = [
   {
     name: "Cabaña 1 - Familiar",
-    image: cabana1Sala,
-    description:
-      "La cabaña más completa. Con sala de estar, TV, cocina integral, nevera. Perfecta para familias grandes.",
+    description: "La cabaña más completa de Villa Roli. Cuenta con una acogedora sala de estar con TV, cocina integral totalmente equipada con nevera, y cómodos ventiladores en todas las habitaciones. Incluye sofá cama para huéspedes adicionales. Perfecta para familias grandes que buscan comodidad y privacidad.",
     guests: 12,
-    beds: 4,
+    beds: "4 habitaciones con camas dobles",
     baths: 2,
-    amenities: [Tv, Utensils, Fan, Wifi],
-    features: ["Sala TV", "Cocina integral", "Nevera", "2 Baños", "Ventiladores", "Sofá cama"],
+    features: [
+      "Sala de estar con TV",
+      "Cocina integral",
+      "Nevera",
+      "2 Baños completos",
+      "Ventiladores",
+      "Sofá cama",
+      "WiFi disponible"
+    ],
+    images: [
+      { src: cabana1Sala, alt: "Sala de estar Cabaña 1" },
+      { src: cabana1Exterior, alt: "Exterior Cabaña 1" },
+      { src: cabana1Habitacion1, alt: "Habitación principal Cabaña 1" },
+      { src: cabana1Habitacion2, alt: "Segunda habitación Cabaña 1" },
+      { src: cabana1Habitacion3, alt: "Tercera habitación Cabaña 1" },
+      { src: cabana1Bano1, alt: "Baño principal Cabaña 1" },
+      { src: cabana1Bano2, alt: "Segundo baño Cabaña 1" },
+    ],
+    video: cabana1Video,
   },
   {
     name: "Cabaña 2 - Grupal",
-    image: cabana2Habitacion,
-    description:
-      "Ideal para grupos grandes. Con 8 camas dobles, 4 camas sencillas y amplia terraza con columpio.",
+    description: "Ideal para grupos grandes de amigos o familias extensas. Con amplio espacio que incluye 8 camas dobles y 4 camas sencillas. Cuenta con una espaciosa terraza con columpio para relajarse y disfrutar de las vistas. Ventiladores en todas las áreas para mayor confort.",
     guests: 20,
-    beds: 8,
-    baths: 1,
-    amenities: [Fan, Wifi],
-    features: ["8 Camas dobles", "4 Camas sencillas", "Terraza", "Columpio", "Ventiladores"],
+    beds: "8 camas dobles + 4 camas sencillas",
+    baths: 2,
+    features: [
+      "8 Camas dobles",
+      "4 Camas sencillas",
+      "Terraza amplia",
+      "Columpio",
+      "Ventiladores",
+      "2 Baños",
+      "WiFi disponible"
+    ],
+    images: [
+      { src: cabana2Habitacion1, alt: "Habitación principal Cabaña 2" },
+      { src: cabana2Habitacion2, alt: "Segunda habitación Cabaña 2" },
+      { src: cabana2Habitacion3, alt: "Tercera habitación Cabaña 2" },
+      { src: cabana2Exterior, alt: "Exterior y terraza Cabaña 2" },
+      { src: cabana2Bano1, alt: "Baño principal Cabaña 2" },
+      { src: cabana2Bano2, alt: "Segundo baño Cabaña 2" },
+    ],
+    video: cabana2Video,
   },
   {
-    name: "Cabaña 3 - Económica",
-    image: cabana3Habitacion,
-    description:
-      "Opción cómoda y accesible con baño privado y ventiladores. Ideal para grupos pequeños.",
+    name: "Cabaña 3 - Íntima",
+    description: "La opción perfecta para grupos pequeños, parejas o familias. Ofrece un ambiente acogedor con una cama doble y un camarote. Baño privado y ventiladores para su comodidad. Esta cabaña es la elegida para los planes Familia y Pareja.",
     guests: 5,
-    beds: 2,
+    beds: "1 cama doble + 1 camarote",
     baths: 1,
-    amenities: [Fan],
-    features: ["1 Cama doble", "1 Camarote", "1 Baño", "Ventiladores"],
+    features: [
+      "1 Cama doble",
+      "1 Camarote",
+      "Baño privado",
+      "Ventiladores",
+      "Ambiente íntimo",
+      "Ideal para Plan Pareja",
+      "Ideal para Plan Familia"
+    ],
+    images: [
+      { src: cabana3Habitacion1, alt: "Habitación principal Cabaña 3" },
+      { src: cabana3Habitacion2, alt: "Segunda habitación Cabaña 3" },
+      { src: cabana3Bano, alt: "Baño Cabaña 3" },
+    ],
+    video: cabana3Video,
   },
 ];
 
-// Servicios incluidos en ambas opciones
-const serviciosIncluidos = [
+// Servicios incluidos en Finca Completa
+const serviciosFincaCompleta = [
+  "Acceso a las 3 cabañas",
   "Piscina para adultos",
   "Piscina para niños",
   "Jacuzzi",
@@ -84,7 +149,7 @@ const Alojamiento = () => {
               Alojamiento
             </span>
             <h1 className="font-display text-4xl md:text-6xl font-bold text-cream-light">
-              Reserva Villa Roli
+              Alojamiento en Villa Roli
             </h1>
             <p className="font-body text-cream-light/80 text-lg mt-4 max-w-2xl mx-auto">
               Dos opciones para disfrutar: alquila toda la finca o ven por el día.
@@ -93,7 +158,7 @@ const Alojamiento = () => {
         </div>
       </section>
 
-      {/* Opciones de Reserva */}
+      {/* Opciones de Reserva - Resumen */}
       <section className="section-padding bg-background">
         <div className="container-custom">
           <motion.div
@@ -161,7 +226,7 @@ const Alojamiento = () => {
                     </div>
                     <div className="flex items-center gap-2 text-foreground">
                       <Bath size={22} className="text-gold" />
-                      <span className="font-body font-medium">4 Baños</span>
+                      <span className="font-body font-medium">5 Baños</span>
                     </div>
                   </div>
 
@@ -169,7 +234,7 @@ const Alojamiento = () => {
                   <div className="space-y-3 mb-6 flex-1">
                     <p className="font-display font-semibold text-foreground">Incluye:</p>
                     <div className="grid grid-cols-2 gap-2">
-                      {serviciosIncluidos.map((item) => (
+                      {serviciosFincaCompleta.map((item) => (
                         <div key={item} className="flex items-center gap-2">
                           <CheckCircle className="w-4 h-4 text-gold shrink-0" />
                           <span className="font-body text-muted-foreground text-sm">{item}</span>
@@ -181,14 +246,12 @@ const Alojamiento = () => {
                   {/* Precio y CTA */}
                   <div className="bg-primary rounded-2xl p-6 text-center mb-6">
                     <p className="text-cream-light/80 font-body text-sm mb-1">Desde</p>
-                    <p className="font-display text-4xl font-bold text-gold">$980.000 COP</p>
-                    <p className="text-cream-light/60 font-body text-sm mt-1">por noche</p>
+                    <p className="font-display text-4xl font-bold text-gold">$50.000 COP</p>
+                    <p className="text-cream-light/60 font-body text-sm mt-1">por persona / noche</p>
                   </div>
 
                   <Button asChild size="lg" className="w-full font-bold py-6 text-lg">
-                    <Link to="/reservas">
-                      Reservar Finca Completa
-                    </Link>
+                    <Link to="/reservas">Reservar Finca Completa</Link>
                   </Button>
                 </div>
               </div>
@@ -235,11 +298,11 @@ const Alojamiento = () => {
                   <div className="flex flex-wrap gap-6 py-4 border-y border-border mb-6">
                     <div className="flex items-center gap-2 text-foreground">
                       <Clock size={22} className="text-gold" />
-                      <span className="font-body font-medium">9:00 AM - 6:00 PM</span>
+                      <span className="font-body font-medium">8:00 AM - 5:00 PM</span>
                     </div>
                     <div className="flex items-center gap-2 text-foreground">
                       <Users size={22} className="text-gold" />
-                      <span className="font-body font-medium">Hasta 50 personas</span>
+                      <span className="font-body font-medium">Sin límite de personas</span>
                     </div>
                   </div>
 
@@ -259,14 +322,12 @@ const Alojamiento = () => {
                   {/* Precio y CTA */}
                   <div className="bg-secondary rounded-2xl p-6 text-center mb-6">
                     <p className="text-muted-foreground font-body text-sm mb-1">Por persona</p>
-                    <p className="font-display text-4xl font-bold text-gold">$30.000 COP</p>
+                    <p className="font-display text-4xl font-bold text-gold">$15.000 - $20.000</p>
                     <p className="text-muted-foreground font-body text-sm mt-1">Niños menores de 3 años gratis</p>
                   </div>
 
                   <Button asChild size="lg" className="w-full font-bold py-6 text-lg">
-                    <Link to="/alojamiento/pasadias">
-                      Ver Detalles del Pasadía
-                    </Link>
+                    <a href="#pasadia">Ver Detalles del Pasadía</a>
                   </Button>
                 </div>
               </div>
@@ -275,7 +336,7 @@ const Alojamiento = () => {
         </div>
       </section>
 
-      {/* Acomodaciones (Cabañas como referencia) */}
+      {/* Distribución de la Finca - Tours Virtuales de Cabañas */}
       <section className="section-padding bg-secondary">
         <div className="container-custom">
           <motion.div
@@ -292,66 +353,30 @@ const Alojamiento = () => {
               Nuestras Acomodaciones
             </h2>
             <p className="font-body text-muted-foreground mt-4 max-w-2xl mx-auto">
-              Al reservar la finca completa, tendrás acceso a las 3 cabañas con capacidad total para 37 personas.
+              Al reservar la Finca Completa, tendrás acceso a las 3 cabañas con capacidad total para 37 personas. Explora cada una con nuestros tours virtuales.
             </p>
           </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {acomodaciones.map((cabin, index) => (
+          {/* Cabin Tours */}
+          <div className="space-y-10">
+            {cabanas.map((cabin, index) => (
               <motion.div
                 key={cabin.name}
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
-                className="bg-card rounded-2xl overflow-hidden border border-border"
               >
-                <div className="relative h-48">
-                  <img
-                    src={cabin.image}
-                    alt={cabin.name}
-                    className="w-full h-full object-cover"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
-                  <div className="absolute bottom-3 left-3">
-                    <span className="inline-block px-3 py-1 bg-gold/90 text-foreground text-sm font-bold rounded-full">
-                      {cabin.guests} personas
-                    </span>
-                  </div>
-                </div>
-                
-                <div className="p-6">
-                  <h3 className="font-display text-xl font-bold text-foreground mb-2">
-                    {cabin.name}
-                  </h3>
-                  <p className="font-body text-muted-foreground text-sm mb-4">
-                    {cabin.description}
-                  </p>
-                  
-                  {/* Stats */}
-                  <div className="flex gap-4 text-sm text-muted-foreground border-t border-border pt-4">
-                    <div className="flex items-center gap-1">
-                      <BedDouble size={16} className="text-gold" />
-                      <span>{cabin.beds} camas</span>
-                    </div>
-                    <div className="flex items-center gap-1">
-                      <Bath size={16} className="text-gold" />
-                      <span>{cabin.baths} baño{cabin.baths > 1 ? "s" : ""}</span>
-                    </div>
-                  </div>
-
-                  {/* Features */}
-                  <div className="flex flex-wrap gap-1 mt-4">
-                    {cabin.features.slice(0, 3).map((feature) => (
-                      <span
-                        key={feature}
-                        className="px-2 py-1 bg-secondary text-xs font-body text-muted-foreground rounded-full"
-                      >
-                        {feature}
-                      </span>
-                    ))}
-                  </div>
-                </div>
+                <CabinTour
+                  name={cabin.name}
+                  description={cabin.description}
+                  guests={cabin.guests}
+                  beds={cabin.beds}
+                  baths={cabin.baths}
+                  features={cabin.features}
+                  images={cabin.images}
+                  video={cabin.video}
+                />
               </motion.div>
             ))}
           </div>
@@ -361,10 +386,10 @@ const Alojamiento = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.4 }}
-            className="text-center mt-10"
+            className="text-center mt-12"
           >
             <p className="font-body text-muted-foreground mb-4">
-              Todas las cabañas están incluidas al reservar la finca completa.
+              Todas las cabañas están incluidas al reservar la Finca Completa.
             </p>
             <Button asChild size="lg" className="font-bold px-10">
               <Link to="/reservas">Reservar Finca Completa</Link>
@@ -372,6 +397,11 @@ const Alojamiento = () => {
           </motion.div>
         </div>
       </section>
+
+      {/* Pasadía Section */}
+      <div id="pasadia">
+        <PasadiaSection />
+      </div>
 
       {/* Bottom CTA */}
       <section className="py-16 bg-primary">

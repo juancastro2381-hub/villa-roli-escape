@@ -143,7 +143,7 @@ Enviado desde el formulario web de Villa Roli`;
   const personasOptions = useMemo(() => {
     if (formData.tipoReserva === "plan-pareja") return [2];
     if (formData.tipoReserva === "plan-familia") return [1, 2, 3, 4, 5];
-    if (formData.tipoReserva?.startsWith("pasadia")) return Array.from({ length: 50 }, (_, i) => i + 1);
+    if (formData.tipoReserva?.startsWith("pasadia")) return Array.from({ length: 100 }, (_, i) => i + 1);
     if (formData.tipoReserva?.startsWith("noches")) return Array.from({ length: 37 }, (_, i) => i + 1);
     return Array.from({ length: 37 }, (_, i) => i + 1);
   }, [formData.tipoReserva]);
@@ -172,7 +172,7 @@ Enviado desde el formulario web de Villa Roli`;
               Reservas
             </span>
             <h1 className="font-display text-4xl md:text-6xl font-bold text-cream-light">
-              Reservar Villa Roli
+              Reservar Finca
             </h1>
             <p className="font-body text-cream-light/80 text-lg mt-4 max-w-2xl mx-auto">
               Selecciona tu plan ideal y completa el formulario para enviar tu solicitud.
