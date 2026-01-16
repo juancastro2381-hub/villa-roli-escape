@@ -13,10 +13,10 @@ export function Footer() {
               reconecta y vive momentos inolvidables.
             </p>
             <div className="flex gap-4 pt-2">
-              <a href="#" className="p-2 rounded-full bg-primary-foreground/10 hover:bg-gold/20 hover:text-gold transition-colors">
+              <a href="https://www.instagram.com/villaroli.tocaima" target="_blank" rel="noopener noreferrer" className="p-2 rounded-full bg-primary-foreground/10 hover:bg-gold/20 hover:text-gold transition-colors">
                 <Instagram size={20} />
               </a>
-              <a href="#" className="p-2 rounded-full bg-primary-foreground/10 hover:bg-gold/20 hover:text-gold transition-colors">
+              <a href="https://www.facebook.com/villaroliTocaimaCundinamarca" target="_blank" rel="noopener noreferrer" className="p-2 rounded-full bg-primary-foreground/10 hover:bg-gold/20 hover:text-gold transition-colors">
                 <Facebook size={20} />
               </a>
             </div>
@@ -66,20 +66,25 @@ export function Footer() {
             <div className="space-y-3">
               <div className="flex items-start gap-3">
                 <MapPin size={20} className="text-gold shrink-0 mt-1" />
-                <span className="font-body text-primary-foreground/80">
-                  Vereda El Refugio, Municipio Campestre, Colombia
-                </span>
+                <a 
+                  href="https://www.google.com/maps?q=4.430722,-74.683056" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="font-body text-primary-foreground/80 hover:text-gold transition-colors"
+                >
+                  A 5 Km Vía Tocaima - Girardot, Cundinamarca
+                </a>
               </div>
               <div className="flex items-center gap-3">
                 <Phone size={20} className="text-gold shrink-0" />
-                <a href="tel:+573001234567" className="font-body text-primary-foreground/80 hover:text-gold transition-colors">
-                  +57 300 123 4567
+                <a href="https://wa.me/573229726625" target="_blank" rel="noopener noreferrer" className="font-body text-primary-foreground/80 hover:text-gold transition-colors">
+                  +57 322 972 6625
                 </a>
               </div>
               <div className="flex items-center gap-3">
                 <Mail size={20} className="text-gold shrink-0" />
-                <a href="mailto:reservas@villaroli.com" className="font-body text-primary-foreground/80 hover:text-gold transition-colors">
-                  reservas@villaroli.com
+                <a href="mailto:reservavillaroli.toca@gmail.com" className="font-body text-primary-foreground/80 hover:text-gold transition-colors">
+                  reservavillaroli.toca@gmail.com
                 </a>
               </div>
             </div>
