@@ -94,8 +94,8 @@ const Privacidad = () => {
               sus derechos, puede contactarnos en:
             </p>
             <p>
-              <strong>Email:</strong> privacidad@villaroli.com<br />
-              <strong>Teléfono:</strong> +57 300 123 4567
+              <strong>Email:</strong> reservavillaroli.toca@gmail.com<br />
+              <strong>Teléfono:</strong> +57 322 972 6625
             </p>
           </motion.div>
         </div>

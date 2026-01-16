@@ -93,11 +93,16 @@ const Contacto = () => {
                     <h3 className="font-display font-semibold text-foreground mb-1">
                       Ubicación
                     </h3>
-                    <p className="font-body text-muted-foreground">
-                      Vereda El Refugio, Km 5 Vía Campestre
+                    <a 
+                      href="https://www.google.com/maps?q=4.430722,-74.683056" 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="font-body text-muted-foreground hover:text-cta transition-colors"
+                    >
+                      A 5 Km Vía Tocaima - Girardot
                       <br />
-                      Municipio Campestre, Departamento, Colombia
-                    </p>
+                      Tocaima, Cundinamarca, Colombia
+                    </a>
                   </div>
                 </div>
 
@@ -107,13 +112,15 @@ const Contacto = () => {
                   </div>
                   <div>
                     <h3 className="font-display font-semibold text-foreground mb-1">
-                      Teléfono
+                      Teléfono / WhatsApp
                     </h3>
                     <a
-                      href="tel:+573001234567"
+                      href="https://wa.me/573229726625"
+                      target="_blank"
+                      rel="noopener noreferrer"
                       className="font-body text-muted-foreground hover:text-cta transition-colors"
                     >
-                      +57 300 123 4567
+                      +57 322 972 6625
                     </a>
                     <p className="font-body text-sm text-muted-foreground mt-1">
                       WhatsApp disponible
@@ -130,10 +137,10 @@ const Contacto = () => {
                       Email
                     </h3>
                     <a
-                      href="mailto:reservas@villaroli.com"
+                      href="mailto:reservavillaroli.toca@gmail.com"
                       className="font-body text-muted-foreground hover:text-cta transition-colors"
                     >
-                      reservas@villaroli.com
+                      reservavillaroli.toca@gmail.com
                     </a>
                   </div>
                 </div>
@@ -153,11 +160,18 @@ const Contacto = () => {
                 </div>
               </div>
 
-              {/* Map Placeholder */}
-              <div className="bg-secondary rounded-2xl h-64 flex items-center justify-center border border-border">
-                <p className="font-body text-muted-foreground">
-                  Mapa interactivo próximamente
-                </p>
+              {/* Map Embed */}
+              <div className="rounded-2xl overflow-hidden h-64 border border-border">
+                <iframe
+                  src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3979.123!2d-74.683056!3d4.430722!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zNCsyNSc1MC42Ik4gNzTCsDQwJzU5LjAiVw!5e0!3m2!1ses!2sco!4v1700000000000!5m2!1ses!2sco"
+                  width="100%"
+                  height="100%"
+                  style={{ border: 0 }}
+                  allowFullScreen
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                  title="Ubicación Villa Roli"
+                />
               </div>
             </motion.div>
 
@@ -200,7 +214,7 @@ const Contacto = () => {
                     <Input
                       id="telefono"
                       type="tel"
-                      placeholder="+57 300 123 4567"
+                      placeholder="+57 322 972 6625"
                       className="bg-background"
                     />
                   </div>

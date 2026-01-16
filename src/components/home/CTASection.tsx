@@ -45,7 +45,7 @@ export function CTASection() {
               </Button>
               <Button asChild size="lg" className="font-bold px-8 py-6 text-lg">
                 <a
-                  href="https://wa.me/573001234567?text=Hola,%20quiero%20información%20sobre%20Villa%20Roli"
+                  href="https://wa.me/573229726625?text=Hola,%20quiero%20información%20sobre%20Villa%20Roli"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center gap-2"
@@ -73,8 +73,8 @@ export function CTASection() {
               <p className="text-cream-light/70 font-body text-sm mb-3">
                 Atención personalizada
               </p>
-              <a href="tel:+573001234567" className="text-gold font-semibold hover:underline">
-                +57 300 123 4567
+              <a href="https://wa.me/573229726625" target="_blank" rel="noopener noreferrer" className="text-gold font-semibold hover:underline">
+                +57 322 972 6625
               </a>
             </div>
 
@@ -87,7 +87,7 @@ export function CTASection() {
                 Respuesta inmediata
               </p>
               <a
-                href="https://wa.me/573001234567"
+                href="https://wa.me/573229726625"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-gold font-semibold hover:underline"
@@ -101,12 +101,17 @@ export function CTASection() {
               <h3 className="font-display text-xl font-semibold text-cream-light mb-2">
                 Ubicación
               </h3>
-              <p className="text-cream-light/70 font-body">
-                A solo 30 minutos de la ciudad, fácil acceso por carretera pavimentada.
+              <a 
+                href="https://www.google.com/maps?q=4.430722,-74.683056" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="text-cream-light/70 font-body hover:text-gold transition-colors"
+              >
+                A 5 Km Vía Tocaima - Girardot, fácil acceso por carretera pavimentada.
                 <span className="block mt-2 text-gold font-semibold">
-                  📍 Vereda El Recreo, Colombia
+                  📍 Tocaima, Cundinamarca
                 </span>
-              </p>
+              </a>
             </div>
           </motion.div>
         </div>

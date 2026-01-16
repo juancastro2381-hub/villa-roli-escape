@@ -371,7 +371,7 @@ Enviado desde el formulario web de Villa Roli`;
                       <Input
                         id="telefono"
                         type="tel"
-                        placeholder="+57 300 123 4567"
+                        placeholder="+57 322 972 6625"
                         required
                         className="bg-background"
                         value={formData.telefono}
