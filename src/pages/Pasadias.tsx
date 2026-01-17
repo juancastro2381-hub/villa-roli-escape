@@ -90,7 +90,7 @@ const Pasadias = () => {
                 <div className="bg-secondary rounded-2xl p-5 text-center">
                   <Users className="w-8 h-8 text-gold mx-auto mb-2" />
                   <p className="font-body text-sm text-muted-foreground">Capacidad</p>
-                  <p className="font-display font-semibold text-foreground">Hasta 50 personas</p>
+                  <p className="font-display font-semibold text-foreground">Sin límite de personas</p>
                 </div>
               </div>
 

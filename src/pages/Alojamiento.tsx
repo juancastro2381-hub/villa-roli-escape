@@ -117,7 +117,6 @@ const serviciosFincaCompleta = [
   "Acceso a las 3 cabañas",
   "Piscina para adultos",
   "Piscina para niños",
-  "Jacuzzi",
   "Zonas verdes",
   "Parqueadero privado",
   "Zona BBQ",
@@ -291,7 +290,7 @@ const Alojamiento = () => {
 
                 <div className="p-8 flex-1 flex flex-col">
                   <p className="font-body text-muted-foreground text-lg leading-relaxed mb-6">
-                    Disfruta un día completo en Villa Roli sin hospedarte. Acceso a piscinas, zonas verdes, jacuzzi y todas las áreas comunes. Ideal para celebraciones y paseos familiares.
+                    Disfruta un día completo en Villa Roli sin hospedarte. Acceso a piscinas, zonas verdes, zona BBQ y todas las áreas comunes. Ideal para celebraciones y paseos familiares.
                   </p>
 
                   {/* Info rápida */}
@@ -310,7 +309,7 @@ const Alojamiento = () => {
                   <div className="space-y-3 mb-6 flex-1">
                     <p className="font-display font-semibold text-foreground">Incluye:</p>
                     <div className="grid grid-cols-2 gap-2">
-                      {["Piscina adultos", "Piscina niños", "Jacuzzi", "Zonas verdes", "Parqueadero", "Baños y duchas"].map((item) => (
+                      {["Piscina adultos", "Piscina niños", "Zona BBQ", "Zonas verdes", "Parqueadero", "Baños y duchas"].map((item) => (
                         <div key={item} className="flex items-center gap-2">
                           <CheckCircle className="w-4 h-4 text-gold shrink-0" />
                           <span className="font-body text-muted-foreground text-sm">{item}</span>

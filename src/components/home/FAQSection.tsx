@@ -21,7 +21,7 @@ const faqs = [
   },
   {
     question: "¿Qué incluye el alojamiento?",
-    answer: "Todas nuestras cabañas incluyen: ropa de cama, toallas, cocina equipada, WiFi, parqueadero, acceso a zonas comunes, piscina y BBQ. Algunas cabañas cuentan con jacuzzi privado. Consulta los detalles específicos de cada cabaña."
+    answer: "Todas nuestras cabañas incluyen: ropa de cama, toallas, cocina equipada, WiFi, parqueadero, acceso a zonas comunes, piscinas y zona BBQ. Consulta los detalles específicos de cada cabaña."
   },
   {
     question: "¿Cómo puedo realizar mi reserva?",

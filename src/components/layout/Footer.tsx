@@ -44,18 +44,15 @@ export function Footer() {
             </nav>
           </div>
 
-          {/* Cabins */}
+          {/* Servicios */}
           <div className="space-y-4">
-            <h4 className="font-display text-lg font-semibold">Nuestras Cabañas</h4>
+            <h4 className="font-display text-lg font-semibold">Servicios</h4>
             <nav className="flex flex-col gap-2">
-              <Link to="/alojamiento/cabana-1" className="font-body text-primary-foreground/80 hover:text-gold transition-colors">
-                Cabaña 1 - Familiar
+              <Link to="/alojamiento" className="font-body text-primary-foreground/80 hover:text-gold transition-colors">
+                Finca Completa
               </Link>
-              <Link to="/alojamiento/cabana-2" className="font-body text-primary-foreground/80 hover:text-gold transition-colors">
-                Cabaña 2 - Grupal
-              </Link>
-              <Link to="/alojamiento/cabana-3" className="font-body text-primary-foreground/80 hover:text-gold transition-colors">
-                Cabaña 3 - Económica
+              <Link to="/alojamiento/pasadias" className="font-body text-primary-foreground/80 hover:text-gold transition-colors">
+                Pasadías
               </Link>
             </nav>
           </div>
