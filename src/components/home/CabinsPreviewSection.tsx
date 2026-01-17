@@ -88,7 +88,7 @@ export function CabinsPreviewSection() {
 
                   {/* Features */}
                   <div className="grid grid-cols-2 gap-2">
-                    {["3 Cabañas", "37 Personas", "2 Piscinas", "Jacuzzi"].map((feature) => (
+                    {["3 Cabañas", "37 Personas", "2 Piscinas", "Zonas verdes"].map((feature) => (
                       <div key={feature} className="flex items-center gap-2">
                         <CheckCircle className="w-4 h-4 text-gold shrink-0" />
                         <span className="font-body text-muted-foreground text-sm">{feature}</span>
@@ -165,12 +165,12 @@ export function CabinsPreviewSection() {
                   </h3>
                   
                   <p className="font-body text-muted-foreground leading-relaxed flex-1">
-                    Disfruta un día completo sin hospedarte. Acceso a piscinas, zonas verdes, jacuzzi y todas las áreas comunes.
+                    Disfruta un día completo sin hospedarte. Acceso a piscinas, zonas verdes, zona BBQ y todas las áreas comunes.
                   </p>
 
                   {/* Features */}
                   <div className="grid grid-cols-2 gap-2">
-                    {["2 Piscinas", "Jacuzzi", "Zonas verdes", "Parqueadero"].map((feature) => (
+                    {["2 Piscinas", "Zonas verdes", "Zona BBQ", "Parqueadero"].map((feature) => (
                       <div key={feature} className="flex items-center gap-2">
                         <CheckCircle className="w-4 h-4 text-gold shrink-0" />
                         <span className="font-body text-muted-foreground text-sm">{feature}</span>
@@ -182,11 +182,11 @@ export function CabinsPreviewSection() {
                   <div className="flex gap-4 pt-4 border-t border-border text-muted-foreground">
                     <div className="flex items-center gap-1.5">
                       <Clock size={16} className="text-gold" />
-                      <span className="text-sm font-medium">9AM - 6PM</span>
+                      <span className="text-sm font-medium">8AM - 5PM</span>
                     </div>
                     <div className="flex items-center gap-1.5">
                       <Users size={16} className="text-gold" />
-                      <span className="text-sm font-medium">Hasta 50</span>
+                      <span className="text-sm font-medium">Sin límite</span>
                     </div>
                   </div>
                 </div>

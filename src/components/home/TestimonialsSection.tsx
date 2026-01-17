@@ -12,7 +12,7 @@ const testimonials = [
     name: "Carlos Rodríguez",
     location: "Medellín, Colombia",
     rating: 5,
-    text: "El lugar perfecto para desconectar. La atención al detalle es impresionante y el jacuzzi bajo las estrellas fue el broche de oro de nuestro viaje.",
+    text: "El lugar perfecto para desconectar. La atención al detalle es impresionante y la piscina bajo las estrellas fue el broche de oro de nuestro viaje.",
   },
   {
     name: "Ana Martínez",

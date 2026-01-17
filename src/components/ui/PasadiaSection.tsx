@@ -24,7 +24,6 @@ const pasadiaImages = [
 const serviciosIncluidos = [
   "Piscina para adultos",
   "Piscina para niños",
-  "Jacuzzi",
   "Zonas verdes y jardines",
   "Parqueadero privado",
   "Zona BBQ disponible",
@@ -133,7 +132,7 @@ const PasadiaSection = () => {
               {/* Info Column */}
               <div>
                 <p className="font-body text-muted-foreground text-lg leading-relaxed mb-6">
-                  Disfruta de un día completo en Villa Roli sin hospedarte. Acceso a todas las zonas exteriores, piscinas para adultos y niños, jacuzzi, zonas verdes y más. Perfecto para paseos familiares, cumpleaños y celebraciones.
+                  Disfruta de un día completo en Villa Roli sin hospedarte. Acceso a todas las zonas exteriores, piscinas para adultos y niños, zonas verdes, zona BBQ y más. Perfecto para paseos familiares, cumpleaños y celebraciones.
                 </p>
 
                 {/* Quick Info */}

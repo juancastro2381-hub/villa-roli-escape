@@ -11,9 +11,7 @@ const navLinks = [
     name: "Alojamiento",
     path: "/alojamiento",
     submenu: [
-      { name: "Cabaña 1 - Familiar", path: "/alojamiento/cabana-1" },
-      { name: "Cabaña 2 - Grupal", path: "/alojamiento/cabana-2" },
-      { name: "Cabaña 3 - Económica", path: "/alojamiento/cabana-3" },
+      { name: "Finca Completa", path: "/alojamiento" },
       { name: "☀️ Pasadías", path: "/alojamiento/pasadias" },
     ],
   },
@@ -21,7 +19,7 @@ const navLinks = [
     name: "Reservas", 
     path: "/reservas",
     submenu: [
-      { name: "Reservar Cabaña", path: "/reservas" },
+      { name: "Reservar Finca", path: "/reservas" },
       { name: "☀️ Pasadías", path: "/alojamiento/pasadias" },
     ],
   },

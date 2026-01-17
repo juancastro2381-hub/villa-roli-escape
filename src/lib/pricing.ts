@@ -20,7 +20,6 @@ export const PASADIA_INFO = {
   incluye: [
     "Acceso a piscina para adultos",
     "Acceso a piscina para niños", 
-    "Jacuzzi",
     "Zonas verdes y jardines",
     "Parqueadero privado",
     "Zona de BBQ disponible",
@@ -72,7 +71,6 @@ export const PLAN_FAMILIA = {
     "Hospedaje en Cabaña #3",
     "Valor del aseo incluido",
     "Acceso a piscinas",
-    "Acceso a jacuzzi",
     "Zonas verdes",
     "Parqueadero",
   ],
@@ -93,7 +91,6 @@ export const PLAN_PAREJA = {
     "2 cervezas de bienvenida",
     "Decoración según ocasión",
     "Acceso a piscinas",
-    "Acceso a jacuzzi",
     "Zonas verdes",
     "Parqueadero",
   ],
