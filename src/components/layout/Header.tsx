@@ -15,14 +15,7 @@ const navLinks = [
       { name: "☀️ Pasadías", path: "/alojamiento/pasadias" },
     ],
   },
-  { 
-    name: "Reservas", 
-    path: "/reservas",
-    submenu: [
-      { name: "Reservar Finca", path: "/reservas" },
-      { name: "☀️ Pasadías", path: "/alojamiento/pasadias" },
-    ],
-  },
+  { name: "Reservas", path: "/reservas" },
   { name: "Blog", path: "/blog" },
   { name: "Contacto", path: "/contacto" },
 ];
