@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { Layout } from "@/components/layout/Layout";
-import { FileText, AlertTriangle, Clock, Users, PawPrint, Phone, Mail } from "lucide-react";
+import { FileText, AlertTriangle, Clock, Users, PawPrint, Phone, Mail, Shield, DollarSign, Droplets } from "lucide-react";
 
 const Terminos = () => {
   return (
@@ -21,7 +21,7 @@ const Terminos = () => {
               Términos y Condiciones
             </h1>
             <p className="font-body text-muted-foreground text-lg mt-6">
-              Finca de Recreación y Turismo - REF: Términos y Condiciones 2025
+              Finca de Recreación y Turismo - REF: Términos y Condiciones 2026
             </p>
           </motion.div>
         </div>
@@ -65,7 +65,7 @@ const Terminos = () => {
                   </span>
                   <div>
                     <p className="font-body text-muted-foreground leading-relaxed">
-                      El arrendatario se compromete a cancelar el valor del respectivo alquiler de la siguiente manera:
+                      Para asegurar la reserva el arrendatario se compromete a cancelar el valor del respectivo alquiler de la siguiente manera:
                     </p>
                     <ul className="mt-3 space-y-2 font-body text-muted-foreground">
                       <li className="flex items-center gap-2">
@@ -81,11 +81,28 @@ const Terminos = () => {
                 </div>
               </div>
 
-              {/* Término 3 - Cancelación */}
+              {/* Término 3 - Depósito de Garantía */}
+              <div className="bg-highlight/20 rounded-xl p-6 border-2 border-highlight">
+                <div className="flex items-start gap-4">
+                  <span className="flex-shrink-0 w-10 h-10 bg-highlight rounded-full flex items-center justify-center text-foreground font-bold">
+                    3
+                  </span>
+                  <div className="flex items-start gap-3">
+                    <Shield className="w-5 h-5 text-cta mt-1 flex-shrink-0" />
+                    <div>
+                      <p className="font-body text-foreground leading-relaxed">
+                        Se requiere un <strong>depósito de garantía</strong> por un monto de <strong className="text-cta">$100.000 (Cien mil pesos colombianos)</strong>, este depósito se retendrá como garantía por posibles gastos adicionales o daños, y se reembolsará íntegramente al finalizar tu estancia.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Término 4 - Cancelación */}
               <div className="bg-card rounded-xl p-6 shadow-sm border border-border">
                 <div className="flex items-start gap-4">
                   <span className="flex-shrink-0 w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center text-primary font-bold">
-                    3
+                    4
                   </span>
                   <p className="font-body text-muted-foreground leading-relaxed">
                     En caso de cancelación del arriendo por parte del arrendatario, éste exonera a VILLA ROLI de cualquier tipo de responsabilidad. <strong>VILLA ROLI no está obligada a devolver el valor parcial o total del valor del arriendo que hubiese recibido.</strong>
@@ -93,11 +110,11 @@ const Terminos = () => {
                 </div>
               </div>
 
-              {/* Término 4 - Fuerza Mayor */}
+              {/* Término 5 - Fuerza Mayor */}
               <div className="bg-card rounded-xl p-6 shadow-sm border border-border">
                 <div className="flex items-start gap-4">
                   <span className="flex-shrink-0 w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center text-primary font-bold">
-                    4
+                    5
                   </span>
                   <p className="font-body text-muted-foreground leading-relaxed">
                     VILLA ROLI en caso de cancelación por motivos de fuerza mayor o hechos de la naturaleza impredecibles que impidan el acceso del arrendatario a la finca en la fecha estipulada, VILLA ROLI no está obligada devolver el valor parcial o total del valor del arriendo que hubiese recibido, pero sí se le garantizará al arrendatario la <strong>reprogramación en una nueva fecha sujeta a disponibilidad</strong>.
@@ -105,11 +122,11 @@ const Terminos = () => {
                 </div>
               </div>
 
-              {/* Término 5 - Venta */}
+              {/* Término 6 - Venta */}
               <div className="bg-card rounded-xl p-6 shadow-sm border border-border">
                 <div className="flex items-start gap-4">
                   <span className="flex-shrink-0 w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center text-primary font-bold">
-                    5
+                    6
                   </span>
                   <p className="font-body text-muted-foreground leading-relaxed">
                     En caso de que se presente una venta del predio, nos comprometemos a mantener su reserva sin afectación alguna.
@@ -117,11 +134,11 @@ const Terminos = () => {
                 </div>
               </div>
 
-              {/* Término 6 - Conducta */}
+              {/* Término 7 - Conducta */}
               <div className="bg-card rounded-xl p-6 shadow-sm border border-border">
                 <div className="flex items-start gap-4">
                   <span className="flex-shrink-0 w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center text-primary font-bold">
-                    6
+                    7
                   </span>
                   <p className="font-body text-muted-foreground leading-relaxed">
                     El arrendatario junto con las demás personas que llegarán a la propiedad se compromete a asumir una conducta apropiada según la ley colombiana. Éstos serán responsables de cualquier acto ejercido fuera de la ley y exoneran a VILLA ROLI de todo tipo de responsabilidad civil o penal.
@@ -129,11 +146,11 @@ const Terminos = () => {
                 </div>
               </div>
 
-              {/* Término 7 - Pérdidas */}
+              {/* Término 8 - Pérdidas */}
               <div className="bg-card rounded-xl p-6 shadow-sm border border-border">
                 <div className="flex items-start gap-4">
                   <span className="flex-shrink-0 w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center text-primary font-bold">
-                    7
+                    8
                   </span>
                   <p className="font-body text-muted-foreground leading-relaxed">
                     <strong>VILLA ROLI no se hace responsable por pérdidas o robos de sus pertenencias en la finca.</strong> Deberán estar pendientes de las mismas.
@@ -141,11 +158,11 @@ const Terminos = () => {
                 </div>
               </div>
 
-              {/* Término 8 - Daños */}
+              {/* Término 9 - Daños */}
               <div className="bg-card rounded-xl p-6 shadow-sm border border-border">
                 <div className="flex items-start gap-4">
                   <span className="flex-shrink-0 w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center text-primary font-bold">
-                    8
+                    9
                   </span>
                   <p className="font-body text-muted-foreground leading-relaxed">
                     El arrendatario se verá obligado a devolver el inmueble en las mismas condiciones en las que se le fue entregada la propiedad. Éste es responsable de los daños materiales o multas que se ocasionen al respectivo inmueble; el arrendatario debe cancelar este valor antes de salir del inmueble.
@@ -153,57 +170,48 @@ const Terminos = () => {
                 </div>
               </div>
 
-              {/* Término 9 - Aseo */}
+              {/* Término 10 - Aseo */}
               <div className="bg-highlight/20 rounded-xl p-6 border-2 border-highlight">
                 <div className="flex items-start gap-4">
                   <span className="flex-shrink-0 w-10 h-10 bg-highlight rounded-full flex items-center justify-center text-foreground font-bold">
-                    9
-                  </span>
-                  <p className="font-body text-foreground leading-relaxed">
-                    El recargo para el aseo correspondiente es de <strong className="text-cta">$65.000 (Sesenta y cinco mil pesos colombianos)</strong>.
-                  </p>
-                </div>
-              </div>
-
-              {/* Término 10 - Check-in/Check-out */}
-              <div className="bg-card rounded-xl p-6 shadow-sm border border-border">
-                <div className="flex items-start gap-4">
-                  <span className="flex-shrink-0 w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center text-primary font-bold">
                     10
                   </span>
                   <div className="flex items-start gap-3">
-                    <Clock className="w-5 h-5 text-primary mt-1 flex-shrink-0" />
-                    <p className="font-body text-muted-foreground leading-relaxed">
-                      El arrendatario se compromete a cumplir el horario del Check-in/Check-out e ingresar al inmueble en compañía del número de personas indicada en la respectiva carta de autorización expedida por el administrador de VILLA ROLI.
+                    <DollarSign className="w-5 h-5 text-cta mt-1 flex-shrink-0" />
+                    <p className="font-body text-foreground leading-relaxed">
+                      El recargo para el aseo correspondiente es de <strong className="text-cta">$70.000 (Setenta mil pesos colombianos)</strong>.
                     </p>
                   </div>
                 </div>
               </div>
 
-              {/* Término 11 - Exceso de personas */}
+              {/* Término 11 - Check-in/Check-out */}
               <div className="bg-card rounded-xl p-6 shadow-sm border border-border">
                 <div className="flex items-start gap-4">
                   <span className="flex-shrink-0 w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center text-primary font-bold">
                     11
                   </span>
                   <div className="flex items-start gap-3">
-                    <Users className="w-5 h-5 text-primary mt-1 flex-shrink-0" />
+                    <Clock className="w-5 h-5 text-primary mt-1 flex-shrink-0" />
                     <p className="font-body text-muted-foreground leading-relaxed">
-                      En caso de exceder dicho número, le otorga el derecho a la persona encargada de la propiedad, generar el recargo monetario correspondiente, o según el caso prohibir la entrada a las personas que exceden dicha carta y esto no constituye incumplimiento del contrato por parte de VILLA ROLI.
+                      El arrendatario se compromete a cumplir el horario del Check-in / Check-out, en compañía del número de personas indicadas en la respectiva carta de autorización expedida por el administrador de VILLA ROLI.
                     </p>
                   </div>
                 </div>
               </div>
 
-              {/* Término 12 - Hora adicional */}
-              <div className="bg-highlight/20 rounded-xl p-6 border-2 border-highlight">
+              {/* Término 12 - Exceso de personas */}
+              <div className="bg-card rounded-xl p-6 shadow-sm border border-border">
                 <div className="flex items-start gap-4">
-                  <span className="flex-shrink-0 w-10 h-10 bg-highlight rounded-full flex items-center justify-center text-foreground font-bold">
+                  <span className="flex-shrink-0 w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center text-primary font-bold">
                     12
                   </span>
-                  <p className="font-body text-foreground leading-relaxed">
-                    El valor por hora adicional en el check in / check out, es de <strong className="text-cta">$50.000 (Cincuenta mil pesos colombianos)</strong>.
-                  </p>
+                  <div className="flex items-start gap-3">
+                    <Users className="w-5 h-5 text-primary mt-1 flex-shrink-0" />
+                    <p className="font-body text-muted-foreground leading-relaxed">
+                      En caso de exceder dicho número, le otorga el derecho a la persona encargada de la propiedad, generar el recargo monetario correspondiente, realizar el descuento correspondiente del depósito o según el caso prohibir la entrada a las personas que exceden dicha carta y esto no constituye incumplimiento del contrato por parte de VILLA ROLI.
+                    </p>
+                  </div>
                 </div>
               </div>
 
@@ -252,9 +260,12 @@ const Terminos = () => {
                   <span className="flex-shrink-0 w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center text-primary font-bold">
                     16
                   </span>
-                  <p className="font-body text-muted-foreground leading-relaxed">
-                    En las zonas húmedas (piscinas), se solicita el uso del gorro de baño y mantener medidas de seguridad necesarias para un buen uso de estos espacios.
-                  </p>
+                  <div className="flex items-start gap-3">
+                    <Droplets className="w-5 h-5 text-primary mt-1 flex-shrink-0" />
+                    <p className="font-body text-muted-foreground leading-relaxed">
+                      En las zonas húmedas (piscinas), se solicita el uso del gorro de baño y mantener medidas de seguridad necesarias para un buen uso de estos espacios.
+                    </p>
+                  </div>
                 </div>
               </div>
 
@@ -277,7 +288,11 @@ const Terminos = () => {
                       </li>
                       <li className="flex items-center gap-2">
                         <span className="w-2 h-2 bg-cta rounded-full"></span>
-                        Prohibido el uso de botellas de vidrio en las piscinas
+                        Prohibido el uso de envases de vidrio en las piscinas
+                      </li>
+                      <li className="flex items-center gap-2">
+                        <span className="w-2 h-2 bg-cta rounded-full"></span>
+                        Mantener vigilancia extrema a los menores de edad
                       </li>
                     </ul>
                   </div>
@@ -328,50 +343,36 @@ const Terminos = () => {
             {/* Firma */}
             <div className="mt-12 bg-secondary rounded-2xl p-8 text-center">
               <p className="font-body text-muted-foreground mb-4">Cordialmente,</p>
-              <h3 className="font-display text-2xl font-bold text-foreground mb-2">Alberto Jiménez B.</h3>
-              <p className="font-body text-primary font-semibold mb-6">Administrador</p>
+              <p className="font-display text-xl font-bold text-foreground">Alberto Jiménez B.</p>
+              <p className="font-body text-muted-foreground mb-6">Administrador</p>
               
-              <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-8">
-                <a 
+              <div className="flex flex-col md:flex-row justify-center items-center gap-6">
+                <a
                   href="mailto:reservavillaroli.toca@gmail.com"
-                  className="flex items-center gap-2 text-muted-foreground hover:text-cta transition-colors"
+                  className="flex items-center gap-2 text-cta hover:underline"
                 >
                   <Mail className="w-5 h-5" />
-                  <span className="font-body">reservavillaroli.toca@gmail.com</span>
+                  reservavillaroli.toca@gmail.com
                 </a>
-                <a 
+                <a
                   href="https://wa.me/573229726625"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-2 text-muted-foreground hover:text-cta transition-colors"
+                  className="flex items-center gap-2 text-cta hover:underline"
                 >
                   <Phone className="w-5 h-5" />
-                  <span className="font-body">+57 322 972 6625</span>
+                  WhatsApp: (+57 322 972 6625)
                 </a>
               </div>
               
-              <div className="mt-6 flex items-center justify-center gap-6 text-sm text-muted-foreground">
-                <a 
-                  href="https://www.facebook.com/villarolitocaimacundinamarca" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="hover:text-cta transition-colors"
-                >
-                  Facebook: @villaroli Tocaima Cundinamarca
-                </a>
-                <span className="hidden sm:inline">|</span>
-                <a 
-                  href="https://www.instagram.com/villaroli.tocaima" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="hover:text-cta transition-colors"
-                >
-                  Instagram: @villaroli.tocaima
-                </a>
+              <div className="mt-6 flex justify-center gap-4 text-sm text-muted-foreground">
+                <span>Facebook: villaroli Tocaima Cundinamarca</span>
+                <span>•</span>
+                <span>Instagram: villaroli.Tocaima</span>
               </div>
               
-              <p className="mt-4 font-body text-muted-foreground text-sm">
-                Colombia · Cundinamarca · Tocaima
+              <p className="mt-4 text-sm text-muted-foreground">
+                Colombia • Cundinamarca • Tocaima
               </p>
             </div>
           </motion.div>
