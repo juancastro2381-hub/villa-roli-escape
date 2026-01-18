@@ -1,17 +1,29 @@
-// PRECIOS 2025 - Villa Roli
+// PRECIOS 2026 - Villa Roli
 
 export const WHATSAPP_NUMBER = "3229726625";
 
-// Hora adicional (para entrada temprana o salida tarde)
-export const HORA_ADICIONAL = 50000;
+// =====================
+// HORAS ADICIONALES (Check-in temprano o Check-out tarde)
+// Horas extra en Check-out hasta las 6 pm
+// =====================
+export const HORA_ADICIONAL = {
+  hasta15: 50000, // Hasta 15 personas (también aplica para Plan Familia)
+  de16a30: 75000, // De 16 a 30 personas
+  mas31: 100000, // 31 personas en adelante
+};
+
+// =====================
+// DEPÓSITO DE GARANTÍA
+// =====================
+export const DEPOSITO_GARANTIA = 100000; // $100.000 COP
 
 // =====================
 // PASADÍAS (8 AM - 5 PM)
 // Solo exteriores, no se habilitan cabañas
 // =====================
 export const PASADIA_PRICES = {
-  finDeSemana: 20000, // Viernes a Domingo (sin festivo)
-  entreSemana: 15000, // Lunes a Jueves
+  finDeSemana: 25000, // Precio único por persona
+  entreSemana: 25000, // Precio único por persona
 };
 
 export const PASADIA_INFO = {
@@ -29,28 +41,28 @@ export const PASADIA_INFO = {
 };
 
 // =====================
-// NOCHES - FINCA COMPLETA (2 PM - 1 PM)
+// NOCHES - FINCA COMPLETA (1 PM - 1 PM)
 // Por persona, grupos
 // =====================
 export const NOCHES_PRICES = {
   entreSemana: {
-    precio: 50000, // Lunes a Jueves
+    precio: 55000, // Lunes a Jueves
     minimoPersonas: 10,
   },
   finDeSemana: {
-    precio: 55000, // Viernes a Domingo (sin festivo)
+    precio: 60000, // Viernes a Domingo (sin festivo)
     minimoPersonas: 10,
   },
   festivo: {
-    precio: 60000, // Fin de semana con festivo o día festivo
-    minimoPersonas: 15,
+    precio: 70000, // Fin de semana con festivo o día festivo
+    minimoPersonas: 10,
   },
 };
 
 export const NOCHES_INFO = {
-  horario: "Ingreso: 2:00 PM - Salida: 1:00 PM",
-  aseo: 65000, // No incluido en el precio por persona
-  nota: "No incluye el valor del aseo ($65.000)",
+  horario: "Ingreso: 1:00 PM - Salida: 1:00 PM",
+  aseo: 70000, // No incluido en el precio por persona
+  nota: "No incluye el valor del aseo ($70.000)",
   cabanas: [
     { nombre: "Cabaña 1", capacidad: 12, camas: "4 habitaciones" },
     { nombre: "Cabaña 2", capacidad: 15, camas: "5 habitaciones" },
@@ -59,14 +71,16 @@ export const NOCHES_INFO = {
 };
 
 // =====================
-// PLAN FAMILIA (2 PM - 1 PM)
+// PLAN FAMILIA (1 PM - 1 PM)
 // Solo cabaña #3, máximo 5 personas
+// NO DISPONIBLE EN DÍAS FESTIVOS
 // =====================
 export const PLAN_FAMILIA = {
-  precio: 350000,
+  precio: 420000,
   maxPersonas: 5,
   cabana: "Cabaña #3",
-  horario: "Ingreso: 2:00 PM - Salida: 1:00 PM",
+  horario: "Ingreso: 1:00 PM - Salida: 1:00 PM",
+  nota: "No disponible para días festivos",
   incluye: [
     "Hospedaje en Cabaña #3",
     "Valor del aseo incluido",
@@ -77,43 +91,24 @@ export const PLAN_FAMILIA = {
 };
 
 // =====================
-// PLAN PAREJA (2 PM - 1 PM)
-// Cabaña #3, incluye extras románticos
+// PLAN PAREJA - ELIMINADO EN 2026
 // =====================
-export const PLAN_PAREJA = {
-  precio: 370000,
-  maxPersonas: 2,
-  cabana: "Cabaña #3",
-  horario: "Ingreso: 2:00 PM - Salida: 1:00 PM",
-  incluye: [
-    "Hospedaje en Cabaña #3",
-    "Valor del aseo incluido",
-    "2 cervezas de bienvenida",
-    "Decoración según ocasión",
-    "Acceso a piscinas",
-    "Zonas verdes",
-    "Parqueadero",
-  ],
-};
+// El Plan Pareja ya no está disponible en 2026
 
-// Tipos de reserva disponibles
+// Tipos de reserva disponibles (sin Plan Pareja)
 export type TipoReserva = 
-  | "pasadia-entre-semana"
-  | "pasadia-fin-semana"
+  | "pasadia"
   | "noches-entre-semana"
   | "noches-fin-semana"
   | "noches-festivo"
-  | "plan-familia"
-  | "plan-pareja";
+  | "plan-familia";
 
 export const TIPO_RESERVA_LABELS: Record<TipoReserva, string> = {
-  "pasadia-entre-semana": "Pasadía Entre Semana (Lun-Jue)",
-  "pasadia-fin-semana": "Pasadía Fin de Semana (Vie-Dom)",
-  "noches-entre-semana": "Finca Completa - Entre Semana",
-  "noches-fin-semana": "Finca Completa - Fin de Semana",
+  "pasadia": "Pasadía (8AM - 5PM)",
+  "noches-entre-semana": "Finca Completa - Entre Semana (Lun-Jue)",
+  "noches-fin-semana": "Finca Completa - Fin de Semana (Vie-Dom)",
   "noches-festivo": "Finca Completa - Festivo",
   "plan-familia": "Plan Familia (máx. 5 personas)",
-  "plan-pareja": "Plan Pareja (2 personas)",
 };
 
 // Función para calcular precio estimado
@@ -121,19 +116,16 @@ export function calcularPrecio(
   tipo: TipoReserva,
   personas: number,
   noches: number = 1
-): { subtotal: number; aseo: number; total: number; descripcion: string } {
+): { subtotal: number; aseo: number; deposito: number; total: number; descripcion: string } {
   let subtotal = 0;
   let aseo = 0;
+  const deposito = DEPOSITO_GARANTIA;
   let descripcion = "";
 
   switch (tipo) {
-    case "pasadia-entre-semana":
+    case "pasadia":
       subtotal = PASADIA_PRICES.entreSemana * personas;
       descripcion = `${personas} personas × $${PASADIA_PRICES.entreSemana.toLocaleString()}`;
-      break;
-    case "pasadia-fin-semana":
-      subtotal = PASADIA_PRICES.finDeSemana * personas;
-      descripcion = `${personas} personas × $${PASADIA_PRICES.finDeSemana.toLocaleString()}`;
       break;
     case "noches-entre-semana":
       subtotal = NOCHES_PRICES.entreSemana.precio * personas * noches;
@@ -154,13 +146,9 @@ export function calcularPrecio(
       subtotal = PLAN_FAMILIA.precio;
       descripcion = `Plan Familia (hasta ${PLAN_FAMILIA.maxPersonas} personas, aseo incluido)`;
       break;
-    case "plan-pareja":
-      subtotal = PLAN_PAREJA.precio;
-      descripcion = `Plan Pareja (${PLAN_PAREJA.maxPersonas} personas, todo incluido)`;
-      break;
   }
 
-  return { subtotal, aseo, total: subtotal + aseo, descripcion };
+  return { subtotal, aseo, deposito, total: subtotal + aseo, descripcion };
 }
 
 // Validar mínimo de personas
@@ -198,14 +186,13 @@ export function validarMinimoPersonas(tipo: TipoReserva, personas: number): { va
         };
       }
       break;
-    case "plan-pareja":
-      if (personas > PLAN_PAREJA.maxPersonas) {
-        return { 
-          valido: false, 
-          mensaje: `Máximo ${PLAN_PAREJA.maxPersonas} personas para Plan Pareja` 
-        };
-      }
-      break;
   }
   return { valido: true, mensaje: "" };
+}
+
+// Obtener precio de hora adicional según número de personas
+export function obtenerPrecioHoraAdicional(personas: number): number {
+  if (personas <= 15) return HORA_ADICIONAL.hasta15;
+  if (personas <= 30) return HORA_ADICIONAL.de16a30;
+  return HORA_ADICIONAL.mas31;
 }

@@ -11,7 +11,7 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { Textarea } from "@/components/ui/textarea";
-import { Calendar, Users, Home, Info, MessageCircle, Sun, Heart, UserCheck, Moon, CheckCircle, AlertCircle } from "lucide-react";
+import { Calendar, Users, Home, Info, MessageCircle, Sun, UserCheck, Moon, CheckCircle, AlertCircle, Shield } from "lucide-react";
 import { useState, useMemo } from "react";
 import { useToast } from "@/hooks/use-toast";
 import fincaPiscinaNoche from "@/assets/finca-piscina-noche2.jpg";
@@ -23,11 +23,12 @@ import {
   NOCHES_PRICES,
   NOCHES_INFO,
   PLAN_FAMILIA,
-  PLAN_PAREJA,
   HORA_ADICIONAL,
+  DEPOSITO_GARANTIA,
   TIPO_RESERVA_LABELS,
   calcularPrecio,
   validarMinimoPersonas,
+  obtenerPrecioHoraAdicional,
   type TipoReserva,
 } from "@/lib/pricing";
 
@@ -44,7 +45,6 @@ const Reservas = () => {
     huespedes: "",
     checkin: "",
     checkout: "",
-    ocasion: "",
     mensaje: "",
   });
 
@@ -75,8 +75,8 @@ const Reservas = () => {
     return validarMinimoPersonas(formData.tipoReserva as TipoReserva, personas);
   }, [formData.tipoReserva, formData.huespedes]);
 
-  const isPasadia = formData.tipoReserva?.startsWith("pasadia");
-  const isPlanEspecial = formData.tipoReserva === "plan-familia" || formData.tipoReserva === "plan-pareja";
+  const isPasadia = formData.tipoReserva === "pasadia";
+  const isPlanEspecial = formData.tipoReserva === "plan-familia";
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -103,7 +103,7 @@ const Reservas = () => {
     }
 
     const tipoLabel = TIPO_RESERVA_LABELS[formData.tipoReserva as TipoReserva];
-    const precioInfo = precioCalculado ? `\n💰 *Precio Estimado:* $${precioCalculado.total.toLocaleString()} COP\n   (${precioCalculado.descripcion})` : "";
+    const precioInfo = precioCalculado ? `\n💰 *Precio Estimado:* $${precioCalculado.total.toLocaleString()} COP\n   (${precioCalculado.descripcion})\n🛡️ *Depósito de garantía:* $${DEPOSITO_GARANTIA.toLocaleString()} COP (reembolsable)` : "";
 
     const message = `🏡 *Nueva Solicitud de Reserva - Villa Roli*
 
@@ -119,7 +119,6 @@ ${formData.ciudad ? `• Ciudad: ${formData.ciudad}` : ""}
 • ${isPasadia ? "Fecha" : "Check-in"}: ${formData.checkin}
 ${!isPasadia && formData.checkout ? `• Check-out: ${formData.checkout}` : ""}
 ${!isPasadia && formData.checkout ? `• Noches: ${noches}` : ""}
-${formData.ocasion ? `• Ocasión: ${formData.ocasion}` : ""}
 ${precioInfo}
 
 ${formData.mensaje ? `💬 *Comentarios:*\n${formData.mensaje}` : ""}
@@ -141,9 +140,8 @@ Enviado desde el formulario web de Villa Roli`;
 
   // Opciones de personas según tipo de reserva
   const personasOptions = useMemo(() => {
-    if (formData.tipoReserva === "plan-pareja") return [2];
     if (formData.tipoReserva === "plan-familia") return [1, 2, 3, 4, 5];
-    if (formData.tipoReserva?.startsWith("pasadia")) return Array.from({ length: 100 }, (_, i) => i + 1);
+    if (formData.tipoReserva === "pasadia") return Array.from({ length: 100 }, (_, i) => i + 1);
     if (formData.tipoReserva?.startsWith("noches")) return Array.from({ length: 37 }, (_, i) => i + 1);
     return Array.from({ length: 37 }, (_, i) => i + 1);
   }, [formData.tipoReserva]);
@@ -191,14 +189,14 @@ Enviado desde el formulario web de Villa Roli`;
             className="text-center mb-12"
           >
             <span className="text-cta font-body text-sm tracking-wider uppercase">
-              Precios 2025
+              Precios 2026
             </span>
             <h2 className="font-display text-3xl md:text-4xl font-bold text-foreground mt-2">
               Nuestros Planes
             </h2>
           </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {/* Pasadía */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -215,12 +213,8 @@ Enviado desde el formulario web de Villa Roli`;
               <p className="text-muted-foreground text-sm mb-4">{PASADIA_INFO.horario}</p>
               <div className="space-y-2 mb-4">
                 <div className="flex justify-between">
-                  <span className="text-sm text-muted-foreground">Lun - Jue:</span>
-                  <span className="font-semibold text-gold">${PASADIA_PRICES.entreSemana.toLocaleString()}/persona</span>
-                </div>
-                <div className="flex justify-between">
-                  <span className="text-sm text-muted-foreground">Vie - Dom:</span>
-                  <span className="font-semibold text-gold">${PASADIA_PRICES.finDeSemana.toLocaleString()}/persona</span>
+                  <span className="text-sm text-muted-foreground">Por persona:</span>
+                  <span className="font-semibold text-gold">${PASADIA_PRICES.entreSemana.toLocaleString()}</span>
                 </div>
               </div>
               <p className="text-xs text-muted-foreground italic">{PASADIA_INFO.nota}</p>
@@ -250,7 +244,7 @@ Enviado desde el formulario web de Villa Roli`;
                   <span className="font-semibold text-gold">${NOCHES_PRICES.finDeSemana.precio.toLocaleString()}/p</span>
                 </div>
                 <div className="flex justify-between">
-                  <span className="text-sm text-muted-foreground">Festivo (mín. 15):</span>
+                  <span className="text-sm text-muted-foreground">Festivo (mín. 10):</span>
                   <span className="font-semibold text-gold">${NOCHES_PRICES.festivo.precio.toLocaleString()}/p</span>
                 </div>
               </div>
@@ -262,64 +256,47 @@ Enviado desde el formulario web de Villa Roli`;
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.3 }}
-              className="bg-card rounded-2xl p-6 border border-cta/50"
+              className="bg-gradient-to-br from-primary to-primary/80 rounded-2xl p-6 border border-gold/30"
             >
               <div className="flex items-center gap-3 mb-4">
                 <div className="w-12 h-12 bg-gold/20 rounded-full flex items-center justify-center">
                   <UserCheck className="w-6 h-6 text-gold" />
                 </div>
-                <h3 className="font-display text-xl font-bold text-foreground">Plan Familia</h3>
+                <h3 className="font-display text-xl font-bold text-cream-light">Plan Familia</h3>
               </div>
-              <p className="text-muted-foreground text-sm mb-4">{PLAN_FAMILIA.horario}</p>
+              <p className="text-cream-light/70 text-sm mb-4">{PLAN_FAMILIA.horario}</p>
               <div className="mb-4">
                 <span className="font-display text-2xl font-bold text-gold">${PLAN_FAMILIA.precio.toLocaleString()}</span>
-                <span className="text-muted-foreground text-sm"> / noche</span>
+                <span className="text-cream-light/70 text-sm"> / noche</span>
               </div>
-              <ul className="space-y-1 text-sm text-muted-foreground mb-4">
+              <ul className="space-y-1 text-sm text-cream-light/80 mb-4">
                 <li>• Máximo {PLAN_FAMILIA.maxPersonas} personas</li>
                 <li>• {PLAN_FAMILIA.cabana}</li>
                 <li>• Aseo incluido</li>
               </ul>
-            </motion.div>
-
-            {/* Plan Pareja */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.4 }}
-              className="bg-gradient-to-br from-primary to-primary/80 rounded-2xl p-6 border border-gold/30"
-            >
-              <div className="flex items-center gap-3 mb-4">
-                <div className="w-12 h-12 bg-gold/20 rounded-full flex items-center justify-center">
-                  <Heart className="w-6 h-6 text-gold" />
-                </div>
-                <h3 className="font-display text-xl font-bold text-cream-light">Plan Pareja</h3>
-              </div>
-              <p className="text-cream-light/70 text-sm mb-4">{PLAN_PAREJA.horario}</p>
-              <div className="mb-4">
-                <span className="font-display text-2xl font-bold text-gold">${PLAN_PAREJA.precio.toLocaleString()}</span>
-                <span className="text-cream-light/70 text-sm"> / noche</span>
-              </div>
-              <ul className="space-y-1 text-sm text-cream-light/80 mb-4">
-                <li>• {PLAN_PAREJA.cabana}</li>
-                <li>• 2 cervezas de bienvenida</li>
-                <li>• Decoración según ocasión</li>
-                <li>• Aseo incluido</li>
-              </ul>
+              <p className="text-xs text-gold italic">{PLAN_FAMILIA.nota}</p>
             </motion.div>
           </div>
 
-          {/* Nota hora adicional */}
+          {/* Info adicional */}
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.5, delay: 0.5 }}
-            className="mt-8 text-center"
+            className="mt-8 grid grid-cols-1 md:grid-cols-2 gap-4"
           >
-            <p className="text-sm text-muted-foreground">
-              <Info className="inline w-4 h-4 mr-1" />
-              Hora adicional (entrada temprana o salida tarde): <span className="font-semibold text-gold">${HORA_ADICIONAL.toLocaleString()}</span>
-            </p>
+            <div className="bg-card/50 rounded-xl p-4 border border-border flex items-center gap-3">
+              <Shield className="w-6 h-6 text-gold flex-shrink-0" />
+              <p className="text-sm text-muted-foreground">
+                <strong className="text-foreground">Depósito de garantía:</strong> ${DEPOSITO_GARANTIA.toLocaleString()} COP (reembolsable)
+              </p>
+            </div>
+            <div className="bg-card/50 rounded-xl p-4 border border-border flex items-center gap-3">
+              <Info className="w-6 h-6 text-gold flex-shrink-0" />
+              <p className="text-sm text-muted-foreground">
+                <strong className="text-foreground">Hora adicional:</strong> desde ${HORA_ADICIONAL.hasta15.toLocaleString()} COP
+              </p>
+            </div>
           </motion.div>
         </div>
       </section>
@@ -405,7 +382,6 @@ Enviado desde el formulario web de Villa Roli`;
                         value={formData.tipoReserva}
                         onValueChange={(value) => {
                           handleInputChange("tipoReserva", value);
-                          // Reset huespedes when type changes
                           handleInputChange("huespedes", "");
                         }}
                       >
@@ -413,16 +389,10 @@ Enviado desde el formulario web de Villa Roli`;
                           <SelectValue placeholder="Selecciona el tipo de reserva" />
                         </SelectTrigger>
                         <SelectContent>
-                          <SelectItem value="pasadia-entre-semana">
+                          <SelectItem value="pasadia">
                             <span className="flex items-center gap-2">
                               <Sun size={16} className="text-gold" />
-                              Pasadía Entre Semana (Lun-Jue) - ${PASADIA_PRICES.entreSemana.toLocaleString()}/persona
-                            </span>
-                          </SelectItem>
-                          <SelectItem value="pasadia-fin-semana">
-                            <span className="flex items-center gap-2">
-                              <Sun size={16} className="text-gold" />
-                              Pasadía Fin de Semana (Vie-Dom) - ${PASADIA_PRICES.finDeSemana.toLocaleString()}/persona
+                              Pasadía (8AM - 5PM) - ${PASADIA_PRICES.entreSemana.toLocaleString()}/persona
                             </span>
                           </SelectItem>
                           <SelectItem value="noches-entre-semana">
@@ -447,12 +417,6 @@ Enviado desde el formulario web de Villa Roli`;
                             <span className="flex items-center gap-2">
                               <UserCheck size={16} className="text-gold" />
                               Plan Familia (máx. 5 personas) - ${PLAN_FAMILIA.precio.toLocaleString()}
-                            </span>
-                          </SelectItem>
-                          <SelectItem value="plan-pareja">
-                            <span className="flex items-center gap-2">
-                              <Heart size={16} className="text-gold" />
-                              Plan Pareja (2 personas) - ${PLAN_PAREJA.precio.toLocaleString()}
                             </span>
                           </SelectItem>
                         </SelectContent>
@@ -512,27 +476,6 @@ Enviado desde el formulario web de Villa Roli`;
                         />
                       </div>
                     )}
-
-                    {formData.tipoReserva === "plan-pareja" && (
-                      <div className="space-y-2 md:col-span-2">
-                        <Label htmlFor="ocasion">Ocasión Especial</Label>
-                        <Select
-                          value={formData.ocasion}
-                          onValueChange={(value) => handleInputChange("ocasion", value)}
-                        >
-                          <SelectTrigger className="bg-background">
-                            <SelectValue placeholder="Selecciona la ocasión (para decoración)" />
-                          </SelectTrigger>
-                          <SelectContent>
-                            <SelectItem value="Aniversario">Aniversario</SelectItem>
-                            <SelectItem value="Cumpleaños">Cumpleaños</SelectItem>
-                            <SelectItem value="Luna de miel">Luna de miel</SelectItem>
-                            <SelectItem value="Propuesta de matrimonio">Propuesta de matrimonio</SelectItem>
-                            <SelectItem value="Otro">Otro</SelectItem>
-                          </SelectContent>
-                        </Select>
-                      </div>
-                    )}
                   </div>
 
                   {/* Price Calculator */}
@@ -563,6 +506,10 @@ Enviado desde el formulario web de Villa Roli`;
                         <div className="flex justify-between text-lg border-t border-gold/20 pt-2 mt-2">
                           <span className="font-semibold text-foreground">Total:</span>
                           <span className="font-bold text-gold">${precioCalculado.total.toLocaleString()} COP</span>
+                        </div>
+                        <div className="flex justify-between text-sm text-muted-foreground">
+                          <span>Depósito de garantía (reembolsable):</span>
+                          <span>${DEPOSITO_GARANTIA.toLocaleString()}</span>
                         </div>
                       </div>
                     </motion.div>
@@ -612,10 +559,8 @@ Enviado desde el formulario web de Villa Roli`;
               className="lg:col-span-1"
             >
               <div className="sticky top-32 space-y-8">
-                {/* Calendario de Disponibilidad */}
                 <AvailabilityCalendar />
 
-                {/* Acomodaciones */}
                 <div className="bg-card rounded-2xl p-8 border border-border">
                   <h3 className="font-display text-xl font-semibold text-foreground mb-4">
                     Acomodaciones Disponibles
@@ -648,19 +593,15 @@ Enviado desde el formulario web de Villa Roli`;
                   <ul className="space-y-4 text-muted-foreground font-body">
                     <li className="flex items-start gap-3">
                       <Calendar size={20} className="text-gold shrink-0 mt-1" />
-                      <span><strong className="text-foreground">Noches:</strong> Ingreso 2 PM - Salida 1 PM</span>
+                      <span><strong className="text-foreground">Noches:</strong> Ingreso 1 PM - Salida 1 PM</span>
                     </li>
                     <li className="flex items-start gap-3">
                       <Sun size={20} className="text-gold shrink-0 mt-1" />
                       <span><strong className="text-foreground">Pasadía:</strong> 8 AM - 5 PM</span>
                     </li>
                     <li className="flex items-start gap-3">
-                      <Info size={20} className="text-gold shrink-0 mt-1" />
-                      <span>Planes Familia y Pareja solo en Cabaña #3</span>
-                    </li>
-                    <li className="flex items-start gap-3">
-                      <Info size={20} className="text-gold shrink-0 mt-1" />
-                      <span>Hora adicional: ${HORA_ADICIONAL.toLocaleString()}</span>
+                      <Shield size={20} className="text-gold shrink-0 mt-1" />
+                      <span><strong className="text-foreground">Depósito:</strong> ${DEPOSITO_GARANTIA.toLocaleString()} (reembolsable)</span>
                     </li>
                   </ul>
                 </div>
