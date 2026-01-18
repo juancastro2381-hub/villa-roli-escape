@@ -3,22 +3,32 @@ import { Star, Quote } from "lucide-react";
 
 const testimonials = [
   {
-    name: "María García",
-    location: "Bogotá, Colombia",
+    name: "Diego",
+    date: "Diciembre 2024",
     rating: 5,
-    text: "Una experiencia mágica. La Cabaña Aurora superó todas nuestras expectativas. El amanecer desde la terraza es simplemente indescriptible.",
+    text: "La finca es espectacular, tal cual se ve en las fotos. Muy bien dotada y la atención de Camilo fue excelente. Ideal para descansar en familia.",
+    source: "Airbnb",
   },
   {
-    name: "Carlos Rodríguez",
-    location: "Medellín, Colombia",
+    name: "Marcela",
+    date: "Noviembre 2024",
     rating: 5,
-    text: "El lugar perfecto para desconectar. La atención al detalle es impresionante y la piscina bajo las estrellas fue el broche de oro de nuestro viaje.",
+    text: "Excelente lugar para desconectarse. La piscina es muy limpia y las cabañas son muy cómodas. Superó nuestras expectativas.",
+    source: "Airbnb",
   },
   {
-    name: "Ana Martínez",
-    location: "Cali, Colombia",
+    name: "Camilo",
+    date: "Octubre 2024",
     rating: 5,
-    text: "Villa Roli es un verdadero paraíso. Vinimos en familia y los niños no querían irse. Definitivamente volveremos pronto.",
+    text: "Pasamos un fin de semana increíble. El clima de Tocaima es perfecto y la distribución de la finca permite mucha privacidad si vas en grupo.",
+    source: "Airbnb",
+  },
+  {
+    name: "Paula",
+    date: "Septiembre 2024",
+    rating: 5,
+    text: "Muy recomendada. Todo estaba impecable a nuestra llegada. El paisaje y la tranquilidad son lo mejor del lugar.",
+    source: "Airbnb",
   },
 ];
 
@@ -64,13 +74,18 @@ export function TestimonialsSection() {
                   ))}
                 </div>
 
-                <div>
-                  <p className="font-display font-semibold text-primary-foreground">
-                    {testimonial.name}
-                  </p>
-                  <p className="font-body text-sm text-primary-foreground/70">
-                    {testimonial.location}
-                  </p>
+                <div className="flex items-center justify-between">
+                  <div>
+                    <p className="font-display font-semibold text-primary-foreground">
+                      {testimonial.name}
+                    </p>
+                    <p className="font-body text-sm text-primary-foreground/70">
+                      {testimonial.date}
+                    </p>
+                  </div>
+                  <span className="font-body text-xs bg-gold/20 text-gold px-2 py-1 rounded-full">
+                    {testimonial.source}
+                  </span>
                 </div>
               </div>
             </motion.div>
