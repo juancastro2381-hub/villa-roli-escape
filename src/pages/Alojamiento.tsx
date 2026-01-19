@@ -90,7 +90,7 @@ const cabanas = [
   },
   {
     name: "Cabaña 3 - Íntima",
-    description: "La opción perfecta para grupos pequeños, parejas o familias. Ofrece un ambiente acogedor con una cama doble y un camarote. Baño privado y ventiladores para su comodidad. Esta cabaña es la elegida para los planes Familia y Pareja.",
+    description: "La opción perfecta para grupos pequeños o familias. Ofrece un ambiente acogedor con una cama doble y un camarote. Baño privado y ventiladores para su comodidad. Esta cabaña es la elegida para el Plan Familia.",
     guests: 5,
     beds: "1 cama doble + 1 camarote",
     baths: 1,
@@ -100,7 +100,6 @@ const cabanas = [
       "Baño privado",
       "Ventiladores",
       "Ambiente íntimo",
-      "Ideal para Plan Pareja",
       "Ideal para Plan Familia"
     ],
     images: [
@@ -245,8 +244,8 @@ const Alojamiento = () => {
                   {/* Precio y CTA */}
                   <div className="bg-primary rounded-2xl p-6 text-center mb-6">
                     <p className="text-cream-light/80 font-body text-sm mb-1">Desde</p>
-                    <p className="font-display text-4xl font-bold text-gold">$50.000 COP</p>
-                    <p className="text-cream-light/60 font-body text-sm mt-1">por persona / noche</p>
+                    <p className="font-display text-4xl font-bold text-gold">$55.000 COP</p>
+                    <p className="text-cream-light/60 font-body text-sm mt-1">por persona / noche (mín. 10 personas)</p>
                   </div>
 
                   <Button asChild size="lg" className="w-full font-bold py-6 text-lg">
@@ -321,7 +320,7 @@ const Alojamiento = () => {
                   {/* Precio y CTA */}
                   <div className="bg-secondary rounded-2xl p-6 text-center mb-6">
                     <p className="text-muted-foreground font-body text-sm mb-1">Por persona</p>
-                    <p className="font-display text-4xl font-bold text-gold">$15.000 - $20.000</p>
+                    <p className="font-display text-4xl font-bold text-gold">$25.000 COP</p>
                     <p className="text-muted-foreground font-body text-sm mt-1">Niños menores de 3 años gratis</p>
                   </div>
 
