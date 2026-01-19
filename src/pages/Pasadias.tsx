@@ -15,7 +15,7 @@ import {
 } from "lucide-react";
 import pasadiaPiscina from "@/assets/pasadia-piscina1.jpg";
 import pasadiaVistaAerea from "@/assets/pasadia-vista-aerea.jpg";
-import { PASADIA_PRICES, PASADIA_INFO, HORA_ADICIONAL } from "@/lib/pricing";
+import { PASADIA_PRICES, PASADIA_INFO, HORA_ADICIONAL, obtenerPrecioHoraAdicional } from "@/lib/pricing";
 
 const opcionales = [
   { item: "Almuerzo típico", precio: "25.000 COP/persona" },
@@ -111,25 +111,17 @@ const Pasadias = () => {
 
               {/* Prices */}
               <div className="space-y-4">
-                <div className="bg-gradient-to-r from-primary to-primary/80 rounded-2xl p-6">
-                  <div className="flex justify-between items-center mb-4">
-                    <div>
-                      <p className="text-cream-light/80 font-body text-sm mb-1">Entre Semana (Lunes a Jueves)</p>
-                      <p className="font-display text-3xl font-bold text-gold">${PASADIA_PRICES.entreSemana.toLocaleString()} COP</p>
-                    </div>
-                    <div className="text-right">
-                      <p className="text-cream-light/80 font-body text-sm mb-1">Fin de Semana (Vie - Dom)</p>
-                      <p className="font-display text-3xl font-bold text-gold">${PASADIA_PRICES.finDeSemana.toLocaleString()} COP</p>
-                    </div>
-                  </div>
-                  <p className="text-cream-light/60 font-body text-sm text-center">Por persona • Niños menores de 3 años gratis</p>
+                <div className="bg-gradient-to-r from-primary to-primary/80 rounded-2xl p-6 text-center">
+                  <p className="text-cream-light/80 font-body text-sm mb-1">Precio Único por Persona</p>
+                  <p className="font-display text-4xl font-bold text-gold">${PASADIA_PRICES.entreSemana.toLocaleString()} COP</p>
+                  <p className="text-cream-light/60 font-body text-sm mt-2">Niños menores de 3 años gratis</p>
                 </div>
                 
                 <div className="bg-secondary rounded-xl p-4 flex items-start gap-3">
                   <Info className="w-5 h-5 text-gold shrink-0 mt-0.5" />
                   <div className="text-sm text-muted-foreground">
                     <p className="font-semibold text-foreground mb-1">{PASADIA_INFO.nota}</p>
-                    <p>Hora adicional (entrada temprana o salida tarde): <span className="text-gold font-semibold">${HORA_ADICIONAL.toLocaleString()}</span></p>
+                    <p>Hora adicional (entrada temprana o salida tarde): desde <span className="text-gold font-semibold">${HORA_ADICIONAL.hasta15.toLocaleString()} COP</span></p>
                   </div>
                 </div>
               </div>

@@ -171,17 +171,11 @@ const PasadiaSection = () => {
 
               {/* Pricing Column */}
               <div className="space-y-6">
-                {/* Pricing Cards */}
+                {/* Pricing Card - Precio Único */}
                 <div className="bg-gradient-to-br from-primary to-primary/90 rounded-2xl p-6 text-center">
-                  <p className="text-cream-light/80 font-body text-sm mb-1">Entre Semana (Lun - Jue)</p>
-                  <p className="font-display text-4xl font-bold text-gold">$15.000 COP</p>
+                  <p className="text-cream-light/80 font-body text-sm mb-1">Precio Único</p>
+                  <p className="font-display text-4xl font-bold text-gold">$25.000 COP</p>
                   <p className="text-cream-light/60 font-body text-sm mt-1">por persona</p>
-                </div>
-
-                <div className="bg-secondary rounded-2xl p-6 text-center border-2 border-gold">
-                  <p className="text-muted-foreground font-body text-sm mb-1">Fin de Semana (Vie - Dom)</p>
-                  <p className="font-display text-4xl font-bold text-gold">$20.000 COP</p>
-                  <p className="text-muted-foreground font-body text-sm mt-1">por persona</p>
                 </div>
 
                 <p className="text-center text-muted-foreground text-sm">
