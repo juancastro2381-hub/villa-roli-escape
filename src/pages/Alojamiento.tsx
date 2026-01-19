@@ -396,6 +396,94 @@ const Alojamiento = () => {
         </div>
       </section>
 
+      {/* Horas Extras Section */}
+      <section className="py-16 bg-muted/30">
+        <div className="container-custom">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="text-center mb-10"
+          >
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-secondary/10 text-secondary-foreground mb-4">
+              <Clock className="w-4 h-4" />
+              <span className="font-body text-sm font-medium">Tiempo Adicional</span>
+            </div>
+            <h2 className="font-display text-3xl md:text-4xl font-bold text-foreground">
+              Horas Extras
+            </h2>
+            <p className="font-body text-muted-foreground mt-4 max-w-2xl mx-auto">
+              ¿Necesitas más tiempo? Solicita check-in temprano o check-out tarde según disponibilidad
+            </p>
+          </motion.div>
+
+          <div className="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.1 }}
+              className="bg-background rounded-2xl p-6 shadow-lg border border-border/50 text-center hover:shadow-xl transition-shadow"
+            >
+              <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-primary/10 flex items-center justify-center">
+                <Users className="w-8 h-8 text-primary" />
+              </div>
+              <p className="font-body text-sm text-muted-foreground mb-2">Hasta 15 personas</p>
+              <p className="font-display text-3xl font-bold text-foreground">
+                $50.000
+              </p>
+              <p className="font-body text-sm text-muted-foreground mt-2">COP / hora</p>
+              <p className="font-body text-xs text-secondary mt-3">Aplica también para Plan Familia</p>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+              className="bg-background rounded-2xl p-6 shadow-lg border border-secondary/30 text-center hover:shadow-xl transition-shadow ring-2 ring-secondary/20"
+            >
+              <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-secondary/10 flex items-center justify-center">
+                <Users className="w-8 h-8 text-secondary" />
+              </div>
+              <p className="font-body text-sm text-muted-foreground mb-2">16 a 30 personas</p>
+              <p className="font-display text-3xl font-bold text-foreground">
+                $75.000
+              </p>
+              <p className="font-body text-sm text-muted-foreground mt-2">COP / hora</p>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.3 }}
+              className="bg-background rounded-2xl p-6 shadow-lg border border-border/50 text-center hover:shadow-xl transition-shadow"
+            >
+              <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-primary/10 flex items-center justify-center">
+                <Users className="w-8 h-8 text-primary" />
+              </div>
+              <p className="font-body text-sm text-muted-foreground mb-2">31+ personas</p>
+              <p className="font-display text-3xl font-bold text-foreground">
+                $100.000
+              </p>
+              <p className="font-body text-sm text-muted-foreground mt-2">COP / hora</p>
+            </motion.div>
+          </div>
+
+          <motion.p
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.5 }}
+            className="text-center font-body text-sm text-muted-foreground mt-8"
+          >
+            * Sujeto a disponibilidad. Consulta al momento de tu reserva.
+          </motion.p>
+        </div>
+      </section>
+
       {/* Pasadía Section */}
       <div id="pasadia">
         <PasadiaSection />
